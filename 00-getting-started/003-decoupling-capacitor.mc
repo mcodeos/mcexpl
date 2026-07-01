@@ -4,4 +4,8 @@
 
 module main
 {
+    DC.SRC PWR(3.3V, 500mA)
+    CAP C_DEC(100nF, 10V)
+
+    PWR.VCC -> C_DEC -> PWR.GND
 }

@@ -31,3 +31,15 @@ Generate HTML for `002-resistor-led.mc`:
 ```bash
 ../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/002-resistor-led.mc -o 00-getting-started/002-resistor-led.html
 ```
+
+Parse `003-decoupling-capacitor.mc`:
+
+```bash
+../mcc/target/debug/mcc parse --lib mcode 00-getting-started/003-decoupling-capacitor.mc
+```
+
+Generate HTML for `003-decoupling-capacitor.mc`:
+
+```bash
+../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/003-decoupling-capacitor.mc -o 00-getting-started/003-decoupling-capacitor.html
+```
