@@ -69,8 +69,8 @@ choose the output path:
 ../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/001-power-net.mc -o 00-getting-started/001-power-net.html
 ```
 
-It is fine to write generated HTML files next to the corresponding examples or
-to any other output path you prefer.
+For these user examples, generated HTML files can be written next to the source
+`.mc` files. The repository ignores generated `.html` files.
 
 Command parts:
 
@@ -85,8 +85,9 @@ Command parts:
 - `-o <path>` sets the output file for generated visualization results.
 - `00-getting-started/001-power-net.mc` is the input example file.
 
-This repository will later include small helper scripts for running individual
-examples. For now, use the `parse --lib mcode <file.mc>` and
+Each numbered example directory can include a small `README.md` with copyable
+parse and visualization commands. You can also use the
+`parse --lib mcode <file.mc>` and
 `parse --lib mcode --viz <file.mc> -o <output.html>` patterns above.
 
 ## Learning Path

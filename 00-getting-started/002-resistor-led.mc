@@ -4,4 +4,9 @@
 
 module main
 {
+    DC.SRC PWR(5V, 500mA)
+    RES R_LIMIT(330R, 50V)
+    LED D_STATUS(2.0V, 20mA)
+
+    PWR.VCC -> R_LIMIT -> D_STATUS -> PWR.GND
 }
