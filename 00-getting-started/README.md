@@ -43,3 +43,15 @@ Generate HTML for `003-decoupling-capacitor.mc`:
 ```bash
 ../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/003-decoupling-capacitor.mc -o 00-getting-started/003-decoupling-capacitor.html
 ```
+
+Parse `004-button-pullup.mc`:
+
+```bash
+../mcc/target/debug/mcc parse --lib mcode 00-getting-started/004-button-pullup.mc
+```
+
+Generate HTML for `004-button-pullup.mc`:
+
+```bash
+../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/004-button-pullup.mc -o 00-getting-started/004-button-pullup.html
+```
