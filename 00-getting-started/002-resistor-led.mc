@@ -8,5 +8,5 @@ module main
     RES R_LIMIT(330R, 50V)
     LED D_STATUS(2.0V, 20mA)
 
-    PWR.VCC -> R_LIMIT -> D_STATUS -> PWR.GND
+    PWR.1 -> R_LIMIT -> D_STATUS -> PWR.2
 }

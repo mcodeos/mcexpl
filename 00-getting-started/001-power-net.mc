@@ -6,6 +6,6 @@ module main
 {
     DC.SRC PWR(5V, 500mA)
 
-    PWR.VCC -> V5V
-    PWR.GND -> GND
+    PWR.1 -> V5V
+    PWR.2 -> GND
 }

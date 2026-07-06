@@ -17,6 +17,17 @@ target
 *.html
 circuit.html
 
+# Local image artifacts
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.tif
+*.tiff
+*.svg
+
 # macOS metadata
 .DS_Store
 **/.DS_Store

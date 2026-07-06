@@ -9,5 +9,5 @@ module main
     SWITCH.MOM SW_USER
 
     // A GPIO input would connect to the node between R_PULLUP and SW_USER.
-    PWR.VCC -> R_PULLUP -> SW_USER -> PWR.GND
+    PWR.1 -> R_PULLUP -> SW_USER -> PWR.2
 }
