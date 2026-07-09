@@ -12,8 +12,11 @@ work is expected to extend the flow toward richer hardware automation, including
 PCB-oriented generation.
 
 This repository contains beginner-friendly MCode examples. The examples are
-organized as a learning path: start with small circuits, then move into power
-systems, digital IO, common interfaces, sensors, and board-level composition.
+organized into three parts:
+
+- A tutorial path that introduces MCode language capabilities step by step.
+- A recipe cookbook that shows practical circuit patterns by application area.
+- A language reference section with focused syntax examples.
 
 The examples are intended for users who want to learn how to describe practical
 circuits with MCode and the `mcode` basic library.
@@ -85,16 +88,16 @@ Command parts:
 - `-o <path>` sets the output file for generated visualization results.
 - `00-getting-started/001-power-net.mc` is the input example file.
 
-Each numbered example directory can include a small `README.md` with copyable
-parse and visualization commands. You can also use the
+Each numbered example directory includes or can include a small `README.md` with
+copyable parse and visualization commands. You can also use the
 `parse --lib mcode <file.mc>` and
 `parse --lib mcode --viz <file.mc> -o <output.html>` patterns above.
 
-## Learning Path
+## Tutorial Path
 
 ### 00 Getting Started
 
-Small examples that introduce the minimum syntax needed to read and write MCode.
+Small examples that introduce the minimum syntax needed to read and run MCode.
 
 - `001-power-net.mc`: Declare and connect a basic power net.
 - `002-resistor-led.mc`: Build a simple LED indicator with a resistor.
@@ -103,15 +106,58 @@ Small examples that introduce the minimum syntax needed to read and write MCode.
 
 ### 01 Basic Circuits
 
-Common analog and protection circuits made from basic components.
+Common small circuits made from basic components.
 
 - `101-voltage-divider.mc`: Create a resistor divider and a measured output.
 - `102-rc-low-pass-filter.mc`: Combine a resistor and capacitor as a filter.
 - `103-diode-rectifier.mc`: Use a diode to pass current in one direction.
-- `104-zener-clamp.mc`: Clamp a signal with a Zener diode.
-- `105-tvs-input-protection.mc`: Protect an input with a TVS diode.
 
-### 02 Power
+### 02 Circuits With Branches
+
+Branch-like circuits where multiple devices share named signal or power nodes.
+
+- `201-zener-clamp.mc`: Add a Zener clamp branch to a protected node.
+- `202-tvs-input-protection.mc`: Add a TVS protection branch to an input node.
+- `203-input-rc-esd.mc`: Combine a series input resistor, filter capacitor, and
+  ESD diode on one node.
+- `204-simple-power-branch.mc`: Feed multiple branches from one power rail.
+
+### 03 Define Components And Interfaces
+
+Local component definitions, pins, and interface binding.
+
+- `301-mcu-uart-header.mc`: Define an MCU UART component and connect a debug
+  header.
+- `302-i2c-sensor-component.mc`: Define I2C controller and sensor components.
+- `303-spi-flash-component.mc`: Define SPI master and flash components.
+
+### 04 Functions And Reuse
+
+Reusable connection fragments with local functions.
+
+- `401-led-indicator-function.mc`: Wrap an LED indicator in a helper function.
+- `402-pullup-helper-function.mc`: Build a pulled-up button input with a helper
+  function.
+- `403-decoupling-helper-function.mc`: Reuse a decoupling helper on two rails.
+
+### 05 Dynamic Pins And Conditions
+
+Configurable components with conditions and dynamic pin additions.
+
+- `501-led-package-variant.mc`: Select attributes from a package parameter.
+- `502-gpio-expander-pins.mc`: Add pins for a larger GPIO expander variant.
+- `503-rs485-termination-option.mc`: Add optional termination metadata and pins.
+
+### 06 Multi-File Modules
+
+Small projects split across multiple local files.
+
+- `601-main.mc`: Import local power, MCU, and sensor component files and connect
+  a small I2C sensor node.
+
+## Recipe Cookbook
+
+### 20 Power Recipes
 
 Power inputs, regulators, and simple power trees.
 
@@ -121,7 +167,7 @@ Power inputs, regulators, and simple power trees.
 - `204-buck-12v-to-5v.mc`: Convert 12 V to 5 V with a buck regulator.
 - `205-power-tree-5v-3v3-1v8.mc`: Build a small multi-rail power tree.
 
-### 03 Digital IO
+### 21 Digital IO Recipes
 
 GPIO-driven circuits and switching outputs.
 
@@ -132,7 +178,7 @@ GPIO-driven circuits and switching outputs.
   protection.
 - `305-rgb-led-pwm.mc`: Connect RGB LED channels to PWM-style control signals.
 
-### 04 Interfaces
+### 22 Interface Recipes
 
 Common board-level communication interfaces.
 
@@ -142,7 +188,7 @@ Common board-level communication interfaces.
 - `404-usb-device-port.mc`: Model a USB device connector.
 - `405-rs485-uart-bridge.mc`: Bridge UART signals to an RS485 transceiver.
 
-### 05 Sensors
+### 23 Sensor Recipes
 
 Simple sensor front-end circuits.
 
@@ -150,7 +196,7 @@ Simple sensor front-end circuits.
 - `502-photodiode-input.mc`: Connect a photodiode input stage.
 - `503-adc-input-rc-filter.mc`: Add an RC filter before an ADC input.
 
-### 06 Board Level
+### 24 Board-Level Recipes
 
 Examples that combine several smaller circuits into board-level modules.
 
@@ -159,7 +205,9 @@ Examples that combine several smaller circuits into board-level modules.
 - `603-i2c-sensor-node.mc`: Compose power, MCU, I2C, and sensor blocks.
 - `604-audio-demo-board.mc`: Sketch a small audio-oriented board.
 
-### 90 Language Patterns
+## Language Reference
+
+### 90 Language Reference
 
 Focused examples for language features that are useful across many circuits.
 

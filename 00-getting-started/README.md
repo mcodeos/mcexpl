@@ -12,6 +12,27 @@ export MCC_SYSTEM_ROOT="$(cd .. && pwd)"
 
 Generated HTML is written next to each example source file.
 
+## Language Focus
+
+New in this chapter:
+
+- The shape of a minimal `.mc` file.
+- `module main`.
+- Component instances.
+- Basic units such as `V`, `mA`, `R`, and `nF`.
+- Simple named nets and `->` connections.
+- Short comments that describe circuit intent.
+
+Reused from previous chapters:
+
+- Nothing yet. This is the first tutorial chapter.
+
+Not covered yet:
+
+- Branching circuits.
+- Custom `component` definitions.
+- `pins` blocks, functions, conditions, and cross-file `use`.
+
 Parse `001-power-net.mc`:
 
 ```bash

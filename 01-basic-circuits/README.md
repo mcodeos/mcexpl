@@ -12,6 +12,29 @@ export MCC_SYSTEM_ROOT="$(cd .. && pwd)"
 
 Generated HTML is written next to each example source file.
 
+## Language Focus
+
+New in this chapter:
+
+- Common two-pin components.
+- Series connections.
+- Named intermediate nodes such as `VOUT`.
+- Simple component parameters.
+- Member access such as `D_RECT.ANODE`.
+
+Reused from previous chapters:
+
+- `module main`.
+- Component instances.
+- Units.
+- Named nets and `->` connections.
+
+Not covered yet:
+
+- Branch-like protection networks.
+- Custom `component` definitions.
+- `pins` blocks, functions, conditions, and cross-file `use`.
+
 ## 101 Voltage Divider
 
 `101-voltage-divider.mc` describes a basic two-resistor voltage divider.
@@ -83,45 +106,4 @@ Generate HTML for `103-diode-rectifier.mc`:
 
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 01-basic-circuits/103-diode-rectifier.mc -o 01-basic-circuits/103-diode-rectifier.html
-```
-
-## 104 Zener Clamp
-
-`104-zener-clamp.mc` describes a resistor-fed Zener clamp.
-
-`R_SERIES` limits current from `VIN` into `VCLAMP`. `Z_CLAMP` is connected in
-reverse bias, with its cathode on `VCLAMP` and its anode on `GND`, so the node
-is clamped near the Zener voltage when it rises too high.
-
-Parse `104-zener-clamp.mc`:
-
-```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 01-basic-circuits/104-zener-clamp.mc
-```
-
-Generate HTML for `104-zener-clamp.mc`:
-
-```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 01-basic-circuits/104-zener-clamp.mc -o 01-basic-circuits/104-zener-clamp.html
-```
-
-## 105 TVS Input Protection
-
-`105-tvs-input-protection.mc` describes a protected external input.
-
-`R_INPUT` is a small series resistor between `INPUT_EXT` and
-`INPUT_PROTECTED`. `D_PROTECT` connects from the protected input node to
-`GND`, with its cathode on the signal and its anode on ground, modeling a
-unidirectional TVS clamp for positive transients.
-
-Parse `105-tvs-input-protection.mc`:
-
-```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 01-basic-circuits/105-tvs-input-protection.mc
-```
-
-Generate HTML for `105-tvs-input-protection.mc`:
-
-```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 01-basic-circuits/105-tvs-input-protection.mc -o 01-basic-circuits/105-tvs-input-protection.html
 ```
