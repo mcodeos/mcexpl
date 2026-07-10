@@ -36,6 +36,7 @@ module main
     U_MCU.GND -> GND
     U_FLASH.GND -> GND
 
+    // Each interface member is connected to the matching peer member.
     U_MCU.SPI0.CS -> U_FLASH.SPI0.CS
     U_MCU.SPI0.SCLK -> U_FLASH.SPI0.SCLK
     U_MCU.SPI0.MOSI -> U_FLASH.SPI0.MOSI

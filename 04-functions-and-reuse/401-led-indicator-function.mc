@@ -1,23 +1,30 @@
 // Example: LED Indicator Function
-// Goal: Wrap an LED indicator connection in a local function.
-// Language focus: func, parameters, reusable connection fragment.
+// Goal: Give a custom status LED a reusable connection method.
+// Language focus: func, parameters, this, return, method calls.
+
+component STATUS_LED(fv::UV.VOLT, fi::UV.AMP)
+{
+    name = "Status LED"
+    spec = [
+        forward_voltage = fv
+        forward_current = fi
+    ]
+    pins = [
+        1 = ANODE
+        2 = CATHODE
+    ]
+
+    func Indicator(signal, ground)
+    {
+        signal -> RES(330R, 50V) -> this -> ground
+        return this
+    }
+}
 
 module main
 {
-    DC.SRC PWR(3.3V, 100mA)
+    STATUS_LED D_STATUS(2.0V, 5mA)
 
-    PWR.1 -> V3V3
-    PWR.2 -> GND
-
-    func led_indicator(signal, ground)
-    {
-        RES R_LED(330R, 50V)
-        LED D_STATUS(2.0V, 10mA)
-
-        signal -> R_LED -> D_STATUS.ANODE
-        D_STATUS.CATHODE -> ground
-        return D_STATUS
-    }
-
-    led_indicator(GPIO_STATUS, GND)
+    // GPIO_STATUS and GND are connection points supplied by a larger design.
+    D_STATUS.Indicator(GPIO_STATUS, GND)
 }

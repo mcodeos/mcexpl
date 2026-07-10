@@ -9,6 +9,7 @@ module main
     DIO.ESD D_ESD("USBLC6", "IEC61000-4-2")
 
     INPUT_EXT -> R_INPUT -> ADC_IN
+    // Both protection parts begin at the same ADC_IN node.
     ADC_IN -> C_FILTER -> GND
     ADC_IN -> D_ESD.INPUT
     D_ESD.GND -> GND

@@ -2,9 +2,10 @@
 // Goal: Import local files and connect a small sensor node.
 // Language focus: use, cross-file component reuse.
 
-use ./601-power.mc
-use ./601-mcu.mc
-use ./601-sensor.mc
+// Each use path is resolved relative to this entry file.
+use ./power.mc
+use ./mcu.mc
+use ./sensor.mc
 
 module main
 {
@@ -14,6 +15,7 @@ module main
     RES R_SCL(4700R, 50V)
     RES R_SDA(4700R, 50V)
 
+    VIN -> U_POWER.VIN
     U_POWER.V3V3 -> V3V3
     U_POWER.GND -> GND
 

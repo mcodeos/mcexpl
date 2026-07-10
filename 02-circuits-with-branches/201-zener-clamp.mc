@@ -8,6 +8,7 @@ module main
     DIO.ZEN Z_CLAMP(5.1V, 0.5W, 5%)
 
     VIN -> R_SERIES -> VCLAMP
+    // Reusing VCLAMP starts a second path from the protected node.
     VCLAMP -> Z_CLAMP.CATHODE
     Z_CLAMP.ANODE -> GND
 }

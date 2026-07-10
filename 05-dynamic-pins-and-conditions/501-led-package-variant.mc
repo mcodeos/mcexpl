@@ -13,16 +13,17 @@ component CONFIG_LED(package_style::STRING = "0603")
     if (package_style == "0603")
     {
         package = "0603"
-        recommended_current = 10mA
+        description = "Compact status LED"
     }
     else if (package_style == "1206")
     {
         package = "1206"
-        recommended_current = 20mA
+        description = "Large status LED"
     }
 }
 
 module main
 {
-    CONFIG_LED("0603") D_STATUS
+    // Omitting the argument selects the default 0603 branch.
+    CONFIG_LED D_STATUS
 }

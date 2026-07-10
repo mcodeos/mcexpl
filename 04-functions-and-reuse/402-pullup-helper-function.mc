@@ -1,6 +1,25 @@
 // Example: Pull-Up Helper Function
-// Goal: Use a local function to create a pulled-up input node.
-// Language focus: func, parameters, return.
+// Goal: Give a pull-up resistor a reusable connection method.
+// Language focus: returning a named connection point.
+
+component PULLUP_RESISTOR(resistance::UV.OHM, voltage::UV.VOLT)
+{
+    name = "Pull-Up Resistor"
+    spec = [
+        resistance = resistance
+        voltage = voltage
+    ]
+    pins = [
+        1 = INPUT
+        2 = SOURCE
+    ]
+
+    func Pullup(input, source)
+    {
+        input -> this -> source
+        return input
+    }
+}
 
 module main
 {
@@ -10,15 +29,8 @@ module main
     PWR.1 -> V3V3
     PWR.2 -> GND
 
-    func pullup_input(input, rail, ground)
-    {
-        RES R_PULLUP(10000R, 50V)
-
-        rail -> R_PULLUP -> input
-        input -> SW_USER.COM
-        SW_USER.NO -> ground
-        return input
-    }
-
-    pullup_input(BUTTON_IN, V3V3, GND)
+    R_PULLUP::PULLUP_RESISTOR(10000R, 50V).Pullup(BUTTON_IN, V3V3)
+    // Repeating BUTTON_IN makes the shared input node explicit.
+    BUTTON_IN -> SW_USER.COM
+    SW_USER.NO -> GND
 }

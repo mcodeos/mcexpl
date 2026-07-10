@@ -1,85 +1,74 @@
 # 05 Dynamic Pins And Conditions
 
-Run these commands from the `mc-examples` directory. Each command sets the
-library root explicitly so `--lib mcode` loads the repository copy of the
-standard library.
-
-Set the library root for an interactive shell if you prefer shorter commands:
-
-```bash
-export MCC_SYSTEM_ROOT="$(cd .. && pwd)"
-```
-
-Generated HTML is written next to each example source file.
-
-## Language Focus
-
-New in this chapter:
-
-- Default parameter values.
-- `if` and `else if`.
-- Conditional attributes.
-- `pins +=` for variant-specific pins.
-
-Reused from previous chapters:
-
-- `component` definitions.
-- `pins` blocks.
-- Pin directions and pin ranges.
-- Component instantiation with parameters.
-
-Not covered yet:
-
-- Cross-file `use`.
-- Multi-file project organization.
+This chapter defines component variants from constructor parameters. Conditions
+can select descriptive attributes or append physical pins that exist only on a
+larger variant.
 
 ## 501 LED Package Variant
 
-`501-led-package-variant.mc` defines a configurable LED component. The selected
-package changes attributes such as `package` and `recommended_current`.
+`501-led-package-variant.mc` selects package metadata from a constructor
+parameter:
 
-Parse `501-led-package-variant.mc`:
-
-```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 05-dynamic-pins-and-conditions/501-led-package-variant.mc
+```mc
+component CONFIG_LED(package_style::STRING = "0603")
+{
+    if (package_style == "0603")
+    {
+        package = "0603"
+    }
+    else if (package_style == "1206")
+    {
+        package = "1206"
+    }
+}
 ```
 
-Generate HTML for `501-led-package-variant.mc`:
+- `package_style::STRING` declares a string parameter. Unlike the typed unit
+  parameters in `401`, `= "0603"` also gives this parameter a default value.
+- `if (...)` evaluates a condition; `==` compares values rather than assigning
+  one.
+- `else if` provides another condition when the first one is false.
+- Attribute assignments inside a selected block apply only for that variant.
+
+`CONFIG_LED D_STATUS` omits the constructor argument, so the instantiated
+example selects the default `0603` branch. The `1206` branch demonstrates the
+alternative rule, but this file does not instantiate that alternative.
 
 ```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 05-dynamic-pins-and-conditions/501-led-package-variant.mc
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 05-dynamic-pins-and-conditions/501-led-package-variant.mc -o 05-dynamic-pins-and-conditions/501-led-package-variant.html
 ```
 
 ## 502 GPIO Expander Pins
 
-`502-gpio-expander-pins.mc` defines an 8-bit GPIO expander variant and a 16-bit
-variant. The larger variant adds a second GPIO pin range with `pins +=`.
+`502-gpio-expander-pins.mc` always declares eight GPIO signals plus power and
+ground. When `partno` equals `"GPIO16"`, this block appends eight more pins:
 
-Parse `502-gpio-expander-pins.mc`:
-
-```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 05-dynamic-pins-and-conditions/502-gpio-expander-pins.mc
+```mc
+pins += [
+    io [11:18] = GPIO[8:15]
+]
 ```
 
-Generate HTML for `502-gpio-expander-pins.mc`:
+`+=` extends the existing `pins` list instead of replacing it. Square-bracketed
+`[11:18]` is a physical-pin range, while `GPIO[8:15]` expands indexed signal
+names from `GPIO8` through `GPIO15`. `U_SMALL` omits the argument and resolves
+to 10 pins total; `U_LARGE` passes `"GPIO16"` and resolves to 18.
 
 ```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 05-dynamic-pins-and-conditions/502-gpio-expander-pins.mc
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 05-dynamic-pins-and-conditions/502-gpio-expander-pins.mc -o 05-dynamic-pins-and-conditions/502-gpio-expander-pins.html
 ```
 
 ## 503 RS485 Termination Option
 
-`503-rs485-termination-option.mc` defines an RS485 endpoint with optional
-termination metadata and optional termination pins.
-
-Parse `503-rs485-termination-option.mc`:
-
-```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 05-dynamic-pins-and-conditions/503-rs485-termination-option.mc
-```
-
-Generate HTML for `503-rs485-termination-option.mc`:
+`503-rs485-termination-option.mc` applies the same conditional-pin pattern to
+an RS485 endpoint. `U_NODE` exposes `A`, `B`, and `GND`. The
+`"RS485_TERM120"` variant `U_END` also exposes `TERM0` and `TERM1`, providing
+connection points for a termination network in a larger design. The example
+does not contain or claim to enable a 120 ohm resistor by itself.
 
 ```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 05-dynamic-pins-and-conditions/503-rs485-termination-option.mc
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 05-dynamic-pins-and-conditions/503-rs485-termination-option.mc -o 05-dynamic-pins-and-conditions/503-rs485-termination-option.html
 ```

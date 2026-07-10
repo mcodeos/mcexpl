@@ -21,6 +21,7 @@ component GPIO_EXPANDER(partno::STRING = "GPIO8")
 
 module main
 {
-    GPIO_EXPANDER("GPIO8")  U_SMALL
+    // U_SMALL uses the default eight-pin variant.
+    GPIO_EXPANDER            U_SMALL
     GPIO_EXPANDER("GPIO16") U_LARGE
 }

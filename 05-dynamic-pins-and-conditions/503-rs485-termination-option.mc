@@ -1,8 +1,8 @@
 // Example: RS485 Termination Option
-// Goal: Add optional termination pins for a bus endpoint variant.
-// Language focus: if, pins +=, conditional attributes.
+// Goal: Add optional termination connection pins for a bus endpoint variant.
+// Language focus: default parameter, if, pins +=.
 
-component RS485_ENDPOINT(termination::STRING = "none")
+component RS485_ENDPOINT(partno::STRING = "RS485_NODE")
 {
     name = "RS485 Endpoint"
     pins = [
@@ -11,18 +11,17 @@ component RS485_ENDPOINT(termination::STRING = "none")
         ps 3 = GND
     ]
 
-    if (termination == "120R")
+    if (partno == "RS485_TERM120")
     {
-        termination_value = 120R
         pins += [
-            4 = TERM_A
-            5 = TERM_B
+            io [4:5] = TERM[0:1]
         ]
     }
 }
 
 module main
 {
-    RS485_ENDPOINT("none") U_NODE
-    RS485_ENDPOINT("120R") U_END
+    // Only the termination-ready part exposes TERM0 and TERM1.
+    RS485_ENDPOINT                 U_NODE
+    RS485_ENDPOINT("RS485_TERM120") U_END
 }

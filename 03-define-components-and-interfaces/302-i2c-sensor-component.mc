@@ -38,11 +38,13 @@ module main
     U_MCU.GND -> GND
     U_SENSOR.GND -> GND
 
+    // Master and Slave expose the same SCL and SDA member names.
     U_MCU.I2C0.SCL -> I2C_SCL
     U_SENSOR.I2C0.SCL -> I2C_SCL
     U_MCU.I2C0.SDA -> I2C_SDA
     U_SENSOR.I2C0.SDA -> I2C_SDA
 
+    // I2C lines are open-drain, so each shared line needs a pull-up.
     V3V3 -> R_SCL -> I2C_SCL
     V3V3 -> R_SDA -> I2C_SDA
 }

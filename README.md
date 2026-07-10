@@ -133,12 +133,11 @@ Local component definitions, pins, and interface binding.
 
 ### 04 Functions And Reuse
 
-Reusable connection fragments with local functions.
+Reusable connection methods on component definitions.
 
-- `401-led-indicator-function.mc`: Wrap an LED indicator in a helper function.
-- `402-pullup-helper-function.mc`: Build a pulled-up button input with a helper
-  function.
-- `403-decoupling-helper-function.mc`: Reuse a decoupling helper on two rails.
+- `401-led-indicator-function.mc`: Give a status LED a reusable connection method.
+- `402-pullup-helper-function.mc`: Return a named input from a pull-up method.
+- `403-decoupling-helper-function.mc`: Reuse a library method on two rails.
 
 ### 05 Dynamic Pins And Conditions
 
@@ -146,7 +145,7 @@ Configurable components with conditions and dynamic pin additions.
 
 - `501-led-package-variant.mc`: Select attributes from a package parameter.
 - `502-gpio-expander-pins.mc`: Add pins for a larger GPIO expander variant.
-- `503-rs485-termination-option.mc`: Add optional termination metadata and pins.
+- `503-rs485-termination-option.mc`: Add optional termination connection pins.
 
 ### 06 Multi-File Modules
 

@@ -6,6 +6,7 @@ component MCU_UART
 {
     name = "MCU with UART"
     pins = [
+        // Pins 1 through 3 become UART0.TX, UART0.RX, and UART0.GND.
         io 1:3 = UART0::UART.TTL(DCE)
         ps 4 = VCC
         ps 5 = GND
@@ -25,6 +26,7 @@ module main
     U_MCU.GND -> GND
     U_MCU.UART0.GND -> GND
 
+    // UART0 is the bound interface name; TX and RX are its members.
     U_MCU.UART0.TX -> J_DEBUG.1
     U_MCU.UART0.RX -> J_DEBUG.2
     GND -> J_DEBUG.3

@@ -8,6 +8,11 @@ module main
     RES R_PULLUP(10000R, 50V)
     SWITCH.MOM SW_USER
 
-    // A GPIO input would connect to the node between R_PULLUP and SW_USER.
-    PWR.1 -> R_PULLUP -> SW_USER -> PWR.2
+    PWR.1 -> V3V3
+    PWR.2 -> GND
+
+    // BUTTON_IN is high normally and is connected to ground when pressed.
+    V3V3 -> R_PULLUP -> BUTTON_IN
+    BUTTON_IN -> SW_USER.COM
+    SW_USER.NO -> GND
 }
