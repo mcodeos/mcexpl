@@ -1,6 +1,6 @@
-// Example: Pull-Up Helper Function
-// Goal: Return the named input node from a reusable pull-up method.
-// Language focus: return values from component methods.
+// Example: Inline Construction Function
+// Goal: Name a helper component inside the method-call expression.
+// Language focus: NAME::TYPE() inline construction.
 
 component PULLUP_RESISTOR
 {
@@ -20,14 +20,12 @@ component PULLUP_RESISTOR
 module main
 {
     DC.SRC PWR(3.3V, 50mA)
-    PULLUP_RESISTOR R_PULLUP
     SWITCH.MOM SW_USER
 
     PWR.1 -> V3V3
     PWR.2 -> GND
 
-    R_PULLUP.Pullup(BUTTON_IN, V3V3)
-    // Repeating BUTTON_IN makes the shared input node explicit.
+    R_PULLUP::PULLUP_RESISTOR().Pullup(BUTTON_IN, V3V3)
     BUTTON_IN -> SW_USER.COM
     SW_USER.NO -> GND
 }

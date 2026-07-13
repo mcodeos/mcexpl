@@ -14,18 +14,18 @@ Generated HTML is written next to each example source file.
 
 ## Examples
 
-- `501-ntc-temperature-divider.mc`: Use an NTC thermistor in a divider.
-- `502-photodiode-input.mc`: Connect a photodiode input stage.
-- `503-adc-input-rc-filter.mc`: Add an RC filter before an ADC input.
+- `231-ntc-temperature-divider.mc`: Use an NTC thermistor in a divider.
+- `232-photodiode-input.mc`: Connect a photodiode input stage.
+- `233-adc-input-rc-filter.mc`: Add an RC filter before an ADC input.
 
-Parse `501-ntc-temperature-divider.mc`:
+Parse `231-ntc-temperature-divider.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 23-sensor-recipes/501-ntc-temperature-divider.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 23-sensor-recipes/231-ntc-temperature-divider.mc
 ```
 
-Generate HTML for `501-ntc-temperature-divider.mc`:
+Generate HTML for `231-ntc-temperature-divider.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 23-sensor-recipes/501-ntc-temperature-divider.mc -o 23-sensor-recipes/501-ntc-temperature-divider.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 23-sensor-recipes/231-ntc-temperature-divider.mc -o 23-sensor-recipes/231-ntc-temperature-divider.html
 ```

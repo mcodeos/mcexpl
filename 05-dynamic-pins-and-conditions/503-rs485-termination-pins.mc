@@ -1,4 +1,4 @@
-// Example: RS485 Termination Option
+// Example: RS485 Termination Pins
 // Goal: Add optional termination connection pins for a bus endpoint variant.
 // Language focus: default parameter, if, pins +=.
 

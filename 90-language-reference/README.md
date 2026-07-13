@@ -1,8 +1,8 @@
 # 90 Language Reference
 
-This directory contains focused syntax examples. These examples are not the
-main beginner tutorial path; they are a quick reference for language features
-that appear across many MCode circuits.
+This directory is a compact syntax reference by runnable example. Use the
+tutorial path first when learning MCode in order; use this directory when you
+want to look up one syntax form quickly.
 
 Run commands from the `mc-examples` directory:
 
@@ -10,24 +10,185 @@ Run commands from the `mc-examples` directory:
 export MCC_SYSTEM_ROOT="$(cd .. && pwd)"
 ```
 
-## Examples
+## Reference Examples
 
-- `901-component-definition.mc`: Define a custom component.
-- `902-module-composition.mc`: Compose reusable modules.
-- `903-interface-binding.mc`: Bind pins to an interface.
-- `904-arrays-and-ranges.mc`: Use arrays and ranges for repeated items.
-- `905-cross-file-use/`: Split an example across multiple files with `use`.
+### 901 Component Definition
 
-## Validation
+`901-component-definition.mc` covers `component`, simple attributes, `pins`, and
+named physical pins. Tutorial first use: `03-define-components-and-interfaces`.
 
-Parse one focused example:
+Syntax synopsis:
 
-```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 90-language-reference/901-component-definition.mc
+```mc
+component TYPE_NAME
+{
+    name = "Display Name"
+    pins = [
+        1 = PIN_NAME
+    ]
+}
 ```
 
-Parse the cross-file example:
+```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/901-component-definition.mc
+```
+
+### 902 Attributes, Spec, And Typed Parameters
+
+`902-attributes-spec-typed-parameters.mc` covers typed constructor parameters
+and `spec = [...]` attributes. Tutorial first use: `05-dynamic-pins-and-conditions`
+for typed string parameters; this reference also shows unit-typed parameters.
+
+Syntax synopsis:
+
+```mc
+component TYPE_NAME(value::UV.OHM)
+{
+    spec = [
+        resistance = value
+    ]
+}
+```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 90-language-reference/905-cross-file-use/main.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/902-attributes-spec-typed-parameters.mc
+```
+
+### 903 Pins, Ranges, And Indexed Names
+
+`903-pins-ranges-indexed-names.mc` covers pin directions, physical pin ranges,
+and indexed pin names. Tutorial first use: `03-define-components-and-interfaces`
+for directions and ranges; `05-dynamic-pins-and-conditions` for indexed pin
+expansion.
+
+Syntax synopsis:
+
+```mc
+pins = [
+    io [1:4] = GPIO[0:3]
+    ps 5 = VCC
+]
+```
+
+```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/903-pins-ranges-indexed-names.mc
+```
+
+### 904 Module Ports
+
+`904-module-ports.mc` covers module parameters with direction markers. This is a
+reference-only example; the beginner tutorial path does not rely on module
+ports.
+
+Syntax synopsis:
+
+```mc
+module main(in signal, ps ground)
+{
+}
+```
+
+```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/904-module-ports.mc
+```
+
+### 905 Interface Binding And Roles
+
+`905-interface-binding-roles.mc` covers binding a physical pin range to a named
+interface and role. Tutorial first use: `03-define-components-and-interfaces`.
+
+Syntax synopsis:
+
+```mc
+pins = [
+    io 1:3 = UART0::UART.TTL(DCE)
+]
+```
+
+```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/905-interface-binding-roles.mc
+```
+
+### 906 Functions And Method Calls
+
+`906-functions-method-calls.mc` covers `func`, parameters, `this`, `return`, and
+method calls. Tutorial first use: `04-functions-and-reuse`.
+
+Syntax synopsis:
+
+```mc
+func Method(signal, ground)
+{
+    signal -> this -> ground
+    return this
+}
+INSTANCE.Method(A, B)
+```
+
+```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/906-functions-method-calls.mc
+```
+
+### 907 Conditions And Dynamic Pins
+
+`907-conditions-and-dynamic-pins.mc` covers default parameters, `if`, `else`,
+conditional attributes, and `pins +=`. Tutorial first use:
+`05-dynamic-pins-and-conditions`.
+
+Syntax synopsis:
+
+```mc
+component TYPE_NAME(partno::STRING = "BASE")
+{
+    if (partno == "WIDE")
+    {
+        pins += [
+            io [4:5] = IO[2:3]
+        ]
+    }
+
+    if (partno == "WIDE")
+    {
+        package = "5-pin"
+    }
+    else
+    {
+        package = "3-pin"
+    }
+}
+```
+
+```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/907-conditions-and-dynamic-pins.mc
+```
+
+### 908 Inline Construction And Library Methods
+
+`908-inline-construction-library-method.mc` covers `NAME::TYPE(args)` inline
+construction and method calls provided by the `mcode` library. Tutorial first
+use: `04-functions-and-reuse`.
+
+Syntax synopsis:
+
+```mc
+R_PULLUP::RES(10000R, 50V).Pullup(BUTTON_IN, V3V3)
+```
+
+```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/908-inline-construction-library-method.mc
+```
+
+### 909 Cross-File Use
+
+`909-cross-file-use/` covers local `use` with a runnable entry file. Tutorial
+first use: `06-multi-file-project`.
+
+Syntax synopsis:
+
+```mc
+use ./led_block.mc
+```
+
+```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/909-cross-file-use/main.mc
 ```

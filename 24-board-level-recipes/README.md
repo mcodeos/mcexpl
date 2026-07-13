@@ -14,19 +14,19 @@ Generated HTML is written next to each example source file.
 
 ## Examples
 
-- `601-minimal-mcu-board.mc`: Start a minimal MCU board structure.
-- `602-usb-powered-mcu-board.mc`: Combine USB input, regulation, and MCU power.
-- `603-i2c-sensor-node.mc`: Compose power, MCU, I2C, and sensor blocks.
-- `604-audio-demo-board.mc`: Sketch a small audio-oriented board.
+- `241-minimal-mcu-board.mc`: Start a minimal MCU board structure.
+- `242-usb-powered-mcu-board.mc`: Combine USB input, regulation, and MCU power.
+- `243-i2c-sensor-node.mc`: Compose power, MCU, I2C, and sensor blocks.
+- `244-audio-demo-board.mc`: Sketch a small audio-oriented board.
 
-Parse `601-minimal-mcu-board.mc`:
+Parse `241-minimal-mcu-board.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 24-board-level-recipes/601-minimal-mcu-board.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 24-board-level-recipes/241-minimal-mcu-board.mc
 ```
 
-Generate HTML for `601-minimal-mcu-board.mc`:
+Generate HTML for `241-minimal-mcu-board.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 24-board-level-recipes/601-minimal-mcu-board.mc -o 24-board-level-recipes/601-minimal-mcu-board.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 24-board-level-recipes/241-minimal-mcu-board.mc -o 24-board-level-recipes/241-minimal-mcu-board.html
 ```

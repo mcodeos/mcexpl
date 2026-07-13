@@ -1,6 +1,6 @@
-// Example: MCU UART Header Component
+// Example: UART Interface Binding
 // Goal: Define a small component with a UART interface and connect it to a header.
-// Language focus: component, attributes, pins, interface binding.
+// Language focus: pin ranges, interface binding, interface member access.
 
 component MCU_UART
 {

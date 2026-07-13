@@ -1,6 +1,6 @@
 // Example: I2C Sensor Component
 // Goal: Define two components with matching I2C interfaces.
-// Language focus: component, pins, pin ranges, interface roles.
+// Language focus: matching interface roles and shared bus nets.
 
 component MCU_I2C
 {

@@ -1,4 +1,4 @@
-// Example: Reusable LED Component
+// Reference: Reusable LED Component
 // Goal: Provide a local component for the cross-file use example.
 // Language focus: component reuse.
 

@@ -52,13 +52,15 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --vi
 ```mc
 V3V3 -> (
     C_BYPASS -> GND,
-    R_LED -> D_STATUS -> GND
+    R_LED -> D_STATUS.ANODE
 )
+D_STATUS.CATHODE -> GND
 ```
 
 The parentheses group paths that start at the same incoming node. The comma
 separates parallel branches; it does not connect the capacitor branch to the
-LED branch in sequence.
+LED branch in sequence. The LED branch then finishes with an explicit cathode
+connection so the diode polarity stays readable.
 
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 02-circuits-with-branches/204-simple-power-branch.mc

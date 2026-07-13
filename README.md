@@ -126,10 +126,12 @@ Branch-like circuits where multiple devices share named signal or power nodes.
 
 Local component definitions, pins, and interface binding.
 
-- `301-mcu-uart-header.mc`: Define an MCU UART component and connect a debug
+- `301-named-pins-component.mc`: Define and instantiate a component with named
+  pins.
+- `302-uart-interface-binding.mc`: Bind MCU pins to a UART interface and debug
   header.
-- `302-i2c-sensor-component.mc`: Define I2C controller and sensor components.
-- `303-spi-flash-component.mc`: Define SPI master and flash components.
+- `303-i2c-sensor-component.mc`: Define I2C controller and sensor components.
+- `304-spi-flash-component.mc`: Define SPI master and flash components.
 
 ### 04 Functions And Reuse
 
@@ -137,7 +139,9 @@ Reusable connection methods on component definitions.
 
 - `401-led-indicator-function.mc`: Give a status LED a reusable connection method.
 - `402-pullup-helper-function.mc`: Return a named input from a pull-up method.
-- `403-decoupling-helper-function.mc`: Reuse a library method on two rails.
+- `403-inline-construction-function.mc`: Name a helper instance inside a method
+  call.
+- `404-decoupling-library-method.mc`: Reuse a library method on two rails.
 
 ### 05 Dynamic Pins And Conditions
 
@@ -145,9 +149,9 @@ Configurable components with conditions and dynamic pin additions.
 
 - `501-led-package-variant.mc`: Select attributes from a package parameter.
 - `502-gpio-expander-pins.mc`: Add pins for a larger GPIO expander variant.
-- `503-rs485-termination-option.mc`: Add optional termination connection pins.
+- `503-rs485-termination-pins.mc`: Add optional termination connection pins.
 
-### 06 Multi-File Modules
+### 06 Multi-File Project
 
 Small projects split across multiple local files.
 
@@ -170,39 +174,39 @@ Power inputs, regulators, and simple power trees.
 
 GPIO-driven circuits and switching outputs.
 
-- `301-gpio-led.mc`: Drive an LED from a GPIO signal.
-- `302-button-input.mc`: Connect a button to a digital input.
-- `303-nmos-low-side-driver.mc`: Use an NMOS as a low-side switch.
-- `304-relay-driver-with-flyback-diode.mc`: Drive a relay and add flyback
+- `211-gpio-led.mc`: Drive an LED from a GPIO signal.
+- `212-button-input.mc`: Connect a button to a digital input.
+- `213-nmos-low-side-driver.mc`: Use an NMOS as a low-side switch.
+- `214-relay-driver-with-flyback-diode.mc`: Drive a relay and add flyback
   protection.
-- `305-rgb-led-pwm.mc`: Connect RGB LED channels to PWM-style control signals.
+- `215-rgb-led-pwm.mc`: Connect RGB LED channels to PWM-style control signals.
 
 ### 22 Interface Recipes
 
 Common board-level communication interfaces.
 
-- `401-uart-debug-header.mc`: Expose UART signals on a debug header.
-- `402-i2c-sensor-bus.mc`: Connect an I2C controller to a sensor bus.
-- `403-spi-flash.mc`: Connect an SPI controller to a flash device.
-- `404-usb-device-port.mc`: Model a USB device connector.
-- `405-rs485-uart-bridge.mc`: Bridge UART signals to an RS485 transceiver.
+- `221-uart-debug-header.mc`: Expose UART signals on a debug header.
+- `222-i2c-sensor-bus.mc`: Connect an I2C controller to a sensor bus.
+- `223-spi-flash.mc`: Connect an SPI controller to a flash device.
+- `224-usb-device-port.mc`: Model a USB device connector.
+- `225-rs485-uart-bridge.mc`: Bridge UART signals to an RS485 transceiver.
 
 ### 23 Sensor Recipes
 
 Simple sensor front-end circuits.
 
-- `501-ntc-temperature-divider.mc`: Use an NTC thermistor in a divider.
-- `502-photodiode-input.mc`: Connect a photodiode input stage.
-- `503-adc-input-rc-filter.mc`: Add an RC filter before an ADC input.
+- `231-ntc-temperature-divider.mc`: Use an NTC thermistor in a divider.
+- `232-photodiode-input.mc`: Connect a photodiode input stage.
+- `233-adc-input-rc-filter.mc`: Add an RC filter before an ADC input.
 
 ### 24 Board-Level Recipes
 
 Examples that combine several smaller circuits into board-level modules.
 
-- `601-minimal-mcu-board.mc`: Start a minimal MCU board structure.
-- `602-usb-powered-mcu-board.mc`: Combine USB input, regulation, and MCU power.
-- `603-i2c-sensor-node.mc`: Compose power, MCU, I2C, and sensor blocks.
-- `604-audio-demo-board.mc`: Sketch a small audio-oriented board.
+- `241-minimal-mcu-board.mc`: Start a minimal MCU board structure.
+- `242-usb-powered-mcu-board.mc`: Combine USB input, regulation, and MCU power.
+- `243-i2c-sensor-node.mc`: Compose power, MCU, I2C, and sensor blocks.
+- `244-audio-demo-board.mc`: Sketch a small audio-oriented board.
 
 ## Language Reference
 
@@ -211,10 +215,17 @@ Examples that combine several smaller circuits into board-level modules.
 Focused examples for language features that are useful across many circuits.
 
 - `901-component-definition.mc`: Define a small custom component.
-- `902-module-composition.mc`: Compose reusable modules.
-- `903-interface-binding.mc`: Bind pins to an interface.
-- `904-arrays-and-ranges.mc`: Use arrays and ranges for repeated items.
-- `905-cross-file-use/`: Split an example across multiple files with `use`.
+- `902-attributes-spec-typed-parameters.mc`: Use typed parameters and `spec`.
+- `903-pins-ranges-indexed-names.mc`: Use pin directions, ranges, and indexed
+  names.
+- `904-module-ports.mc`: Declare module ports with direction markers.
+- `905-interface-binding-roles.mc`: Bind pins to an interface role.
+- `906-functions-method-calls.mc`: Use `func`, `this`, `return`, and method
+  calls.
+- `907-conditions-and-dynamic-pins.mc`: Use conditions and `pins +=`.
+- `908-inline-construction-library-method.mc`: Use named inline construction and
+  a library method.
+- `909-cross-file-use/`: Split an example across multiple files with `use`.
 
 ## Contributing
 

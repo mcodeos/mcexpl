@@ -23,8 +23,8 @@ component CONFIG_LED(package_style::STRING = "0603")
 }
 ```
 
-- `package_style::STRING` declares a string parameter. Unlike the typed unit
-  parameters in `401`, `= "0603"` also gives this parameter a default value.
+- `package_style::STRING` declares a string parameter. `= "0603"` gives this
+  parameter a default value.
 - `if (...)` evaluates a condition; `==` compares values rather than assigning
   one.
 - `else if` provides another condition when the first one is false.
@@ -60,15 +60,15 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pa
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 05-dynamic-pins-and-conditions/502-gpio-expander-pins.mc -o 05-dynamic-pins-and-conditions/502-gpio-expander-pins.html
 ```
 
-## 503 RS485 Termination Option
+## 503 RS485 Termination Pins
 
-`503-rs485-termination-option.mc` applies the same conditional-pin pattern to
+`503-rs485-termination-pins.mc` applies the same conditional-pin pattern to
 an RS485 endpoint. `U_NODE` exposes `A`, `B`, and `GND`. The
 `"RS485_TERM120"` variant `U_END` also exposes `TERM0` and `TERM1`, providing
 connection points for a termination network in a larger design. The example
 does not contain or claim to enable a 120 ohm resistor by itself.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 05-dynamic-pins-and-conditions/503-rs485-termination-option.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 05-dynamic-pins-and-conditions/503-rs485-termination-option.mc -o 05-dynamic-pins-and-conditions/503-rs485-termination-option.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 05-dynamic-pins-and-conditions/503-rs485-termination-pins.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 05-dynamic-pins-and-conditions/503-rs485-termination-pins.mc -o 05-dynamic-pins-and-conditions/503-rs485-termination-pins.html
 ```

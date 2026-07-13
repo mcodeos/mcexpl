@@ -1,6 +1,6 @@
 // Example: SPI Flash Component
 // Goal: Define master and slave components with SPI interfaces.
-// Language focus: component, pins, interface members, member access.
+// Language focus: four-member interface binding and directional signal naming.
 
 component MCU_SPI
 {

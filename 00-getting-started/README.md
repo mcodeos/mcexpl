@@ -17,6 +17,7 @@ module main
 {
     DC.SRC PWR(5V, 500mA)
     PWR.1 -> V5V
+    PWR.2 -> GND
 }
 ```
 
@@ -43,12 +44,12 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --vi
 ## 002 Resistor LED
 
 `002-resistor-led.mc` places a resistor and LED in series across the source.
-`RES R_LED(330R, 50V)` uses ohms (`R`) and a voltage rating; `LED
+`RES R_LIMIT(330R, 50V)` uses ohms (`R`) and a voltage rating; `LED
 D_STATUS(2V, 20mA)` supplies the LED forward voltage and current. A connection
 may contain several operands:
 
 ```mc
-PWR.1 -> R_LED -> D_STATUS -> PWR.2
+PWR.1 -> R_LIMIT -> D_STATUS -> PWR.2
 ```
 
 For ordinary two-pin components, a bare instance in a chain enters one pin and
