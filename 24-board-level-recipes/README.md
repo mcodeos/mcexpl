@@ -120,7 +120,78 @@ Generate HTML for `242-usb-powered-mcu-board.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 24-board-level-recipes/242-usb-powered-mcu-board.mc -o 24-board-level-recipes/242-usb-powered-mcu-board.html
 ```
 
+## 243 I2C Sensor Node
+
+`243-i2c-sensor-node.mc` describes a small 3.3 V controller board with one I2C
+sensor. Its purpose is to show how power, ground, a master/slave I2C interface,
+two bus pull-ups, local decoupling capacitors, and a simple expansion header fit
+together in one readable board-level example.
+
+Functional blocks:
+
+- `PWR` creates the local 3.3 V source and ground reference.
+- `SENSOR_NODE_MCU` is a local controller component with `I2C0` bound as an
+  `I2C(Master)` interface, plus explicit `VCC` and `GND` pins.
+- `BOARD_I2C_SENSOR` is a local sensor component with `I2C0` bound as an
+  `I2C(Slave)` interface, plus explicit `VCC` and `GND` pins.
+- `R_SCL` and `R_SDA` pull the shared I2C clock and data lines up to `V3V3`.
+- `C_MCU` and `C_SENSOR` are local 100 nF decoupling capacitors from `V3V3` to
+  `GND`.
+- `J_I2C` exposes `V3V3`, `GND`, `I2C_SCL`, and `I2C_SDA` on a four-pin header.
+
+Power flows from `PWR.1` to the named `V3V3` rail, then to `U_MCU.VCC`,
+`U_SENSOR.VCC`, both decoupling capacitors, both pull-up resistors, and header
+pin 1. `PWR.2` creates `GND`, shared by the MCU, sensor, capacitors, and header
+pin 2.
+
+The I2C pins use the same interface-member paths introduced earlier:
+
+```mc
+U_MCU.I2C0.SCL -> I2C_SCL
+U_SENSOR.I2C0.SCL -> I2C_SCL
+U_MCU.I2C0.SDA -> I2C_SDA
+U_SENSOR.I2C0.SDA -> I2C_SDA
+```
+
+The `I2C0::I2C(Master)` binding on the MCU and the `I2C0::I2C(Slave)` binding
+on the sensor come from the standard `I2C` interface definition. Both roles use
+the same member names, `SCL` and `SDA`, so the board-level nets connect the
+matching clock and data pins together. The pull-ups are separate components
+connected from `V3V3` to each line:
+
+```mc
+V3V3 -> R_SCL -> I2C_SCL
+V3V3 -> R_SDA -> I2C_SDA
+```
+
+This recipe is intentionally a single-file board composition. It reuses the I2C
+sensor bus pattern from `22-interface-recipes/222-i2c-sensor-bus.mc`, the local
+component style from `03-define-components-and-interfaces`, and the board power
+and decoupling style from `241-minimal-mcu-board.mc`. The related
+`06-multi-file-project` chapter teaches how to split similar pieces across
+multiple files; this recipe keeps the pieces together so the complete electrical
+topology is visible in one place.
+
+Important omissions: this is not a specific MCU or sensor reference design. It
+does not model I2C transactions, addresses, timing, bus capacitance, measured
+sensor values, interrupt pins, address-select pins, regulators, USB power,
+clocking, reset, or programming connectors. The 4.7 kOhm pull-up values are
+illustrative only; real boards choose pull-ups from supply voltage, bus speed,
+capacitance, and device requirements.
+
+Parse `243-i2c-sensor-node.mc`:
+
+```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 24-board-level-recipes/243-i2c-sensor-node.mc
+```
+
+Generate HTML for `243-i2c-sensor-node.mc`:
+
+```bash
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 24-board-level-recipes/243-i2c-sensor-node.mc -o 24-board-level-recipes/243-i2c-sensor-node.html
+```
+
 ## Not Implemented In This Task
 
-`243-i2c-sensor-node.mc` and `244-audio-demo-board.mc` remain placeholders in
-this task. They should not be treated as completed board-level recipes yet.
+`244-audio-demo-board.mc` remains a placeholder in this task. It should not be
+treated as a completed board-level recipe yet.
