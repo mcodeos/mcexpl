@@ -56,20 +56,20 @@ above, MCC loads the basic library from `$MCC_SYSTEM_ROOT/mcode/mcode.mc`.
 Parse an example:
 
 ```bash
-../mcc/target/debug/mcc parse --lib mcode 00-getting-started/001-power-net.mc
+../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --pass1 --pass2
 ```
 
 Generate an HTML visualization:
 
 ```bash
-../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/001-power-net.mc
+../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --viz
 ```
 
 By default, `--viz` writes `circuit.html` in the current directory. Use `-o` to
 choose the output path:
 
 ```bash
-../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/001-power-net.mc -o 00-getting-started/001-power-net.html
+../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --viz -o 00-getting-started/001-power-net.html
 ```
 
 For these user examples, generated HTML files can be written next to the source
@@ -90,8 +90,8 @@ Command parts:
 
 Each numbered example directory includes or can include a small `README.md` with
 copyable parse and visualization commands. You can also use the
-`parse --lib mcode <file.mc>` and
-`parse --lib mcode --viz <file.mc> -o <output.html>` patterns above.
+`parse <file.mc> --lib mcode --pass1 --pass2` and
+`parse <file.mc> --lib mcode --viz -o <output.html>` patterns above.
 
 ## Tutorial Path
 
@@ -151,12 +151,13 @@ Configurable components with conditions and dynamic pin additions.
 - `502-gpio-expander-pins.mc`: Add pins for a larger GPIO expander variant.
 - `503-rs485-termination-pins.mc`: Add optional termination connection pins.
 
-### 06 Multi-File Project
+### 06 Modules And A Multi-File Project
 
-Small projects split across multiple local files.
+Reusable circuit modules followed by a small project split across local files.
 
-- `601-main.mc`: Import local power, MCU, and sensor component files and connect
-  a small I2C sensor node.
+- `601-reusable-module.mc`: Define an LED circuit module and instantiate it twice.
+- `602-main.mc`: Import a power module plus MCU and sensor components, then
+  connect a small I2C sensor node.
 
 ## Recipe Cookbook
 
@@ -167,8 +168,11 @@ Power inputs, regulators, and simple power trees.
 - `201-battery-input.mc`: Represent a battery-powered input.
 - `202-usb-5v-input.mc`: Use USB as a 5 V power source.
 - `203-ldo-5v-to-3v3.mc`: Convert 5 V to 3.3 V with an LDO.
-- `204-buck-12v-to-5v.mc`: Convert 12 V to 5 V with a buck regulator.
+- `204-buck-12v-to-5v.mc`: Treat a complete 12 V to 5 V buck module as a
+  three-terminal regulator block.
 - `205-power-tree-5v-3v3-1v8.mc`: Build a small multi-rail power tree.
+- `206-buck-controller-power-stage.mc`: Build an asynchronous buck power stage
+  around a controller with external `SW` and `FB` pins.
 
 ### 21 Digital IO Recipes
 
@@ -206,7 +210,8 @@ Examples that combine several smaller circuits into board-level modules.
 - `241-minimal-mcu-board.mc`: Start a minimal MCU board structure.
 - `242-usb-powered-mcu-board.mc`: Combine USB input, regulation, and MCU power.
 - `243-i2c-sensor-node.mc`: Compose power, MCU, I2C, and sensor blocks.
-- `244-audio-demo-board.mc`: Sketch a small audio-oriented board.
+- `244-mono-audio-line-output.mc`: Buffer and AC-couple a mono line-level
+  output to an RCA connector.
 
 ## Language Reference
 
