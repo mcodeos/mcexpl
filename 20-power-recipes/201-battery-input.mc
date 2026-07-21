@@ -4,7 +4,7 @@
 
 module main
 {
-    DC.BAT BAT(3.7V, 1000uF)
+    DC.BAT BAT(3.7V, 1000mAh)
     FUSE F_BAT(1A, 12V)
     DIO.SCH D_REVERSE(0.3V, 40V, 2A)
     CAP.ELEC C_BULK(100uF, 10V)

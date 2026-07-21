@@ -16,6 +16,11 @@ Generated HTML is written next to each example source file.
 
 `201-battery-input.mc` describes a small protected battery input.
 
+`DC.BAT BAT(3.7V, 1000mAh)` gives the battery's nominal voltage first and its
+charge capacity second. `mAh` measures electric charge, while `uF` measures
+capacitance; the two units are not interchangeable. The library records this
+second value as the battery's `capacity` specification.
+
 The battery positive pin is routed through `F_BAT` and then through the
 Schottky diode `D_REVERSE`. The diode anode is on the fused battery side, and
 the cathode creates the protected `VBAT_PROTECTED` rail. The battery negative
