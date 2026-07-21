@@ -16,21 +16,21 @@ Generated HTML is written next to each example source file.
 
 `211-gpio-led.mc` describes a GPIO-driven LED indicator.
 
-`PWR` creates the `V3V3` and `GND` rails for the logic domain. `GPIO_LED`
-represents a digital output pin from a controller that is not modeled in this
-small example. The GPIO signal drives `D_STATUS.ANODE` through the current
-limiting resistor `R_LED`, and `D_STATUS.CATHODE` returns to `GND`.
+`GPIO_LED` represents a digital output pin from a controller that is not modeled
+in this small example. The controller also supplies the shared `GND` connection.
+The GPIO signal drives `D_STATUS.ANODE` through the current-limiting resistor
+`R_LED`, and `D_STATUS.CATHODE` returns to `GND`.
 
 Parse `211-gpio-led.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 21-digital-io-recipes/211-gpio-led.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/211-gpio-led.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `211-gpio-led.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 21-digital-io-recipes/211-gpio-led.mc -o 21-digital-io-recipes/211-gpio-led.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/211-gpio-led.mc --lib mcode --viz -o 21-digital-io-recipes/211-gpio-led.html
 ```
 
 ## 212 Button Input
@@ -44,13 +44,13 @@ connects `BUTTON_IN` to `GND` when pressed, pulling the input low.
 Parse `212-button-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 21-digital-io-recipes/212-button-input.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/212-button-input.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `212-button-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 21-digital-io-recipes/212-button-input.mc -o 21-digital-io-recipes/212-button-input.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/212-button-input.mc --lib mcode --viz -o 21-digital-io-recipes/212-button-input.html
 ```
 
 ## 213 NMOS Low-Side Driver
@@ -66,13 +66,13 @@ driven.
 Parse `213-nmos-low-side-driver.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 21-digital-io-recipes/213-nmos-low-side-driver.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/213-nmos-low-side-driver.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `213-nmos-low-side-driver.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 21-digital-io-recipes/213-nmos-low-side-driver.mc -o 21-digital-io-recipes/213-nmos-low-side-driver.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/213-nmos-low-side-driver.mc --lib mcode --viz -o 21-digital-io-recipes/213-nmos-low-side-driver.html
 ```
 
 ## 214 Relay Driver With Flyback Diode
@@ -89,13 +89,13 @@ MOSFET turns off.
 Parse `214-relay-driver-with-flyback-diode.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 21-digital-io-recipes/214-relay-driver-with-flyback-diode.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/214-relay-driver-with-flyback-diode.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `214-relay-driver-with-flyback-diode.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 21-digital-io-recipes/214-relay-driver-with-flyback-diode.mc -o 21-digital-io-recipes/214-relay-driver-with-flyback-diode.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/214-relay-driver-with-flyback-diode.mc --lib mcode --viz -o 21-digital-io-recipes/214-relay-driver-with-flyback-diode.html
 ```
 
 ## 215 RGB LED PWM
@@ -103,19 +103,19 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --vi
 `215-rgb-led-pwm.mc` describes a common-cathode RGB LED driven by three PWM
 signals.
 
-`PWR` creates the `V3V3` and `GND` rails for the logic domain. `PWM_RED`,
-`PWM_GREEN`, and `PWM_BLUE` are controller output nodes. Each PWM node drives
-one LED anode through its own current limiting resistor, and
+`PWM_RED`, `PWM_GREEN`, and `PWM_BLUE` are output nodes from a controller that is
+not modeled here; the controller also supplies the shared `GND` connection. Each
+PWM node drives one LED anode through its own current-limiting resistor, and
 `D_RGB.COMMON_CATHODE` returns to `GND`.
 
 Parse `215-rgb-led-pwm.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 21-digital-io-recipes/215-rgb-led-pwm.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/215-rgb-led-pwm.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `215-rgb-led-pwm.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 21-digital-io-recipes/215-rgb-led-pwm.mc -o 21-digital-io-recipes/215-rgb-led-pwm.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/215-rgb-led-pwm.mc --lib mcode --viz -o 21-digital-io-recipes/215-rgb-led-pwm.html
 ```

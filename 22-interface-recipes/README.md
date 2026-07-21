@@ -25,13 +25,13 @@ matches the common TX, RX, GND debug-header pattern.
 Parse `221-uart-debug-header.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 22-interface-recipes/221-uart-debug-header.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/221-uart-debug-header.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `221-uart-debug-header.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 22-interface-recipes/221-uart-debug-header.mc -o 22-interface-recipes/221-uart-debug-header.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/221-uart-debug-header.mc --lib mcode --viz -o 22-interface-recipes/221-uart-debug-header.html
 ```
 
 ## 222 I2C Sensor Bus
@@ -46,13 +46,13 @@ I2C idle state.
 Parse `222-i2c-sensor-bus.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 22-interface-recipes/222-i2c-sensor-bus.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/222-i2c-sensor-bus.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `222-i2c-sensor-bus.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 22-interface-recipes/222-i2c-sensor-bus.mc -o 22-interface-recipes/222-i2c-sensor-bus.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/222-i2c-sensor-bus.mc --lib mcode --viz -o 22-interface-recipes/222-i2c-sensor-bus.html
 ```
 
 ## 223 SPI Flash
@@ -67,13 +67,13 @@ flash drives `MISO` back to the master. Both components share `V3V3` and
 Parse `223-spi-flash.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 22-interface-recipes/223-spi-flash.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/223-spi-flash.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `223-spi-flash.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 22-interface-recipes/223-spi-flash.mc -o 22-interface-recipes/223-spi-flash.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/223-spi-flash.mc --lib mcode --viz -o 22-interface-recipes/223-spi-flash.html
 ```
 
 ## 224 USB Device Port
@@ -89,13 +89,13 @@ ESD diode to ground. `C_VBUS` bypasses the USB VBUS rail.
 Parse `224-usb-device-port.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 22-interface-recipes/224-usb-device-port.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/224-usb-device-port.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `224-usb-device-port.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 22-interface-recipes/224-usb-device-port.mc -o 22-interface-recipes/224-usb-device-port.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/224-usb-device-port.mc --lib mcode --viz -o 22-interface-recipes/224-usb-device-port.html
 ```
 
 ## 225 RS485 UART Bridge
@@ -112,11 +112,11 @@ the bridge TX-side output returns to MCU RX.
 Parse `225-rs485-uart-bridge.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode 22-interface-recipes/225-rs485-uart-bridge.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/225-rs485-uart-bridge.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `225-rs485-uart-bridge.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 22-interface-recipes/225-rs485-uart-bridge.mc -o 22-interface-recipes/225-rs485-uart-bridge.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/225-rs485-uart-bridge.mc --lib mcode --viz -o 22-interface-recipes/225-rs485-uart-bridge.html
 ```

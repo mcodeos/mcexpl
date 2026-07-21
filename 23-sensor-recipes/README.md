@@ -46,13 +46,13 @@ thermistor component defined by the current `mcode` library.
 Parse `231-ntc-temperature-divider.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 23-sensor-recipes/231-ntc-temperature-divider.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/231-ntc-temperature-divider.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `231-ntc-temperature-divider.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 23-sensor-recipes/231-ntc-temperature-divider.mc -o 23-sensor-recipes/231-ntc-temperature-divider.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/231-ntc-temperature-divider.mc --lib mcode --viz -o 23-sensor-recipes/231-ntc-temperature-divider.html
 ```
 
 ## 232 Photodiode Input
@@ -93,13 +93,13 @@ are summarized in `90-language-reference/902-attributes-spec-typed-parameters.mc
 Parse `232-photodiode-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 23-sensor-recipes/232-photodiode-input.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/232-photodiode-input.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `232-photodiode-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 23-sensor-recipes/232-photodiode-input.mc -o 23-sensor-recipes/232-photodiode-input.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/232-photodiode-input.mc --lib mcode --viz -o 23-sensor-recipes/232-photodiode-input.html
 ```
 
 ## 233 ADC Input RC Filter
@@ -118,8 +118,8 @@ ADC_IN -> C_FILTER -> GND
 `SENSOR_RAW` is the unfiltered signal from an upstream sensor. `R_FILTER` is in
 series with the signal, and `C_FILTER` shunts the filtered node to ground.
 `ADC_IN` is the named node that an ADC input would sample in a larger design.
-`ADC_REF` creates a local 3.3 V reference rail and ground net for context; the
-example does not define an ADC component.
+`SENSOR_RAW`, `ADC_IN`, and `GND` are supplied by the larger design; this focused
+filter example does not define an ADC or an unrelated voltage source.
 
 The chosen values are 1 kOhm and 10 nF. The nominal cutoff frequency is:
 
@@ -141,11 +141,11 @@ the ceramic capacitor subtype from the current `mcode` library.
 Parse `233-adc-input-rc-filter.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 23-sensor-recipes/233-adc-input-rc-filter.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/233-adc-input-rc-filter.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `233-adc-input-rc-filter.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 23-sensor-recipes/233-adc-input-rc-filter.mc -o 23-sensor-recipes/233-adc-input-rc-filter.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/233-adc-input-rc-filter.mc --lib mcode --viz -o 23-sensor-recipes/233-adc-input-rc-filter.html
 ```
