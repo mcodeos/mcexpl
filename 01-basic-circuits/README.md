@@ -12,8 +12,8 @@ No new language construct is needed: the example shows how repeated named nodes
 make a circuit's important measurement point visible.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 01-basic-circuits/101-voltage-divider.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 01-basic-circuits/101-voltage-divider.mc -o 01-basic-circuits/101-voltage-divider.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/101-voltage-divider.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/101-voltage-divider.mc --lib mcode --viz -o 01-basic-circuits/101-voltage-divider.html
 ```
 
 ## 102 RC Low-Pass Filter
@@ -25,8 +25,8 @@ shunts `VOUT` to ground. With 1 kOhm and 100 nF, the cutoff frequency is about
 it is used.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 01-basic-circuits/102-rc-low-pass-filter.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 01-basic-circuits/102-rc-low-pass-filter.mc -o 01-basic-circuits/102-rc-low-pass-filter.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/102-rc-low-pass-filter.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/102-rc-low-pass-filter.mc --lib mcode --viz -o 01-basic-circuits/102-rc-low-pass-filter.html
 ```
 
 ## 103 Diode Rectifier
@@ -38,6 +38,6 @@ Descriptive member access is the same dot syntax used for switch pins, but here
 it makes semiconductor polarity unambiguous.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 01-basic-circuits/103-diode-rectifier.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 01-basic-circuits/103-diode-rectifier.mc -o 01-basic-circuits/103-diode-rectifier.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/103-diode-rectifier.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/103-diode-rectifier.mc --lib mcode --viz -o 01-basic-circuits/103-diode-rectifier.html
 ```

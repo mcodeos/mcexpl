@@ -21,7 +21,16 @@ component RS485_ENDPOINT(partno::STRING = "RS485_NODE")
 
 module main
 {
-    // Only the termination-ready part exposes TERM0 and TERM1.
     RS485_ENDPOINT                 U_NODE
     RS485_ENDPOINT("RS485_TERM120") U_END
+    RES R_TERM(120R, 50V)
+
+    BUS_A -> U_NODE.A
+    BUS_B -> U_NODE.B
+    U_NODE.GND -> GND
+
+    BUS_A -> U_END.A
+    BUS_B -> U_END.B
+    BUS_A -> R_TERM -> BUS_B
+    U_END.GND -> GND
 }

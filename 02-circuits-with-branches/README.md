@@ -13,8 +13,8 @@ cathode faces the protected node and the anode faces ground, so the diode is
 reverse-biased during normal operation.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 02-circuits-with-branches/201-zener-clamp.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 02-circuits-with-branches/201-zener-clamp.mc -o 02-circuits-with-branches/201-zener-clamp.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/201-zener-clamp.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/201-zener-clamp.mc --lib mcode --viz -o 02-circuits-with-branches/201-zener-clamp.html
 ```
 
 ## 202 TVS Input Protection Branch
@@ -26,8 +26,8 @@ a voltage spike. Its voltage and wattage arguments describe the protection
 device rather than adding new connection syntax.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 02-circuits-with-branches/202-tvs-input-protection.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 02-circuits-with-branches/202-tvs-input-protection.mc -o 02-circuits-with-branches/202-tvs-input-protection.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/202-tvs-input-protection.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/202-tvs-input-protection.mc --lib mcode --viz -o 02-circuits-with-branches/202-tvs-input-protection.html
 ```
 
 ## 203 Input RC ESD
@@ -40,8 +40,8 @@ while `D_ESD.GND` connects to ground. Repeating `ADC_IN` and `GND` across the
 statements creates shared nodes, not separate nets with similar labels.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 02-circuits-with-branches/203-input-rc-esd.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 02-circuits-with-branches/203-input-rc-esd.mc -o 02-circuits-with-branches/203-input-rc-esd.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/203-input-rc-esd.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/203-input-rc-esd.mc --lib mcode --viz -o 02-circuits-with-branches/203-input-rc-esd.html
 ```
 
 ## 204 Simple Power Branch
@@ -63,6 +63,6 @@ LED branch in sequence. The LED branch then finishes with an explicit cathode
 connection so the diode polarity stays readable.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 02-circuits-with-branches/204-simple-power-branch.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 02-circuits-with-branches/204-simple-power-branch.mc -o 02-circuits-with-branches/204-simple-power-branch.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/204-simple-power-branch.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/204-simple-power-branch.mc --lib mcode --viz -o 02-circuits-with-branches/204-simple-power-branch.html
 ```

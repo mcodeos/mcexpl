@@ -9,9 +9,9 @@ component REF_LED
         2 = CATHODE
     ]
 
-    func Light(signal, ground)
+    func Light(signal, resistor, ground)
     {
-        signal -> this -> ground
+        signal -> resistor -> this -> ground
         return this
     }
 }
@@ -19,6 +19,7 @@ component REF_LED
 module main
 {
     REF_LED D_STATUS
+    RES R_LIMIT(330R, 50V)
 
-    D_STATUS.Light(GPIO_STATUS, GND)
+    D_STATUS.Light(GPIO_STATUS, R_LIMIT, GND)
 }

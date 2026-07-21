@@ -1,6 +1,6 @@
 // Example: Multi-File Sensor Node
-// Goal: Import local files and connect a small sensor node.
-// Language focus: use, cross-file project reuse.
+// Goal: Import local files and reuse a power module in a small sensor node.
+// Language focus: use, cross-file component and module reuse.
 
 // Each use path is resolved relative to this entry file.
 use ./power.mc

@@ -30,7 +30,7 @@ component TYPE_NAME
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/901-component-definition.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/901-component-definition.mc --lib mcode --pass1 --pass2
 ```
 
 ### 902 Attributes, Spec, And Typed Parameters
@@ -51,7 +51,7 @@ component TYPE_NAME(value::UV.OHM)
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/902-attributes-spec-typed-parameters.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/902-attributes-spec-typed-parameters.mc --lib mcode --pass1 --pass2
 ```
 
 ### 903 Pins, Ranges, And Indexed Names
@@ -71,25 +71,31 @@ pins = [
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/903-pins-ranges-indexed-names.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/903-pins-ranges-indexed-names.mc --lib mcode --pass1 --pass2
 ```
 
 ### 904 Module Ports
 
-`904-module-ports.mc` covers module parameters with direction markers. This is a
-reference-only example; the beginner tutorial path does not rely on module
-ports.
+`904-module-ports.mc` covers module parameters with direction markers, module
+instances, and explicit module-port connections. Tutorial first use:
+`06-multi-file-project/601-reusable-module.mc`.
 
 Syntax synopsis:
 
 ```mc
-module main(in signal, ps ground)
+module BLOCK(in signal, ps ground)
 {
+}
+module main
+{
+    BLOCK INSTANCE
+    INPUT -> INSTANCE.signal
+    INSTANCE.ground -> GND
 }
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/904-module-ports.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/904-module-ports.mc --lib mcode --pass1 --pass2 --top main
 ```
 
 ### 905 Interface Binding And Roles
@@ -106,7 +112,7 @@ pins = [
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/905-interface-binding-roles.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/905-interface-binding-roles.mc --lib mcode --pass1 --pass2
 ```
 
 ### 906 Functions And Method Calls
@@ -117,16 +123,16 @@ method calls. Tutorial first use: `04-functions-and-reuse`.
 Syntax synopsis:
 
 ```mc
-func Method(signal, ground)
+func Method(signal, resistor, ground)
 {
-    signal -> this -> ground
+    signal -> resistor -> this -> ground
     return this
 }
-INSTANCE.Method(A, B)
+INSTANCE.Method(A, R_LIMIT, GND)
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/906-functions-method-calls.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/906-functions-method-calls.mc --lib mcode --pass1 --pass2
 ```
 
 ### 907 Conditions And Dynamic Pins
@@ -159,7 +165,7 @@ component TYPE_NAME(partno::STRING = "BASE")
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/907-conditions-and-dynamic-pins.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/907-conditions-and-dynamic-pins.mc --lib mcode --pass1 --pass2
 ```
 
 ### 908 Inline Construction And Library Methods
@@ -175,7 +181,7 @@ R_PULLUP::RES(10000R, 50V).Pullup(BUTTON_IN, V3V3)
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/908-inline-construction-library-method.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/908-inline-construction-library-method.mc --lib mcode --pass1 --pass2
 ```
 
 ### 909 Cross-File Use
@@ -190,5 +196,5 @@ use ./led_block.mc
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 90-language-reference/909-cross-file-use/main.mc
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/909-cross-file-use/main.mc --lib mcode --pass1 --pass2
 ```

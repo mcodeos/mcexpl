@@ -37,8 +37,8 @@ Pin 1 of `DC.SRC` is positive and pin 2 is ground, so the two connection
 statements create the expected supply rails.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 00-getting-started/001-power-net.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/001-power-net.mc -o 00-getting-started/001-power-net.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --viz -o 00-getting-started/001-power-net.html
 ```
 
 ## 002 Resistor LED
@@ -58,8 +58,8 @@ then source ground. The library pin order also places the LED anode toward the
 resistor and its cathode toward ground.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 00-getting-started/002-resistor-led.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/002-resistor-led.mc -o 00-getting-started/002-resistor-led.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/002-resistor-led.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/002-resistor-led.mc --lib mcode --viz -o 00-getting-started/002-resistor-led.html
 ```
 
 ## 003 Decoupling Capacitor
@@ -70,8 +70,8 @@ series LED path, this chain describes a shunt component from the supply rail to
 ground.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 00-getting-started/003-decoupling-capacitor.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/003-decoupling-capacitor.mc -o 00-getting-started/003-decoupling-capacitor.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/003-decoupling-capacitor.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/003-decoupling-capacitor.mc --lib mcode --viz -o 00-getting-started/003-decoupling-capacitor.html
 ```
 
 ## 004 Button Pull-Up
@@ -92,6 +92,6 @@ resistor and switch statements at one electrical node. `SW_USER.COM` and
 `NO` is the normally open contact.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 00-getting-started/004-button-pullup.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 00-getting-started/004-button-pullup.mc -o 00-getting-started/004-button-pullup.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/004-button-pullup.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/004-button-pullup.mc --lib mcode --viz -o 00-getting-started/004-button-pullup.html
 ```

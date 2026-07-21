@@ -21,7 +21,18 @@ component GPIO_EXPANDER(partno::STRING = "GPIO8")
 
 module main
 {
-    // U_SMALL uses the default eight-pin variant.
+    DC.SRC PWR(3.3V, 100mA)
     GPIO_EXPANDER            U_SMALL
     GPIO_EXPANDER("GPIO16") U_LARGE
+
+    PWR.1 -> V3V3
+    PWR.2 -> GND
+
+    V3V3 -> U_SMALL.VCC
+    U_SMALL.GND -> GND
+    SMALL_GPIO0 -> U_SMALL.GPIO0
+
+    V3V3 -> U_LARGE.VCC
+    U_LARGE.GND -> GND
+    LARGE_GPIO0 -> U_LARGE.GPIO0
 }

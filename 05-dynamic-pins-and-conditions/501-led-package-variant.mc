@@ -1,8 +1,8 @@
 // Example: LED Package Variant
 // Goal: Select attributes from a parameter value.
-// Language focus: default parameters, if, else if, conditional attributes.
+// Language focus: typed parameters, if, else if, conditional attributes.
 
-component CONFIG_LED(package_style::STRING = "0603")
+component CONFIG_LED(package_style::STRING)
 {
     name = "Configurable LED"
     pins = [
@@ -24,6 +24,17 @@ component CONFIG_LED(package_style::STRING = "0603")
 
 module main
 {
-    // Omitting the argument selects the default 0603 branch.
-    CONFIG_LED D_STATUS
+    DC.SRC PWR(3.3V, 20mA)
+    CONFIG_LED("0603") D_SMALL
+    CONFIG_LED("1206") D_LARGE
+    RES R_SMALL(330R, 50V)
+    RES R_LARGE(330R, 50V)
+
+    PWR.1 -> V3V3
+    PWR.2 -> GND
+
+    V3V3 -> R_SMALL -> D_SMALL.ANODE
+    D_SMALL.CATHODE -> GND
+    V3V3 -> R_LARGE -> D_LARGE.ANODE
+    D_LARGE.CATHODE -> GND
 }

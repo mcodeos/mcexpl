@@ -7,31 +7,32 @@ external nodes that should be connected.
 ## 401 LED Indicator Function
 
 `401-led-indicator-function.mc` defines a two-pin `STATUS_LED` and gives it a
-minimal `Indicator` method:
+current-limited `Indicator` method:
 
 ```mc
-func Indicator(signal, ground)
+func Indicator(signal, resistor, ground)
 {
-    signal -> this -> ground
+    signal -> resistor -> this -> ground
 }
 ```
 
 - `func` declares a function inside the component.
-- `signal` and `ground` are parameters. Their values are supplied by the call in
-  `module main`.
+- `signal`, `resistor`, and `ground` are parameters. Their values are supplied
+  by the call in `module main`.
 - `this` means the current `STATUS_LED` instance. In this two-pin component, the
   connection enters one terminal and leaves the other.
-- `D_STATUS.Indicator(GPIO_STATUS, GND)` calls the method on the `D_STATUS`
-  instance. The dot selects the method, and the call parentheses pass the two
-  external nodes.
+- `D_STATUS.Indicator(GPIO_STATUS, R_LIMIT, GND)` calls the method on the
+  `D_STATUS` instance. The dot selects the method, and the call parentheses pass
+  the signal node, a real resistor instance, and ground.
 
-The resolved circuit is `GPIO_STATUS`, status LED, then `GND`. This example
-intentionally avoids return values, typed parameters, and inline construction so
-the first method call stays small.
+The resolved circuit is `GPIO_STATUS`, `R_LIMIT`, `D_STATUS`, then `GND`. Passing
+the resistor as a parameter keeps the first method call small without teaching an
+unsafe bare-LED pattern. This example intentionally avoids return values, typed
+parameters, and inline construction.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 04-functions-and-reuse/401-led-indicator-function.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 04-functions-and-reuse/401-led-indicator-function.mc -o 04-functions-and-reuse/401-led-indicator-function.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/401-led-indicator-function.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/401-led-indicator-function.mc --lib mcode --viz -o 04-functions-and-reuse/401-led-indicator-function.html
 ```
 
 ## 402 Pull-Up Helper Function
@@ -61,8 +62,8 @@ Repeating `BUTTON_IN` makes the shared input node visible: the pull-up resistor
 and the switch common pin meet at the same electrical node.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 04-functions-and-reuse/402-pullup-helper-function.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 04-functions-and-reuse/402-pullup-helper-function.mc -o 04-functions-and-reuse/402-pullup-helper-function.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/402-pullup-helper-function.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/402-pullup-helper-function.mc --lib mcode --viz -o 04-functions-and-reuse/402-pullup-helper-function.html
 ```
 
 ## 403 Inline Construction Function
@@ -83,8 +84,8 @@ The circuit is still the same normally-high button input from `402`; only the
 instance construction style changes.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 04-functions-and-reuse/403-inline-construction-function.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 04-functions-and-reuse/403-inline-construction-function.mc -o 04-functions-and-reuse/403-inline-construction-function.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/403-inline-construction-function.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/403-inline-construction-function.mc --lib mcode --viz -o 04-functions-and-reuse/403-inline-construction-function.html
 ```
 
 ## 404 Decoupling Library Method
@@ -104,6 +105,6 @@ to the 3.3 V rail; both share `GND`. This demonstrates that user code calls
 library methods with the same dot-call syntax as locally defined methods.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --pass1 --pass2 04-functions-and-reuse/404-decoupling-library-method.mc
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse --lib mcode --viz 04-functions-and-reuse/404-decoupling-library-method.mc -o 04-functions-and-reuse/404-decoupling-library-method.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/404-decoupling-library-method.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/404-decoupling-library-method.mc --lib mcode --viz -o 04-functions-and-reuse/404-decoupling-library-method.html
 ```
