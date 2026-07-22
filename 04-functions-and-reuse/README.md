@@ -4,9 +4,9 @@ This chapter adds connection methods to component definitions. A method keeps a
 small wiring pattern beside the component that owns it, and callers provide the
 external nodes that should be connected.
 
-## 401 LED Indicator Function
+## 041 LED Indicator Function
 
-`401-led-indicator-function.mc` defines a two-pin `STATUS_LED` and gives it a
+`041-led-indicator-function.mc` defines a two-pin `STATUS_LED` and gives it a
 current-limited `Indicator` method:
 
 ```mc
@@ -31,13 +31,13 @@ unsafe bare-LED pattern. This example intentionally avoids return values, typed
 parameters, and inline construction.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/401-led-indicator-function.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/401-led-indicator-function.mc --lib mcode --viz -o 04-functions-and-reuse/401-led-indicator-function.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/041-led-indicator-function.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/041-led-indicator-function.mc --lib mcode --viz -o 04-functions-and-reuse/041-led-indicator-function.html
 ```
 
-## 402 Pull-Up Helper Function
+## 042 Pull-Up Helper Function
 
-`402-pullup-helper-function.mc` defines `PULLUP_RESISTOR.Pullup(input, source)`.
+`042-pullup-helper-function.mc` defines `PULLUP_RESISTOR.Pullup(input, source)`.
 Its connection runs from the input node through `this` resistor to the source
 rail:
 
@@ -62,13 +62,13 @@ Repeating `BUTTON_IN` makes the shared input node visible: the pull-up resistor
 and the switch common pin meet at the same electrical node.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/402-pullup-helper-function.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/402-pullup-helper-function.mc --lib mcode --viz -o 04-functions-and-reuse/402-pullup-helper-function.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/042-pullup-helper-function.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/042-pullup-helper-function.mc --lib mcode --viz -o 04-functions-and-reuse/042-pullup-helper-function.html
 ```
 
-## 403 Inline Construction Function
+## 043 Inline Construction Function
 
-`403-inline-construction-function.mc` keeps the same pull-up method but creates
+`043-inline-construction-function.mc` keeps the same pull-up method but creates
 the helper component inside the call:
 
 ```mc
@@ -84,13 +84,13 @@ The circuit is still the same normally-high button input from `402`; only the
 instance construction style changes.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/403-inline-construction-function.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/403-inline-construction-function.mc --lib mcode --viz -o 04-functions-and-reuse/403-inline-construction-function.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/043-inline-construction-function.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/043-inline-construction-function.mc --lib mcode --viz -o 04-functions-and-reuse/043-inline-construction-function.html
 ```
 
-## 404 Decoupling Library Method
+## 044 Decoupling Library Method
 
-`404-decoupling-library-method.mc` reuses the `Cap` method already defined by
+`044-decoupling-library-method.mc` reuses the `Cap` method already defined by
 the `mcode` library's `CAP` component. These two calls create distinct ceramic
 capacitors while applying the same rail-to-ground connection pattern:
 
@@ -105,6 +105,6 @@ to the 3.3 V rail; both share `GND`. This demonstrates that user code calls
 library methods with the same dot-call syntax as locally defined methods.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/404-decoupling-library-method.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/404-decoupling-library-method.mc --lib mcode --viz -o 04-functions-and-reuse/404-decoupling-library-method.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/044-decoupling-library-method.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/044-decoupling-library-method.mc --lib mcode --viz -o 04-functions-and-reuse/044-decoupling-library-method.html
 ```

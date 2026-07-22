@@ -108,55 +108,55 @@ Small examples that introduce the minimum syntax needed to read and run MCode.
 
 Common small circuits made from basic components.
 
-- `101-voltage-divider.mc`: Create a resistor divider and a measured output.
-- `102-rc-low-pass-filter.mc`: Combine a resistor and capacitor as a filter.
-- `103-diode-rectifier.mc`: Use a diode to pass current in one direction.
+- `011-voltage-divider.mc`: Create a resistor divider and a measured output.
+- `012-rc-low-pass-filter.mc`: Combine a resistor and capacitor as a filter.
+- `013-diode-rectifier.mc`: Use a diode to pass current in one direction.
 
 ### 02 Circuits With Branches
 
 Branch-like circuits where multiple devices share named signal or power nodes.
 
-- `201-zener-clamp.mc`: Add a Zener clamp branch to a protected node.
-- `202-tvs-input-protection.mc`: Add a TVS protection branch to an input node.
-- `203-input-rc-esd.mc`: Combine a series input resistor, filter capacitor, and
+- `021-zener-clamp.mc`: Add a Zener clamp branch to a protected node.
+- `022-tvs-input-protection.mc`: Add a TVS protection branch to an input node.
+- `023-input-rc-esd.mc`: Combine a series input resistor, filter capacitor, and
   ESD diode on one node.
-- `204-simple-power-branch.mc`: Feed multiple branches from one power rail.
+- `024-simple-power-branch.mc`: Feed multiple branches from one power rail.
 
 ### 03 Define Components And Interfaces
 
 Local component definitions, pins, and interface binding.
 
-- `301-named-pins-component.mc`: Define and instantiate a component with named
+- `031-named-pins-component.mc`: Define and instantiate a component with named
   pins.
-- `302-uart-interface-binding.mc`: Bind MCU pins to a UART interface and debug
+- `032-uart-interface-binding.mc`: Bind MCU pins to a UART interface and debug
   header.
-- `303-i2c-sensor-component.mc`: Define I2C controller and sensor components.
-- `304-spi-flash-component.mc`: Define SPI master and flash components.
+- `033-i2c-sensor-component.mc`: Define I2C controller and sensor components.
+- `034-spi-flash-component.mc`: Define SPI master and flash components.
 
 ### 04 Functions And Reuse
 
 Reusable connection methods on component definitions.
 
-- `401-led-indicator-function.mc`: Give a status LED a reusable connection method.
-- `402-pullup-helper-function.mc`: Return a named input from a pull-up method.
-- `403-inline-construction-function.mc`: Name a helper instance inside a method
+- `041-led-indicator-function.mc`: Give a status LED a reusable connection method.
+- `042-pullup-helper-function.mc`: Return a named input from a pull-up method.
+- `043-inline-construction-function.mc`: Name a helper instance inside a method
   call.
-- `404-decoupling-library-method.mc`: Reuse a library method on two rails.
+- `044-decoupling-library-method.mc`: Reuse a library method on two rails.
 
 ### 05 Dynamic Pins And Conditions
 
 Configurable components with conditions and dynamic pin additions.
 
-- `501-led-package-variant.mc`: Select attributes from a package parameter.
-- `502-gpio-expander-pins.mc`: Add pins for a larger GPIO expander variant.
-- `503-rs485-termination-pins.mc`: Add optional termination connection pins.
+- `051-led-package-variant.mc`: Select attributes from a package parameter.
+- `052-gpio-expander-pins.mc`: Add pins for a larger GPIO expander variant.
+- `053-rs485-termination-pins.mc`: Add optional termination connection pins.
 
 ### 06 Modules And A Multi-File Project
 
 Reusable circuit modules followed by a small project split across local files.
 
-- `601-reusable-module.mc`: Define an LED circuit module and instantiate it twice.
-- `602-main.mc`: Import a power module plus MCU and sensor components, then
+- `061-reusable-module.mc`: Define an LED circuit module and instantiate it twice.
+- `062-main.mc`: Import a power module plus MCU and sensor components, then
   connect a small I2C sensor node.
 
 ## Recipe Cookbook

@@ -4,9 +4,9 @@ This chapter defines component variants from constructor parameters. Conditions
 can select descriptive attributes or append physical pins that exist only on a
 larger variant.
 
-## 501 LED Package Variant
+## 051 LED Package Variant
 
-`501-led-package-variant.mc` selects package metadata from a constructor
+`051-led-package-variant.mc` selects package metadata from a constructor
 parameter:
 
 ```mc
@@ -37,13 +37,13 @@ complete comparable instances rather than floating type demonstrations. Their
 electrical topology is the same; the selected package metadata is different.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/501-led-package-variant.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/501-led-package-variant.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/501-led-package-variant.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/051-led-package-variant.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/051-led-package-variant.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/051-led-package-variant.html
 ```
 
-## 502 GPIO Expander Pins
+## 052 GPIO Expander Pins
 
-`502-gpio-expander-pins.mc` always declares eight GPIO signals plus power and
+`052-gpio-expander-pins.mc` always declares eight GPIO signals plus power and
 ground. When `partno` equals `"GPIO16"`, this block appends eight more pins:
 
 ```mc
@@ -61,13 +61,13 @@ have `VCC`, `GND`, and `GPIO0` connected, so the shared base pins can be compare
 while the larger instance visibly exposes eight additional terminals.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/502-gpio-expander-pins.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/502-gpio-expander-pins.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/502-gpio-expander-pins.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/052-gpio-expander-pins.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/052-gpio-expander-pins.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/052-gpio-expander-pins.html
 ```
 
-## 503 RS485 Termination Pins
+## 053 RS485 Termination Pins
 
-`503-rs485-termination-pins.mc` applies the same conditional-pin pattern to
+`053-rs485-termination-pins.mc` applies the same conditional-pin pattern to
 an RS485 endpoint. `U_NODE` exposes `A`, `B`, and `GND`. The
 `"RS485_TERM120"` variant `U_END` also exposes `TERM0` and `TERM1`. Both variants
 connect to `BUS_A`, `BUS_B`, and `GND`, while `R_TERM` places the actual 120 ohm
@@ -76,6 +76,6 @@ condition changes the endpoint's available terminals, and the resistor creates
 the electrical termination.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/503-rs485-termination-pins.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/503-rs485-termination-pins.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/503-rs485-termination-pins.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/053-rs485-termination-pins.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/053-rs485-termination-pins.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/053-rs485-termination-pins.html
 ```

@@ -41,10 +41,10 @@ without claiming a specific debug protocol.
 
 This recipe composes patterns from earlier chapters rather than introducing a
 new board abstraction. The local component shape follows
-`03-define-components-and-interfaces/301-named-pins-component.mc`; the pull-up
+`03-define-components-and-interfaces/031-named-pins-component.mc`; the pull-up
 pattern follows `21-digital-io-recipes/212-button-input.mc`; the decoupling
 pattern follows `00-getting-started/003-decoupling-capacitor.mc` and
-`04-functions-and-reuse/404-decoupling-library-method.mc`; the header style
+`04-functions-and-reuse/044-decoupling-library-method.mc`; the header style
 follows `22-interface-recipes/221-uart-debug-header.mc`.
 
 Important omissions: this is not a specific commercial MCU reference design. It
@@ -100,7 +100,7 @@ This recipe combines the USB power-input pattern from
 `20-power-recipes/202-usb-5v-input.mc`, the LDO pattern from
 `20-power-recipes/203-ldo-5v-to-3v3.mc`, and the MCU support pattern from
 `241-minimal-mcu-board.mc`. The polarity-sensitive TVS connection follows the
-same orientation used in `02-circuits-with-branches/202-tvs-input-protection.mc`.
+same orientation used in `02-circuits-with-branches/022-tvs-input-protection.mc`.
 
 Important omissions: USB data, USB-C configuration resistors, inrush-current
 limits, connector shield handling, regulator enable pins, thermal limits, exact
@@ -202,7 +202,7 @@ speaker power amplifier and is not presented as a headphone driver.
 Functional blocks:
 
 - `PWR` creates the illustrative 5 V supply and ground reference.
-- `U_BUF` is an `Amplifier.BUFFER` with `IN`, `OUT`, `DC.Vcc`, and `DC.Vee`
+- `U_BUF` is an `AMP.BUFFER` with `IN`, `OUT`, `DC.Vcc`, and `DC.Vee`
   member paths from the standard library.
 - `C_DECOUPLE` is a local 100 nF ceramic supply decoupling capacitor.
 - `C_OUT` is a 1 uF film capacitor in series with the output signal.
@@ -258,7 +258,7 @@ and 100 kOhm values are illustrative.
 A line output is intended to feed a high-impedance input on another audio
 device. Headphone outputs must supply more current into relatively low
 impedances, while speaker outputs require a power amplifier capable of driving
-an even more demanding load. `Amplifier.BUFFER` records illustrative input
+an even more demanding load. `AMP.BUFFER` records illustrative input
 impedance, maximum output current, and supply-voltage specifications, but MCode
 does not prove gain, clipping level, frequency response, stability, output
 impedance, load current, or thermal performance. This recipe must not be used
@@ -281,8 +281,8 @@ voltage ratings. None of those checks is implied by this conceptual recipe.
 
 Related examples include
 `00-getting-started/003-decoupling-capacitor.mc` for supply decoupling,
-`01-basic-circuits/102-rc-low-pass-filter.mc` for a series/shunt passive signal
-path, `04-functions-and-reuse/404-decoupling-library-method.mc` for library
+`01-basic-circuits/012-rc-low-pass-filter.mc` for a series/shunt passive signal
+path, `04-functions-and-reuse/044-decoupling-library-method.mc` for library
 decoupling helpers, and `90-language-reference/907-conditions-and-dynamic-pins.mc`
 for a small example of conditional component pins.
 

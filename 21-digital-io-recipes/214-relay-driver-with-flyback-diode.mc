@@ -1,12 +1,12 @@
 // Example: Relay Driver With Flyback Diode
 // Goal: Drive a relay coil and add flyback protection.
-// Library focus: RELAY, MOSFET.NMOS, DIO, RES, DC.
+// Library focus: RELAY, FET.MOSFET.N, DIO, RES, DC.
 
 module main
 {
     DC.SRC PWR(5V, 500mA)
     RELAY K_LOAD(1A, 5V)
-    MOSFET.NMOS Q_RELAY
+    FET.MOSFET.N Q_RELAY
     RES R_GATE(100R, 50V)
     RES R_PULLDOWN(100000R, 50V)
     DIO D_FLYBACK(0.7V, 100V, 1A)

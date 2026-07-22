@@ -1,13 +1,13 @@
 // Example: Mono Audio Line Output
 // Goal: Buffer an already biased mono audio signal and expose an AC-coupled line output.
-// Library focus: DC, Amplifier.BUFFER, CAP.CER, CAP.FILM, RES, AUDIO.RCA.
+// Library focus: DC, AMP.BUFFER, CAP.CER, CAP.FILM, RES, AUDIO.RCA.
 // AUDIO_IN must remain within the buffer supply range and already include any required DC bias.
 // All ratings and values are illustrative; this recipe does not model analog performance.
 
 module main
 {
     DC.SRC PWR(5V, 100mA)
-    Amplifier.BUFFER U_BUF(100000R, 10mA, 5V)
+    AMP.BUFFER U_BUF(100000R, 10mA, 5V)
     CAP.CER C_DECOUPLE(100nF, 10V)
     CAP.FILM C_OUT(1uF, 10V)
     RES R_OUT_REF(100000R, 50V)

@@ -5,8 +5,9 @@ component REF_UART_DEVICE
 {
     name = "Reference UART Device"
     pins = [
-        io 1:3 = UART0::UART.TTL(DCE)
-        ps 4 = VCC
+        io 1:2 = UART0::UART.TTL(DCE)
+        ps 3 = VCC
+        ps 4 = GND
     ]
 }
 
@@ -19,9 +20,9 @@ module main
     PWR.1 -> V3V3
     PWR.2 -> GND
     V3V3 -> U_DEV.VCC
+    U_DEV.GND -> GND
 
     U_DEV.UART0.TX -> J_DEBUG.1
     U_DEV.UART0.RX -> J_DEBUG.2
-    U_DEV.UART0.GND -> J_DEBUG.3
-    J_DEBUG.3 -> GND
+    GND -> J_DEBUG.3
 }

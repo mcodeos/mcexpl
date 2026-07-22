@@ -1,12 +1,12 @@
 # 06 Modules And A Multi-File Project
 
 This chapter first turns a small circuit into a reusable module, then moves a
-module and component definitions into separate source files. Read `601` before
-`602`: module boundaries come before file boundaries.
+module and component definitions into separate source files. Read `061` before
+`062`: module boundaries come before file boundaries.
 
-## 601 Reusable Module
+## 061 Reusable Module
 
-`601-reusable-module.mc` defines a reusable LED circuit instead of a single
+`061-reusable-module.mc` defines a reusable LED circuit instead of a single
 physical part:
 
 ```mc
@@ -40,11 +40,11 @@ Each instance owns its own `R_LIMIT` and `D_STATUS`, while both instances connec
 to the surrounding design through their ports.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/601-reusable-module.mc --lib mcode --pass1 --pass2 --top main
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/601-reusable-module.mc --lib mcode --viz --top main -o 06-multi-file-project/601-reusable-module.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/061-reusable-module.mc --lib mcode --pass1 --pass2 --top main
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/061-reusable-module.mc --lib mcode --viz --top main -o 06-multi-file-project/061-reusable-module.html
 ```
 
-## 602 Multi-File Sensor Node
+## 062 Multi-File Sensor Node
 
 The entry file begins with three local imports:
 
@@ -55,7 +55,7 @@ use ./sensor.mc
 ```
 
 `use` loads definitions from another MCode file. Each path starts with `./`, so
-it is resolved relative to `602-main.mc`, not the shell's current directory.
+it is resolved relative to `062-main.mc`, not the shell's current directory.
 The imported files have distinct jobs:
 
 - `power.mc` defines a `SENSOR_NODE_POWER` module with `VIN`, `V3V3`, and `GND`
@@ -73,6 +73,6 @@ the circuit pattern from `303`.
 Run MCC only on the entry file; it loads the three dependencies automatically.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/602-main.mc --lib mcode --pass1 --pass2 --top main
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/602-main.mc --lib mcode --viz --top main -o 06-multi-file-project/602-main.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/062-main.mc --lib mcode --pass1 --pass2 --top main
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/062-main.mc --lib mcode --viz --top main -o 06-multi-file-project/062-main.html
 ```

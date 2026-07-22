@@ -78,7 +78,7 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-refe
 
 `904-module-ports.mc` covers module parameters with direction markers, module
 instances, and explicit module-port connections. Tutorial first use:
-`06-multi-file-project/601-reusable-module.mc`.
+`06-multi-file-project/061-reusable-module.mc`.
 
 Syntax synopsis:
 
@@ -107,7 +107,7 @@ Syntax synopsis:
 
 ```mc
 pins = [
-    io 1:3 = UART0::UART.TTL(DCE)
+    io 1:2 = UART0::UART.TTL(DCE)
 ]
 ```
 

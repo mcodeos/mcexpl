@@ -1,6 +1,6 @@
 // Example: NMOS Low-Side Driver
 // Goal: Switch a load with an NMOS transistor.
-// Library focus: MOSFET.NMOS, RES, GPIO, DC.
+// Library focus: FET.MOSFET.N, RES, GPIO, DC.
 
 module main
 {
@@ -8,7 +8,7 @@ module main
     RES R_LOAD(100R, 50V)
     RES R_GATE(100R, 50V)
     RES R_PULLDOWN(100000R, 50V)
-    MOSFET.NMOS Q_SWITCH
+    FET.MOSFET.N Q_SWITCH
 
     PWR.1 -> V5V
     PWR.2 -> GND

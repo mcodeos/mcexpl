@@ -4,9 +4,9 @@ This chapter moves from library parts to small custom component definitions.
 Read the examples in order: first define named pins without an interface, then
 bind related pins to UART, I2C, and SPI interfaces.
 
-## 301 Named Pins Component
+## 031 Named Pins Component
 
-`301-named-pins-component.mc` defines a tiny two-pin sensor and instantiates it
+`031-named-pins-component.mc` defines a tiny two-pin sensor and instantiates it
 in `module main`. This is the first local component definition in the tutorial:
 
 ```mc
@@ -34,44 +34,45 @@ The circuit is only a sensor powered from a 3.3 V source, but it separates the
 component definition from the instance that uses it.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/301-named-pins-component.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/301-named-pins-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/301-named-pins-component.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/031-named-pins-component.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/031-named-pins-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/031-named-pins-component.html
 ```
 
-## 302 UART Interface Binding
+## 032 UART Interface Binding
 
-`302-uart-interface-binding.mc` adds the first interface binding. The MCU-like
-component maps three physical pins to one UART interface:
+`032-uart-interface-binding.mc` adds the first interface binding. The MCU-like
+component maps two physical pins to one UART interface and declares power pins
+separately:
 
 ```mc
 pins = [
-    io 1:3 = UART0::UART.TTL(DCE)
-    ps 4 = VCC
-    ps 5 = GND
+    io 1:2 = UART0::UART.TTL(DCE)
+    ps 3 = VCC
+    ps 4 = GND
 ]
 ```
 
 - `io` marks signal pins and `ps` marks power-supply pins.
-- `1:3` is the inclusive physical-pin range from 1 through 3.
+- `1:2` is the inclusive physical-pin range from 1 through 2.
 - `UART0::UART.TTL(DCE)` binds those pins to the `UART.TTL` interface. `UART0`
   is the local interface name, `::` performs the binding, and `DCE` selects the
-  role whose members are `TX`, `RX`, and `GND`.
+  role whose members are `TX` and `RX`.
 - `U_MCU.UART0.TX` selects the instance, then the bound interface, then the
   interface member. This nested dot path is why the debug header can connect to
   UART members by name.
 
-The circuit connects MCU `TX`, `RX`, and UART ground to a three-pin debug
-header. Power pin `VCC`, ordinary component `GND`, and UART signal `GND` are
-connected explicitly because they are distinct physical pins.
+The circuit connects MCU `TX` and `RX` plus the component's power-domain `GND`
+to a three-pin debug header. `UART.TTL` carries only the two data signals; the
+separate `GND` pin provides their shared electrical reference.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/302-uart-interface-binding.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/302-uart-interface-binding.mc --lib mcode --viz -o 03-define-components-and-interfaces/302-uart-interface-binding.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/032-uart-interface-binding.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/032-uart-interface-binding.mc --lib mcode --viz -o 03-define-components-and-interfaces/032-uart-interface-binding.html
 ```
 
-## 303 I2C Sensor Component
+## 033 I2C Sensor Component
 
-`303-i2c-sensor-component.mc` defines one I2C controller component and one I2C
+`033-i2c-sensor-component.mc` defines one I2C controller component and one I2C
 sensor component. The same `I2C` interface is bound with different roles:
 `I2C(Master)` for the MCU and `I2C(Slave)` for the sensor.
 
@@ -82,13 +83,13 @@ adds the idea that two component definitions can appear before one runnable
 `module main`.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/303-i2c-sensor-component.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/303-i2c-sensor-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/303-i2c-sensor-component.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/033-i2c-sensor-component.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/033-i2c-sensor-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/033-i2c-sensor-component.html
 ```
 
-## 304 SPI Flash Component
+## 034 SPI Flash Component
 
-`304-spi-flash-component.mc` binds four pins to `SPI(Master)` and `SPI(Slave)`.
+`034-spi-flash-component.mc` binds four pins to `SPI(Master)` and `SPI(Slave)`.
 `CS`, `SCLK`, and `MOSI` are written from the MCU toward the flash; `MISO` is
 written from the flash toward the MCU.
 
@@ -98,6 +99,6 @@ two or three, and direction-sensitive signal names make the connections easier
 to review.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/304-spi-flash-component.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/304-spi-flash-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/304-spi-flash-component.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/034-spi-flash-component.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/034-spi-flash-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/034-spi-flash-component.html
 ```

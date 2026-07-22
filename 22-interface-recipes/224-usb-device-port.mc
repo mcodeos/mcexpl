@@ -14,7 +14,7 @@ component USB_DEVICE
 
 module main
 {
-    USB.MICRO_B J_USB
+    USB.MICROB J_USB
     USB_DEVICE U_DEV
     DIO.ESD D_DM("USBLC6", "IEC61000-4-2")
     DIO.ESD D_DP("USBLC6", "IEC61000-4-2")

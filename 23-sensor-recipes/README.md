@@ -40,7 +40,7 @@ temperature, ADC reference accuracy, or calibration curve, so this example does
 not claim an exact temperature conversion.
 
 The syntax follows the voltage-divider pattern from
-`01-basic-circuits/101-voltage-divider.mc`. `RES.THERM(10000R)` is the actual
+`01-basic-circuits/011-voltage-divider.mc`. `RES.THERM(10000R)` is the actual
 thermistor component defined by the current `mcode` library.
 
 Parse `231-ntc-temperature-divider.mc`:
@@ -70,13 +70,13 @@ LIGHT_SENSE -> R_LOAD -> GND
 ```
 
 The photodiode cathode is tied to `V3V3`, and the anode is the sensed node. This
-reverse-bias orientation follows the `DIO.PHO` pin names in the library:
+reverse-bias orientation follows the `DIO.PHOTO` pin names in the library:
 `ANODE` and `CATHODE`. `R_LOAD` connects `LIGHT_SENSE` to ground, so photocurrent
 through the diode develops a voltage at `LIGHT_SENSE`. A larger light-generated
 current would produce a larger load-resistor voltage until limited by the
 supply and the real diode/resistor behavior.
 
-The example values are illustrative: `DIO.PHO(0.5A/W, 1nA, 850nm)` records a
+The example values are illustrative: `DIO.PHOTO(0.5A/W, 1nA, 850nm)` records a
 responsivity, dark current, and spectral range, while `R_LOAD` is 100 kOhm. For
 scale, 1 uA through 100 kOhm would be 0.1 V, but the example does not model a
 specific light level or guarantee linearity.
@@ -87,7 +87,7 @@ on the diode capacitance, resistor value, ADC input loading, and ambient
 conditions. Use it as a beginner topology, not as a production optical receiver.
 
 The explicit member paths mirror the polarity-sensitive diode style introduced
-in `01-basic-circuits/103-diode-rectifier.mc`. The typed parameters and units
+in `01-basic-circuits/013-diode-rectifier.mc`. The typed parameters and units
 are summarized in `90-language-reference/902-attributes-spec-typed-parameters.mc`.
 
 Parse `232-photodiode-input.mc`:
@@ -134,8 +134,8 @@ impedance or enough acquisition time for the sampling capacitor to settle. Treat
 these values as an illustration of the MCode topology, not as a board-wide
 recommendation.
 
-The syntax follows `01-basic-circuits/102-rc-low-pass-filter.mc` and the shared
-node style from `02-circuits-with-branches/203-input-rc-esd.mc`. `CAP.CER` is
+The syntax follows `01-basic-circuits/012-rc-low-pass-filter.mc` and the shared
+node style from `02-circuits-with-branches/023-input-rc-esd.mc`. `CAP.CER` is
 the ceramic capacitor subtype from the current `mcode` library.
 
 Parse `233-adc-input-rc-filter.mc`:

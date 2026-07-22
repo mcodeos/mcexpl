@@ -6,9 +6,9 @@ component MCU_UART
 {
     name = "MCU with UART"
     pins = [
-        io 1:3 = UART0::UART.TTL(DCE)
-        4 = VCC
-        5 = GND
+        io 1:2 = UART0::UART.TTL(DCE)
+        ps 3 = VCC
+        ps 4 = GND
     ]
 }
 
@@ -23,7 +23,6 @@ module main
 
     V3V3 -> U_MCU.VCC
     U_MCU.GND -> GND
-    U_MCU.UART0.GND -> GND
 
     U_MCU.UART0.TX -> J_DEBUG.1
     U_MCU.UART0.RX -> J_DEBUG.2

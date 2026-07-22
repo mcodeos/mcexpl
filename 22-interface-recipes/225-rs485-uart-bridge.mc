@@ -6,9 +6,9 @@ component MCU_UART
 {
     name = "MCU with UART"
     pins = [
-        io 1:3 = UART0::UART.TTL(DCE)
-        4 = VCC
-        5 = GND
+        io 1:2 = UART0::UART.TTL(DCE)
+        ps 3 = VCC
+        ps 4 = GND
     ]
 }
 
@@ -16,12 +16,12 @@ component RS485_BRIDGE
 {
     name = "UART to RS485 Bridge"
     pins = [
-        io 1:3 = UART0::UART.TTL(DTE)
-        io 4:6 = BUS::UART.RS485(Master)
-        7 = VCC
-        8 = GND
-        9 = DE
-        10 = RE_N
+        io 1:2 = UART0::UART.TTL(DTE)
+        io 3:5 = BUS::UART.RS485(Master)
+        ps 6 = VCC
+        ps 7 = GND
+        io 8 = DE
+        io 9 = RE_N
     ]
 }
 
@@ -40,8 +40,6 @@ module main
     U_RS485.GND -> GND
     U_MCU.VCC -> V5V
     U_MCU.GND -> GND
-    U_MCU.UART0.GND -> GND
-    U_RS485.UART0.GND -> GND
 
     U_MCU.UART0.TX -> U_RS485.UART0.RX
     U_RS485.UART0.TX -> U_MCU.UART0.RX
