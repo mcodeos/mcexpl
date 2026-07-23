@@ -1,6 +1,6 @@
 // Example: Pull-Up Helper Function
 // Goal: Configure both channels of a pull-up network in one method chain.
-// Language focus: named pins in methods, return this, chained method calls.
+// Language focus: return this, chained method calls.
 
 component DUAL_PULLUP_RESISTOR
 {

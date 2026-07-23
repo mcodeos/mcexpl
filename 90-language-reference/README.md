@@ -125,11 +125,16 @@ Syntax synopsis:
 ```mc
 func Method(signal, resistor, ground)
 {
-    signal -> resistor -> this -> ground
+    signal -> resistor -> ANODE
+    CATHODE -> ground
     return this
 }
 INSTANCE.Method(A, R_LIMIT, GND)
 ```
+
+Bare component pin names select pins on the current instance. `return this`
+returns that instance so a caller can continue with another method call; 042
+shows the returned value being consumed by a method chain.
 
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/906-functions-method-calls.mc --lib mcode --pass1 --pass2

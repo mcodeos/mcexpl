@@ -86,6 +86,9 @@ represents the device controller. The `USB_DM` and `USB_DP` lines connect from
 the connector to `U_DEV.DATA.DM` and `U_DEV.DATA.DP`, and each line also has an
 ESD diode to ground. `C_VBUS` bypasses the USB VBUS rail.
 
+The binding `USB.DATA(Peripheral)` gives the controller the device-side role
+defined by the current USB interface library; the opposite role is `Host`.
+
 Parse `224-usb-device-port.mc`:
 
 ```bash

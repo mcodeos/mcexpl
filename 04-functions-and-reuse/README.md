@@ -12,15 +12,17 @@ current-limited `Indicator` method:
 ```mc
 func Indicator(signal, resistor, ground)
 {
-    signal -> resistor -> this -> ground
+    signal -> resistor -> ANODE
+    CATHODE -> ground
 }
 ```
 
 - `func` declares a function inside the component.
 - `signal`, `resistor`, and `ground` are parameters. Their values are supplied
   by the call in `module main`.
-- `this` means the current `STATUS_LED` instance. In this two-pin component, the
-  connection enters one terminal and leaves the other.
+- Inside a component method, bare pin names such as `ANODE` and `CATHODE` refer
+  to those pins on the current component instance. The two statements therefore
+  wire the resistor to the LED anode and the LED cathode to ground.
 - `D_STATUS.Indicator(GPIO_STATUS, R_LIMIT, GND)` calls the method on the
   `D_STATUS` instance. The dot selects the method, and the call parentheses pass
   the signal node, a real resistor instance, and ground.
@@ -39,8 +41,7 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and
 
 `042-pullup-helper-function.mc` models a dual pull-up resistor network. Each
 method configures one resistor channel and connects one normally-high button
-input. Inside a component method, a bare pin name such as `INPUT_A` refers to
-that pin on the current component instance:
+input. It reuses the component pin access introduced in 041:
 
 ```mc
 func PullupA(input, source, switch_pin)

@@ -1,6 +1,6 @@
 // Example: LED Indicator Function
 // Goal: Give a current-limited status LED a reusable connection method.
-// Language focus: func, parameters, this, method calls.
+// Language focus: func, parameters, component pin access, method calls.
 
 component STATUS_LED
 {
@@ -12,7 +12,8 @@ component STATUS_LED
 
     func Indicator(signal, resistor, ground)
     {
-        signal -> resistor -> this -> ground
+        signal -> resistor -> ANODE
+        CATHODE -> ground
     }
 }
 

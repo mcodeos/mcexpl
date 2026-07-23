@@ -6,7 +6,7 @@ component USB_DEVICE
 {
     name = "USB Device Controller"
     pins = [
-        [1,2] = DATA{DM, DP}::USB.DATA(Device)
+        [1,2] = DATA{DM, DP}::USB.DATA(Peripheral)
         3 = VBUS
         4 = GND
     ]

@@ -40,8 +40,9 @@ temperature, ADC reference accuracy, or calibration curve, so this example does
 not claim an exact temperature conversion.
 
 The syntax follows the voltage-divider pattern from
-`01-basic-circuits/011-voltage-divider.mc`. `RES.THERM(10000R)` is the actual
-thermistor component defined by the current `mcode` library.
+`01-basic-circuits/011-voltage-divider.mc`. `RES.THERM(10000R, 50V)` matches the
+current library constructor: the arguments set nominal resistance and voltage
+rating.
 
 Parse `231-ntc-temperature-divider.mc`:
 

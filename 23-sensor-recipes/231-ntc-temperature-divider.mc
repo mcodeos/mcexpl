@@ -6,7 +6,7 @@ module main
 {
     DC.SRC PWR(3.3V, 5mA)
     RES R_FIXED(10000R, 50V)
-    RES.THERM RT_NTC(10000R)
+    RES.THERM RT_NTC(10000R, 50V)
 
     PWR.1 -> V3V3
     PWR.2 -> GND

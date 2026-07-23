@@ -11,7 +11,8 @@ component REF_LED
 
     func Light(signal, resistor, ground)
     {
-        signal -> resistor -> this -> ground
+        signal -> resistor -> ANODE
+        CATHODE -> ground
         return this
     }
 }
