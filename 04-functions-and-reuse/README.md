@@ -6,30 +6,32 @@ external nodes that should be connected.
 
 ## 041 LED Indicator Function
 
-`041-led-indicator-function.mc` defines a two-pin `STATUS_LED` and gives it a
-current-limited `Indicator` method:
+`041-led-indicator-function.mc` defines a two-pin `STATUS_LED` and gives it an
+`Indicator` method for connecting an already current-limited signal:
 
 ```mc
-func Indicator(signal, resistor, ground)
+func Indicator(limited_signal, ground)
 {
-    signal -> resistor -> ANODE
+    limited_signal -> ANODE
     CATHODE -> ground
 }
 ```
 
 - `func` declares a function inside the component.
-- `signal`, `resistor`, and `ground` are parameters. Their values are supplied
-  by the call in `module main`.
+- `limited_signal` and `ground` are parameters. Their values are supplied by the
+  call in `module main`.
 - Inside a component method, bare pin names such as `ANODE` and `CATHODE` refer
   to those pins on the current component instance. The two statements therefore
-  wire the resistor to the LED anode and the LED cathode to ground.
-- `D_STATUS.Indicator(GPIO_STATUS, R_LIMIT, GND)` calls the method on the
-  `D_STATUS` instance. The dot selects the method, and the call parentheses pass
-  the signal node, a real resistor instance, and ground.
+  wire the current-limited signal to the LED anode and the LED cathode to ground.
+- `GPIO_STATUS -> R_LIMIT.1` connects the control signal to the resistor's first
+  physical pin. `D_STATUS.Indicator(R_LIMIT.2, GND)` passes the resistor's other
+  pin and ground to the method.
+- The dot in `D_STATUS.Indicator(...)` selects a method on the `D_STATUS`
+  instance, and the call parentheses contain its arguments.
 
-The resolved circuit is `GPIO_STATUS`, `R_LIMIT`, `D_STATUS`, then `GND`. Passing
-the resistor as a parameter keeps the first method call small without teaching an
-unsafe bare-LED pattern. This example intentionally avoids return values, typed
+The explicit `R_LIMIT.1` and `R_LIMIT.2` connections keep the resistor as a real
+two-pin series device. The resolved circuit is `GPIO_STATUS`, `R_LIMIT`,
+`D_STATUS`, then `GND`. This example intentionally avoids return values, typed
 parameters, and inline construction.
 
 ```bash

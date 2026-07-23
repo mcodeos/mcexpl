@@ -31,6 +31,7 @@ module main
 
     BUS_A -> U_END.A
     BUS_B -> U_END.B
-    BUS_A -> R_TERM -> BUS_B
+    // The termination path uses pins that exist only on the terminated variant.
+    BUS_A -> U_END.TERM0 -> R_TERM -> U_END.TERM1 -> BUS_B
     U_END.GND -> GND
 }

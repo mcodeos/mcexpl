@@ -123,18 +123,21 @@ method calls. Tutorial first use: `04-functions-and-reuse`.
 Syntax synopsis:
 
 ```mc
-func Method(signal, resistor, ground)
+func ConnectAnode(signal)
 {
-    signal -> resistor -> ANODE
-    CATHODE -> ground
+    signal -> ANODE
     return this
 }
-INSTANCE.Method(A, R_LIMIT, GND)
+func ConnectCathode(ground)
+{
+    CATHODE -> ground
+}
+INSTANCE.ConnectAnode(A).ConnectCathode(GND)
 ```
 
 Bare component pin names select pins on the current instance. `return this`
-returns that instance so a caller can continue with another method call; 042
-shows the returned value being consumed by a method chain.
+returns that instance, so `.ConnectCathode(...)` runs on the value returned by
+`ConnectAnode(...)`. Tutorial example 042 uses the same method-chain pattern.
 
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/906-functions-method-calls.mc --lib mcode --pass1 --pass2
@@ -168,6 +171,9 @@ component TYPE_NAME(partno::STRING = "BASE")
     }
 }
 ```
+
+The runnable example connects `U_WIDE.IO2`, proving that a name appended by
+`pins +=` can be accessed on the selected variant. `U_BASE` has no `IO2` member.
 
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/907-conditions-and-dynamic-pins.mc --lib mcode --pass1 --pass2

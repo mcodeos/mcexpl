@@ -1,6 +1,6 @@
 // Example: Reusable LED Module
 // Goal: Define a circuit block with ports and instantiate it twice.
-// Language focus: module ports, module instances, positional port binding.
+// Language focus: module ports, module instances, explicit port connections.
 
 module LED_INDICATOR(in signal, ps ground)
 {

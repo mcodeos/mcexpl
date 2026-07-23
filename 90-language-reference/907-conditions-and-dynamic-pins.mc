@@ -30,4 +30,12 @@ module main
 {
     REF_VARIANT         U_BASE
     REF_VARIANT("WIDE") U_WIDE
+
+    BASE_IO0 -> U_BASE.IO0
+    U_BASE.GND -> GND
+
+    WIDE_IO0 -> U_WIDE.IO0
+    // IO2 exists only when the WIDE condition appends pins 4 and 5.
+    WIDE_IO2 -> U_WIDE.IO2
+    U_WIDE.GND -> GND
 }

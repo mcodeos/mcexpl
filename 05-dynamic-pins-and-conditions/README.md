@@ -57,8 +57,9 @@ pins += [
 names from `GPIO8` through `GPIO15`. Here, `partno::STRING = "GPIO8"` introduces
 a default parameter value. `U_SMALL` omits the argument and resolves
 to 10 pins total; `U_LARGE` passes `"GPIO16"` and resolves to 18. Both variants
-have `VCC`, `GND`, and `GPIO0` connected, so the shared base pins can be compared
-while the larger instance visibly exposes eight additional terminals.
+have `VCC`, `GND`, and `GPIO0` connected, so the shared base pins can be
+compared. `LARGE_GPIO8 -> U_LARGE.GPIO8` then accesses one of the names added by
+`pins +=`; the smaller variant has no `GPIO8` member.
 
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/052-gpio-expander-pins.mc --lib mcode --pass1 --pass2
@@ -70,10 +71,14 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-
 `053-rs485-termination-pins.mc` applies the same conditional-pin pattern to
 an RS485 endpoint. `U_NODE` exposes `A`, `B`, and `GND`. The
 `"RS485_TERM120"` variant `U_END` also exposes `TERM0` and `TERM1`. Both variants
-connect to `BUS_A`, `BUS_B`, and `GND`, while `R_TERM` places the actual 120 ohm
-termination between the two bus nodes at `U_END`. This separates two ideas: the
-condition changes the endpoint's available terminals, and the resistor creates
-the electrical termination.
+connect to `BUS_A`, `BUS_B`, and `GND`. The terminated variant adds this path:
+
+```mc
+BUS_A -> U_END.TERM0 -> R_TERM -> U_END.TERM1 -> BUS_B
+```
+
+The member accesses prove that the conditional names are usable after `pins +=`,
+while `R_TERM` creates the actual 120 ohm termination between the two bus nodes.
 
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/053-rs485-termination-pins.mc --lib mcode --pass1 --pass2

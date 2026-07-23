@@ -68,7 +68,8 @@ power-module instance and one instance of each imported component. The explicit
 paths `U_POWER.VIN`, `U_POWER.V3V3`, and `U_POWER.GND` connect the parent design
 to the imported module ports. The MCU and sensor then share `V3V3`, `GND`,
 `I2C_SCL`, and `I2C_SDA`; one pull-up resistor is added to each bus line using
-the circuit pattern from `303`.
+the circuit pattern from
+`03-define-components-and-interfaces/034-i2c-sensor-component.mc`.
 
 Run MCC only on the entry file; it loads the three dependencies automatically.
 

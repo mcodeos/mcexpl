@@ -1,12 +1,12 @@
 // Example: NTC Temperature Divider
 // Goal: Create a simple analog voltage from an NTC thermistor divider.
-// Library focus: DC, RES, RES.THERM.
+// Library focus: DC, RES, RES.NTC.
 
 module main
 {
     DC.SRC PWR(3.3V, 5mA)
     RES R_FIXED(10000R, 50V)
-    RES.THERM RT_NTC(10000R, 50V)
+    RES.NTC RT_NTC(10000R, 3950, 50V)
 
     PWR.1 -> V3V3
     PWR.2 -> GND

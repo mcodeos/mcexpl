@@ -28,21 +28,21 @@ TEMP_SENSE -> RT_NTC -> GND
 
 `R_FIXED` is the upper resistor and `RT_NTC` is the lower resistor. `TEMP_SENSE`
 is the divider midpoint that an ADC input could measure in a larger design. The
-chosen example values are 10 kOhm for both parts. If the thermistor is 10 kOhm
-at the measurement temperature, the unloaded midpoint is about half of 3.3 V,
-or 1.65 V.
+chosen nominal resistance is 10 kOhm, and `3950` is an illustrative beta
+coefficient for the NTC. If the thermistor is 10 kOhm at the measurement
+temperature, the unloaded midpoint is about half of 3.3 V, or 1.65 V.
 
 For a typical NTC thermistor, resistance falls as temperature rises. With this
 orientation, `TEMP_SENSE = V3V3 * RT_NTC / (R_FIXED + RT_NTC)`, so the output
-voltage falls as temperature rises. The MCode library records only the nominal
-thermistor resistance here; it does not provide a beta value, reference
-temperature, ADC reference accuracy, or calibration curve, so this example does
-not claim an exact temperature conversion.
+voltage falls as temperature rises. The MCode library records nominal resistance,
+beta coefficient, and voltage rating, but it does not provide the beta reference
+temperature, ADC reference accuracy, or a calibration curve. This example
+therefore does not claim an exact temperature conversion.
 
 The syntax follows the voltage-divider pattern from
-`01-basic-circuits/011-voltage-divider.mc`. `RES.THERM(10000R, 50V)` matches the
-current library constructor: the arguments set nominal resistance and voltage
-rating.
+`01-basic-circuits/011-voltage-divider.mc`. `RES.NTC(10000R, 3950, 50V)` matches
+the current library constructor: the arguments set nominal resistance, beta
+coefficient, and voltage rating.
 
 Parse `231-ntc-temperature-divider.mc`:
 

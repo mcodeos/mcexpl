@@ -35,4 +35,6 @@ module main
     V3V3 -> U_LARGE.VCC
     U_LARGE.GND -> GND
     LARGE_GPIO0 -> U_LARGE.GPIO0
+    // GPIO8 exists only on the GPIO16 variant.
+    LARGE_GPIO8 -> U_LARGE.GPIO8
 }
