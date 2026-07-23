@@ -1,13 +1,13 @@
 // Example: UART Interface Binding
 // Goal: Define a small component with a UART interface and connect it to a header.
-// Language focus: pin ranges, interface binding, interface member access.
+// Language focus: interface binding, interface roles, interface member access.
 
 component MCU_UART
 {
     name = "MCU with UART"
     pins = [
         // Pins 1 and 2 become UART0.TX and UART0.RX.
-        io 1:2 = UART0::UART.TTL(DCE)
+        io [1:2] = UART0::UART.TTL(DCE)
         ps 3 = VCC
         ps 4 = GND
     ]

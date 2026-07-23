@@ -37,29 +37,39 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and
 
 ## 042 Pull-Up Helper Function
 
-`042-pullup-helper-function.mc` defines `PULLUP_RESISTOR.Pullup(input, source)`.
-Its connection runs from the input node through `this` resistor to the source
-rail:
+`042-pullup-helper-function.mc` models a dual pull-up resistor network. Each
+method configures one resistor channel and connects one normally-high button
+input. Inside a component method, a bare pin name such as `INPUT_A` refers to
+that pin on the current component instance:
 
 ```mc
-func Pullup(input, source)
+func PullupA(input, source, switch_pin)
 {
-    input -> this -> source
-    return input
+    input -> INPUT_A
+    SOURCE_A -> source
+    input -> switch_pin
+    return this
 }
 ```
 
-`return input` exposes the named input parameter as the method's result. The
-example does not chain that result into another expression; it keeps the next
-statement explicit:
+- `input -> INPUT_A` connects the caller's input node to the first resistor
+  channel. `SOURCE_A -> source` connects the other end to the supply rail.
+- Reusing `input` in `input -> switch_pin` creates the branch to the button, so
+  the resistor pin and switch common pin share one input node.
+- `return this` returns the current `DUAL_PULLUP_RESISTOR` instance. Unlike an
+  ordinary connection node, that returned instance still has component methods.
+
+The call consumes that return value immediately:
 
 ```mc
-R_PULLUP.Pullup(BUTTON_IN, V3V3)
-BUTTON_IN -> SW_USER.COM
+RN_PULLUPS.PullupA(BUTTON_A, V3V3, SW_A.COM).PullupB(BUTTON_B, V3V3, SW_B.COM)
 ```
 
-Repeating `BUTTON_IN` makes the shared input node visible: the pull-up resistor
-and the switch common pin meet at the same electrical node.
+Read the expression from left to right. `PullupA(...)` runs on `RN_PULLUPS` and
+returns that same instance; the following `.PullupB(...)` is then called on the
+returned instance. `PullupB` omits `return` because no call follows it. The
+resulting circuit has two independent normally-high button inputs, while both
+pull-up channels share `V3V3`.
 
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/042-pullup-helper-function.mc --lib mcode --pass1 --pass2
@@ -68,8 +78,8 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and
 
 ## 043 Inline Construction Function
 
-`043-inline-construction-function.mc` keeps the same pull-up method but creates
-the helper component inside the call:
+`043-inline-construction-function.mc` uses a single-channel `Pullup` method and
+creates its helper component inside the call:
 
 ```mc
 R_PULLUP::PULLUP_RESISTOR().Pullup(BUTTON_IN, V3V3)
@@ -80,8 +90,9 @@ R_PULLUP::PULLUP_RESISTOR().Pullup(BUTTON_IN, V3V3)
 from a component type. That is different from the interface binding use of `::`
 in chapter 03, where `UART0::UART.TTL(DCE)` bound pins to an interface.
 
-The circuit is still the same normally-high button input from `402`; only the
-instance construction style changes.
+This example returns to one pull-up resistor and one button so the inline
+construction syntax remains the only new idea. Its method omits `return`
+because the call result is not used.
 
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/043-inline-construction-function.mc --lib mcode --pass1 --pass2

@@ -128,17 +128,20 @@ Local component definitions, pins, and interface binding.
 
 - `031-named-pins-component.mc`: Define and instantiate a component with named
   pins.
-- `032-uart-interface-binding.mc`: Bind MCU pins to a UART interface and debug
+- `032-pin-directions-and-ranges.mc`: Add pin directions, physical ranges, and
+  indexed pin names without interfaces.
+- `033-uart-interface-binding.mc`: Bind MCU pins to a UART interface and debug
   header.
-- `033-i2c-sensor-component.mc`: Define I2C controller and sensor components.
-- `034-spi-flash-component.mc`: Define SPI master and flash components.
+- `034-i2c-sensor-component.mc`: Define I2C controller and sensor components.
+- `035-spi-flash-component.mc`: Define SPI master and flash components.
 
 ### 04 Functions And Reuse
 
 Reusable connection methods on component definitions.
 
 - `041-led-indicator-function.mc`: Give a status LED a reusable connection method.
-- `042-pullup-helper-function.mc`: Return a named input from a pull-up method.
+- `042-pullup-helper-function.mc`: Configure two pull-up channels with a returned
+  instance and a chained method call.
 - `043-inline-construction-function.mc`: Name a helper instance inside a method
   call.
 - `044-decoupling-library-method.mc`: Reuse a library method on two rails.

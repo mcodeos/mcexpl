@@ -13,7 +13,6 @@ component PULLUP_RESISTOR
     func Pullup(input, source)
     {
         input -> this -> source
-        return input
     }
 }
 

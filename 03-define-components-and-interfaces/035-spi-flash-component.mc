@@ -6,7 +6,7 @@ component MCU_SPI
 {
     name = "MCU with SPI"
     pins = [
-        io 1:4 = SPI0::SPI(Master)
+        io [1:4] = SPI0::SPI(Master)
         ps 5 = VCC
         ps 6 = GND
     ]
@@ -16,7 +16,7 @@ component FLASH_SPI
 {
     name = "SPI Flash"
     pins = [
-        io 1:4 = SPI0::SPI(Slave)
+        io [1:4] = SPI0::SPI(Slave)
         ps 5 = VCC
         ps 6 = GND
     ]
