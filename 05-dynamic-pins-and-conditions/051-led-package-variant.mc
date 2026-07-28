@@ -1,6 +1,6 @@
 // Example: LED Package Variant
 // Goal: Select attributes from a parameter value.
-// Language focus: typed parameters, if, else if, conditional attributes.
+// Language focus: typed parameters, if, else if, else, conditional attributes.
 
 component CONFIG_LED(package_style::STRING)
 {
@@ -19,6 +19,11 @@ component CONFIG_LED(package_style::STRING)
     {
         package = "1206"
         description = "Large status LED"
+    }
+    else
+    {
+        package = "unspecified"
+        description = "Status LED with an unspecified package"
     }
 }
 

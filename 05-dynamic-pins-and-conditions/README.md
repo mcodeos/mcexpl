@@ -20,6 +20,10 @@ component CONFIG_LED(package_style::STRING)
     {
         package = "1206"
     }
+    else
+    {
+        package = "unspecified"
+    }
 }
 ```
 
@@ -28,13 +32,17 @@ component CONFIG_LED(package_style::STRING)
 - `if (...)` evaluates a condition; `==` compares values rather than assigning
   one.
 - `else if` provides another condition when the first one is false.
+- `else` is the final fallback. It runs only when every preceding condition is
+  false, so an unexpected package string still receives defined metadata.
 - Attribute assignments inside a selected block apply only for that variant.
 
 `D_SMALL` passes `"0603"`, while `D_LARGE` passes `"1206"`, so the two instances
-select different branches. Both LEDs are connected
-from `V3V3` through their own current-limiting resistors to `GND`, so they are
-complete comparable instances rather than floating type demonstrations. Their
-electrical topology is the same; the selected package metadata is different.
+select different explicit branches. The fallback is not selected by either
+instance, but it shows how the component handles any other value. Both LEDs are
+connected from `V3V3` through their own current-limiting resistors to `GND`, so
+they are complete comparable instances rather than floating type demonstrations.
+Their electrical topology is the same; the selected package metadata is
+different.
 
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/051-led-package-variant.mc --lib mcode --pass1 --pass2
