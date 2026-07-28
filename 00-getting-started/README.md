@@ -7,6 +7,7 @@ syntax where it first appears.
 Run all commands from the `mc-examples` directory. `MCC_SYSTEM_ROOT` points MCC
 to the parent directory that contains the `mcode` library.
 
+<!-- #region _001-power-net -->
 ## 001 Power Net
 
 `001-power-net.mc` creates a 5 V source and names its positive and ground nets.
@@ -41,6 +42,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-start
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --viz -o 00-getting-started/001-power-net.html
 ```
 
+<!-- #endregion _001-power-net -->
+
+<!-- #region _002-resistor-led -->
 ## 002 Resistor LED
 
 `002-resistor-led.mc` places a resistor and LED in series across the source.
@@ -62,6 +66,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-start
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/002-resistor-led.mc --lib mcode --viz -o 00-getting-started/002-resistor-led.html
 ```
 
+<!-- #endregion _002-resistor-led -->
+
+<!-- #region _003-decoupling-capacitor -->
 ## 003 Decoupling Capacitor
 
 `003-decoupling-capacitor.mc` places a 100 nF capacitor directly across a
@@ -74,6 +81,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-start
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/003-decoupling-capacitor.mc --lib mcode --viz -o 00-getting-started/003-decoupling-capacitor.html
 ```
 
+<!-- #endregion _003-decoupling-capacitor -->
+
+<!-- #region _004-button-pull-up -->
 ## 004 Button Pull-Up
 
 `004-button-pullup.mc` models a normally-high button input. The resistor pulls
@@ -95,3 +105,5 @@ resistor and switch statements at one electrical node. `SW_USER.COM` and
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/004-button-pullup.mc --lib mcode --pass1 --pass2
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/004-button-pullup.mc --lib mcode --viz -o 00-getting-started/004-button-pullup.html
 ```
+
+<!-- #endregion _004-button-pull-up -->

@@ -12,6 +12,7 @@ export MCC_SYSTEM_ROOT="$(cd .. && pwd)"
 
 ## Reference Examples
 
+<!-- #region _901-component-definition -->
 ### 901 Component Definition
 
 `901-component-definition.mc` covers `component`, simple attributes, `pins`, and
@@ -33,6 +34,9 @@ component TYPE_NAME
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/901-component-definition.mc --lib mcode --pass1 --pass2
 ```
 
+<!-- #endregion _901-component-definition -->
+
+<!-- #region _902-attributes-spec-and-typed-parameters -->
 ### 902 Attributes, Spec, And Typed Parameters
 
 `902-attributes-spec-typed-parameters.mc` covers typed constructor parameters
@@ -54,6 +58,9 @@ component TYPE_NAME(value::UV.OHM)
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/902-attributes-spec-typed-parameters.mc --lib mcode --pass1 --pass2
 ```
 
+<!-- #endregion _902-attributes-spec-and-typed-parameters -->
+
+<!-- #region _903-pins-ranges-and-indexed-names -->
 ### 903 Pins, Ranges, And Indexed Names
 
 `903-pins-ranges-indexed-names.mc` covers pin directions, physical pin ranges,
@@ -74,6 +81,9 @@ pins = [
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/903-pins-ranges-indexed-names.mc --lib mcode --pass1 --pass2
 ```
 
+<!-- #endregion _903-pins-ranges-and-indexed-names -->
+
+<!-- #region _904-module-ports -->
 ### 904 Module Ports
 
 `904-module-ports.mc` covers module parameters with direction markers, module
@@ -98,6 +108,9 @@ module main
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/904-module-ports.mc --lib mcode --pass1 --pass2 --top main
 ```
 
+<!-- #endregion _904-module-ports -->
+
+<!-- #region _905-interface-binding-and-roles -->
 ### 905 Interface Binding And Roles
 
 `905-interface-binding-roles.mc` covers binding a physical pin range to a named
@@ -115,6 +128,9 @@ pins = [
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/905-interface-binding-roles.mc --lib mcode --pass1 --pass2
 ```
 
+<!-- #endregion _905-interface-binding-and-roles -->
+
+<!-- #region _906-functions-and-method-calls -->
 ### 906 Functions And Method Calls
 
 `906-functions-method-calls.mc` covers `func`, parameters, `this`, `return`, and
@@ -143,6 +159,9 @@ returns that instance, so `.ConnectCathode(...)` runs on the value returned by
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/906-functions-method-calls.mc --lib mcode --pass1 --pass2
 ```
 
+<!-- #endregion _906-functions-and-method-calls -->
+
+<!-- #region _907-conditions-and-dynamic-pins -->
 ### 907 Conditions And Dynamic Pins
 
 `907-conditions-and-dynamic-pins.mc` covers default parameters, `if`, `else`,
@@ -179,6 +198,9 @@ The runnable example connects `U_WIDE.IO2`, proving that a name appended by
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/907-conditions-and-dynamic-pins.mc --lib mcode --pass1 --pass2
 ```
 
+<!-- #endregion _907-conditions-and-dynamic-pins -->
+
+<!-- #region _908-inline-construction-and-library-methods -->
 ### 908 Inline Construction And Library Methods
 
 `908-inline-construction-library-method.mc` covers `NAME::TYPE(args)` inline
@@ -195,6 +217,9 @@ R_PULLUP::RES(10000R, 50V).Pullup(BUTTON_IN, V3V3)
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/908-inline-construction-library-method.mc --lib mcode --pass1 --pass2
 ```
 
+<!-- #endregion _908-inline-construction-and-library-methods -->
+
+<!-- #region _909-cross-file-use -->
 ### 909 Cross-File Use
 
 `909-cross-file-use/` covers local `use` with a runnable entry file. Tutorial
@@ -209,3 +234,5 @@ use ./led_block.mc
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/909-cross-file-use/main.mc --lib mcode --pass1 --pass2
 ```
+
+<!-- #endregion _909-cross-file-use -->

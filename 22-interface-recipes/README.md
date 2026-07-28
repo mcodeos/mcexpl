@@ -12,6 +12,7 @@ export MCC_SYSTEM_ROOT="$(cd .. && pwd)"
 
 Generated HTML is written next to each example source file.
 
+<!-- #region _221-uart-debug-header -->
 ## 221 UART Debug Header
 
 `221-uart-debug-header.mc` describes a small UART debug connector.
@@ -34,6 +35,9 @@ Generate HTML for `221-uart-debug-header.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/221-uart-debug-header.mc --lib mcode --viz -o 22-interface-recipes/221-uart-debug-header.html
 ```
 
+<!-- #endregion _221-uart-debug-header -->
+
+<!-- #region _222-i2c-sensor-bus -->
 ## 222 I2C Sensor Bus
 
 `222-i2c-sensor-bus.mc` describes a controller connected to one I2C sensor.
@@ -55,6 +59,9 @@ Generate HTML for `222-i2c-sensor-bus.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/222-i2c-sensor-bus.mc --lib mcode --viz -o 22-interface-recipes/222-i2c-sensor-bus.html
 ```
 
+<!-- #endregion _222-i2c-sensor-bus -->
+
+<!-- #region _223-spi-flash -->
 ## 223 SPI Flash
 
 `223-spi-flash.mc` describes a basic four-wire SPI flash connection.
@@ -76,6 +83,9 @@ Generate HTML for `223-spi-flash.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/223-spi-flash.mc --lib mcode --viz -o 22-interface-recipes/223-spi-flash.html
 ```
 
+<!-- #endregion _223-spi-flash -->
+
+<!-- #region _224-usb-device-port -->
 ## 224 USB Device Port
 
 `224-usb-device-port.mc` describes a USB Micro-B device-side port.
@@ -101,6 +111,9 @@ Generate HTML for `224-usb-device-port.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/224-usb-device-port.mc --lib mcode --viz -o 22-interface-recipes/224-usb-device-port.html
 ```
 
+<!-- #endregion _224-usb-device-port -->
+
+<!-- #region _225-rs485-uart-bridge -->
 ## 225 RS485 UART Bridge
 
 `225-rs485-uart-bridge.mc` describes a UART-to-RS485 bridge.
@@ -123,3 +136,5 @@ Generate HTML for `225-rs485-uart-bridge.mc`:
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 22-interface-recipes/225-rs485-uart-bridge.mc --lib mcode --viz -o 22-interface-recipes/225-rs485-uart-bridge.html
 ```
+
+<!-- #endregion _225-rs485-uart-bridge -->

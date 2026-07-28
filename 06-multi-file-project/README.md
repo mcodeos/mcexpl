@@ -4,6 +4,7 @@ This chapter first turns a small circuit into a reusable module, then moves a
 module and component definitions into separate source files. Read `061` before
 `062`: module boundaries come before file boundaries.
 
+<!-- #region _061-reusable-module -->
 ## 061 Reusable Module
 
 `061-reusable-module.mc` defines a reusable LED circuit instead of a single
@@ -44,6 +45,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-pr
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/061-reusable-module.mc --lib mcode --viz --top main -o 06-multi-file-project/061-reusable-module.html
 ```
 
+<!-- #endregion _061-reusable-module -->
+
+<!-- #region _062-multi-file-sensor-node -->
 ## 062 Multi-File Sensor Node
 
 The entry file begins with three local imports:
@@ -77,3 +81,5 @@ Run MCC only on the entry file; it loads the three dependencies automatically.
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/062-main.mc --lib mcode --pass1 --pass2 --top main
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/062-main.mc --lib mcode --viz --top main -o 06-multi-file-project/062-main.html
 ```
+
+<!-- #endregion _062-multi-file-sensor-node -->

@@ -4,6 +4,7 @@ This chapter builds protection and power circuits in which several paths share
 one node. The first three examples use repeated node names; the last introduces
 compact branch-group syntax.
 
+<!-- #region _021-zener-clamp-branch -->
 ## 021 Zener Clamp Branch
 
 `021-zener-clamp.mc` places a series resistor between `VIN` and `VCLAMP`, then
@@ -17,6 +18,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/021-zener-clamp.mc --lib mcode --viz -o 02-circuits-with-branches/021-zener-clamp.html
 ```
 
+<!-- #endregion _021-zener-clamp-branch -->
+
+<!-- #region _022-tvs-input-protection-branch -->
 ## 022 TVS Input Protection Branch
 
 `022-tvs-input-protection.mc` uses the same branch pattern with a `DIO.TVS`
@@ -30,6 +34,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/022-tvs-input-protection.mc --lib mcode --viz -o 02-circuits-with-branches/022-tvs-input-protection.html
 ```
 
+<!-- #endregion _022-tvs-input-protection-branch -->
+
+<!-- #region _023-input-rc-esd -->
 ## 023 Input RC ESD
 
 `023-input-rc-esd.mc` joins four things at `ADC_IN`: the series resistor output,
@@ -44,6 +51,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/023-input-rc-esd.mc --lib mcode --viz -o 02-circuits-with-branches/023-input-rc-esd.html
 ```
 
+<!-- #endregion _023-input-rc-esd -->
+
+<!-- #region _024-simple-power-branch -->
 ## 024 Simple Power Branch
 
 `024-simple-power-branch.mc` feeds a bypass capacitor and an LED indicator from
@@ -66,3 +76,5 @@ connection so the diode polarity stays readable.
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/024-simple-power-branch.mc --lib mcode --pass1 --pass2
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/024-simple-power-branch.mc --lib mcode --viz -o 02-circuits-with-branches/024-simple-power-branch.html
 ```
+
+<!-- #endregion _024-simple-power-branch -->

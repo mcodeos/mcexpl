@@ -13,6 +13,7 @@ export MCC_SYSTEM_ROOT="$(cd .. && pwd)"
 
 Generated HTML is written next to each example source file.
 
+<!-- #region _231-ntc-temperature-divider -->
 ## 231 NTC Temperature Divider
 
 `231-ntc-temperature-divider.mc` is useful when a controller wants a simple
@@ -56,6 +57,9 @@ Generate HTML for `231-ntc-temperature-divider.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/231-ntc-temperature-divider.mc --lib mcode --viz -o 23-sensor-recipes/231-ntc-temperature-divider.html
 ```
 
+<!-- #endregion _231-ntc-temperature-divider -->
+
+<!-- #region _232-photodiode-input -->
 ## 232 Photodiode Input
 
 `232-photodiode-input.mc` is useful as the smallest readable photodiode input
@@ -103,6 +107,9 @@ Generate HTML for `232-photodiode-input.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/232-photodiode-input.mc --lib mcode --viz -o 23-sensor-recipes/232-photodiode-input.html
 ```
 
+<!-- #endregion _232-photodiode-input -->
+
+<!-- #region _233-adc-input-rc-filter -->
 ## 233 ADC Input RC Filter
 
 `233-adc-input-rc-filter.mc` is useful when a sensor signal needs a small
@@ -150,3 +157,5 @@ Generate HTML for `233-adc-input-rc-filter.mc`:
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/233-adc-input-rc-filter.mc --lib mcode --viz -o 23-sensor-recipes/233-adc-input-rc-filter.html
 ```
+
+<!-- #endregion _233-adc-input-rc-filter -->

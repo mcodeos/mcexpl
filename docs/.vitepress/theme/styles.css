@@ -1,0 +1,238 @@
+:root {
+  --vp-c-brand-1: #176f65;
+  --vp-c-brand-2: #125c54;
+  --vp-c-brand-3: #0d4a44;
+  --vp-c-brand-soft: rgba(23, 111, 101, 0.12);
+  --vp-c-bg: #fbfcfc;
+  --vp-c-bg-alt: #f2f5f4;
+  --vp-c-divider: #dce3e1;
+  --vp-code-block-bg: #f2f4f3;
+  --vp-custom-block-info-border: #b6c9c5;
+  --vp-custom-block-info-bg: #f1f6f5;
+  --vp-custom-block-info-text: #254843;
+}
+
+.dark {
+  --vp-c-brand-1: #77c6b8;
+  --vp-c-brand-2: #91d4c8;
+  --vp-c-brand-3: #a9dfd5;
+  --vp-c-brand-soft: rgba(119, 198, 184, 0.14);
+  --vp-c-bg: #111514;
+  --vp-c-bg-alt: #171c1b;
+  --vp-c-divider: #2b3432;
+  --vp-code-block-bg: #171c1b;
+}
+
+.VPNavBarTitle .title {
+  letter-spacing: -0.01em;
+}
+
+.book-home {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 76px 32px 96px;
+}
+
+.book-intro {
+  max-width: 760px;
+  padding-bottom: 64px;
+}
+
+.book-kicker {
+  color: var(--vp-c-brand-1);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.book-intro h1 {
+  font-size: clamp(2.35rem, 6vw, 4.4rem);
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  margin: 0;
+}
+
+.book-summary {
+  color: var(--vp-c-text-2);
+  font-size: 1.16rem;
+  line-height: 1.7;
+  margin: 24px 0 28px;
+  max-width: 680px;
+}
+
+.book-start {
+  align-items: center;
+  background: var(--vp-c-brand-1);
+  border-radius: 6px;
+  color: var(--vp-c-bg);
+  display: inline-flex;
+  font-size: 0.94rem;
+  font-weight: 650;
+  min-height: 42px;
+  padding: 0 18px;
+  text-decoration: none;
+}
+
+.book-start:hover {
+  background: var(--vp-c-brand-2);
+}
+
+.book-directory {
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 44px;
+}
+
+.directory-heading h2 {
+  font-size: 1.75rem;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.section-list {
+  display: grid;
+  gap: 48px;
+  margin-top: 36px;
+}
+
+.directory-section + .directory-section {
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 48px;
+}
+
+.section-heading {
+  align-items: start;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.section-heading h3 {
+  font-size: 1.35rem;
+  margin: 0 0 6px;
+}
+
+.section-heading h3 a {
+  color: var(--vp-c-text-1);
+  text-decoration: none;
+}
+
+.section-heading p,
+.chapter-card p,
+.section-lead {
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.section-heading > span {
+  color: var(--vp-c-text-3);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.chapter-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.chapter-card {
+  background: var(--vp-c-bg-alt);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  min-width: 0;
+  padding: 22px;
+}
+
+.chapter-card h2,
+.chapter-card h4 {
+  font-size: 1rem;
+  margin: 0 0 7px;
+}
+
+.chapter-card ol {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.chapter-card li + li {
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.chapter-card li a {
+  color: var(--vp-c-text-1);
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  padding: 9px 0;
+  text-decoration: none;
+}
+
+.chapter-card li a:hover,
+.section-heading h3 a:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.chapter-card small {
+  color: var(--vp-c-text-3);
+  display: block;
+  font-size: 0.78rem;
+  margin-top: 3px;
+}
+
+.section-index {
+  margin-top: 18px;
+}
+
+.section-index .chapter-grid {
+  margin-top: 32px;
+}
+
+.vp-doc div[class*='language-'],
+.vp-doc .vp-code-group {
+  max-width: 100%;
+}
+
+.vp-doc div[class*='language-'] code {
+  min-width: max-content;
+}
+
+@media (max-width: 760px) {
+  .book-home {
+    padding: 48px 20px 72px;
+  }
+
+  .book-intro {
+    padding-bottom: 46px;
+  }
+
+  .book-summary {
+    font-size: 1.02rem;
+  }
+
+  .chapter-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading > span {
+    display: block;
+    margin-top: 8px;
+  }
+
+  .chapter-card {
+    padding: 18px;
+  }
+
+  .vp-doc .vp-code-group .tabs {
+    overflow-x: auto;
+  }
+}

@@ -4,6 +4,7 @@ This chapter defines component variants from constructor parameters. Conditions
 can select descriptive attributes or append physical pins that exist only on a
 larger variant.
 
+<!-- #region _051-led-package-variant -->
 ## 051 LED Package Variant
 
 `051-led-package-variant.mc` selects package metadata from a constructor
@@ -49,6 +50,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/051-led-package-variant.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/051-led-package-variant.html
 ```
 
+<!-- #endregion _051-led-package-variant -->
+
+<!-- #region _052-gpio-expander-pins -->
 ## 052 GPIO Expander Pins
 
 `052-gpio-expander-pins.mc` always declares eight GPIO signals plus power and
@@ -74,6 +78,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/052-gpio-expander-pins.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/052-gpio-expander-pins.html
 ```
 
+<!-- #endregion _052-gpio-expander-pins -->
+
+<!-- #region _053-rs485-termination-pins -->
 ## 053 RS485 Termination Pins
 
 `053-rs485-termination-pins.mc` applies the same conditional-pin pattern to
@@ -92,3 +99,5 @@ while `R_TERM` creates the actual 120 ohm termination between the two bus nodes.
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/053-rs485-termination-pins.mc --lib mcode --pass1 --pass2
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/053-rs485-termination-pins.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/053-rs485-termination-pins.html
 ```
+
+<!-- #endregion _053-rs485-termination-pins -->

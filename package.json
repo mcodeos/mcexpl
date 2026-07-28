@@ -1,0 +1,19 @@
+{
+  "name": "mc-examples-docs",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "docs:validate": "node scripts/validate-catalog.ts",
+    "docs:check-links": "node scripts/check-built-links.ts",
+    "docs:dev": "pnpm docs:validate && vitepress dev docs",
+    "docs:build": "pnpm docs:validate && vitepress build docs && pnpm docs:check-links",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4"
+  }
+}

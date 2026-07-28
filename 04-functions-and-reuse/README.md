@@ -4,6 +4,7 @@ This chapter adds connection methods to component definitions. A method keeps a
 small wiring pattern beside the component that owns it, and callers provide the
 external nodes that should be connected.
 
+<!-- #region _041-led-indicator-function -->
 ## 041 LED Indicator Function
 
 `041-led-indicator-function.mc` defines a two-pin `STATUS_LED` and gives it an
@@ -39,6 +40,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/041-led-indicator-function.mc --lib mcode --viz -o 04-functions-and-reuse/041-led-indicator-function.html
 ```
 
+<!-- #endregion _041-led-indicator-function -->
+
+<!-- #region _042-pull-up-helper-function -->
 ## 042 Pull-Up Helper Function
 
 `042-pullup-helper-function.mc` models a dual pull-up resistor network. Each
@@ -79,6 +83,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/042-pullup-helper-function.mc --lib mcode --viz -o 04-functions-and-reuse/042-pullup-helper-function.html
 ```
 
+<!-- #endregion _042-pull-up-helper-function -->
+
+<!-- #region _043-inline-construction-function -->
 ## 043 Inline Construction Function
 
 `043-inline-construction-function.mc` uses a single-channel `Pullup` method and
@@ -102,6 +109,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/043-inline-construction-function.mc --lib mcode --viz -o 04-functions-and-reuse/043-inline-construction-function.html
 ```
 
+<!-- #endregion _043-inline-construction-function -->
+
+<!-- #region _044-decoupling-library-method -->
 ## 044 Decoupling Library Method
 
 `044-decoupling-library-method.mc` reuses the `Cap` method already defined by
@@ -122,3 +132,5 @@ library methods with the same dot-call syntax as locally defined methods.
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/044-decoupling-library-method.mc --lib mcode --pass1 --pass2
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/044-decoupling-library-method.mc --lib mcode --viz -o 04-functions-and-reuse/044-decoupling-library-method.html
 ```
+
+<!-- #endregion _044-decoupling-library-method -->

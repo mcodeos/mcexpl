@@ -15,6 +15,7 @@ export MCC_SYSTEM_ROOT="$(cd .. && pwd)"
 
 Generated HTML is written next to each example source file.
 
+<!-- #region _241-minimal-mcu-board -->
 ## 241 Minimal MCU Board
 
 `241-minimal-mcu-board.mc` describes a generic 3.3 V MCU board core. Its purpose
@@ -65,6 +66,9 @@ Generate HTML for `241-minimal-mcu-board.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/241-minimal-mcu-board.mc --lib mcode --viz -o 24-board-level-recipes/241-minimal-mcu-board.html
 ```
 
+<!-- #endregion _241-minimal-mcu-board -->
+
+<!-- #region _242-usb-powered-mcu-board -->
 ## 242 USB-Powered MCU Board
 
 `242-usb-powered-mcu-board.mc` describes a power-only USB-powered MCU board. The
@@ -120,6 +124,9 @@ Generate HTML for `242-usb-powered-mcu-board.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/242-usb-powered-mcu-board.mc --lib mcode --viz -o 24-board-level-recipes/242-usb-powered-mcu-board.html
 ```
 
+<!-- #endregion _242-usb-powered-mcu-board -->
+
+<!-- #region _243-i2c-sensor-node -->
 ## 243 I2C Sensor Node
 
 `243-i2c-sensor-node.mc` describes a small 3.3 V controller board with one I2C
@@ -191,6 +198,9 @@ Generate HTML for `243-i2c-sensor-node.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/243-i2c-sensor-node.mc --lib mcode --viz -o 24-board-level-recipes/243-i2c-sensor-node.html
 ```
 
+<!-- #endregion _243-i2c-sensor-node -->
+
+<!-- #region _244-mono-audio-line-output -->
 ## 244 Mono Audio Line Output
 
 `244-mono-audio-line-output.mc` describes a small single-supply buffer for an
@@ -297,3 +307,5 @@ Generate HTML for `244-mono-audio-line-output.mc`:
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/244-mono-audio-line-output.mc --lib mcode --viz -o 24-board-level-recipes/244-mono-audio-line-output.html
 ```
+
+<!-- #endregion _244-mono-audio-line-output -->

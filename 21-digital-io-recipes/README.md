@@ -12,6 +12,7 @@ export MCC_SYSTEM_ROOT="$(cd .. && pwd)"
 
 Generated HTML is written next to each example source file.
 
+<!-- #region _211-gpio-led -->
 ## 211 GPIO LED
 
 `211-gpio-led.mc` describes a GPIO-driven LED indicator.
@@ -33,6 +34,9 @@ Generate HTML for `211-gpio-led.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/211-gpio-led.mc --lib mcode --viz -o 21-digital-io-recipes/211-gpio-led.html
 ```
 
+<!-- #endregion _211-gpio-led -->
+
+<!-- #region _212-button-input -->
 ## 212 Button Input
 
 `212-button-input.mc` describes a normally high push-button input.
@@ -53,6 +57,9 @@ Generate HTML for `212-button-input.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/212-button-input.mc --lib mcode --viz -o 21-digital-io-recipes/212-button-input.html
 ```
 
+<!-- #endregion _212-button-input -->
+
+<!-- #region _213-nmos-low-side-driver -->
 ## 213 NMOS Low-Side Driver
 
 `213-nmos-low-side-driver.mc` describes a simple low-side switch.
@@ -75,6 +82,9 @@ Generate HTML for `213-nmos-low-side-driver.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/213-nmos-low-side-driver.mc --lib mcode --viz -o 21-digital-io-recipes/213-nmos-low-side-driver.html
 ```
 
+<!-- #endregion _213-nmos-low-side-driver -->
+
+<!-- #region _214-relay-driver-with-flyback-diode -->
 ## 214 Relay Driver With Flyback Diode
 
 `214-relay-driver-with-flyback-diode.mc` describes an NMOS relay coil driver.
@@ -98,6 +108,9 @@ Generate HTML for `214-relay-driver-with-flyback-diode.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/214-relay-driver-with-flyback-diode.mc --lib mcode --viz -o 21-digital-io-recipes/214-relay-driver-with-flyback-diode.html
 ```
 
+<!-- #endregion _214-relay-driver-with-flyback-diode -->
+
+<!-- #region _215-rgb-led-pwm -->
 ## 215 RGB LED PWM
 
 `215-rgb-led-pwm.mc` describes a common-cathode RGB LED driven by three PWM
@@ -119,3 +132,5 @@ Generate HTML for `215-rgb-led-pwm.mc`:
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/215-rgb-led-pwm.mc --lib mcode --viz -o 21-digital-io-recipes/215-rgb-led-pwm.html
 ```
+
+<!-- #endregion _215-rgb-led-pwm -->

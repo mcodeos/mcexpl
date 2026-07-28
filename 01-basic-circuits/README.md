@@ -4,6 +4,7 @@ This chapter applies the syntax from Getting Started to three familiar analog
 circuits. The emphasis is on reading the topology from named nodes and choosing
 explicit pins when component orientation matters.
 
+<!-- #region _011-voltage-divider -->
 ## 011 Voltage Divider
 
 `011-voltage-divider.mc` connects two equal 10 kOhm resistors between `V5V` and
@@ -16,6 +17,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuit
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/011-voltage-divider.mc --lib mcode --viz -o 01-basic-circuits/011-voltage-divider.html
 ```
 
+<!-- #endregion _011-voltage-divider -->
+
+<!-- #region _012-rc-low-pass-filter -->
 ## 012 RC Low-Pass Filter
 
 `012-rc-low-pass-filter.mc` treats `VIN` and `GND` as connection points supplied
@@ -29,6 +33,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuit
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/012-rc-low-pass-filter.mc --lib mcode --viz -o 01-basic-circuits/012-rc-low-pass-filter.html
 ```
 
+<!-- #endregion _012-rc-low-pass-filter -->
+
+<!-- #region _013-diode-rectifier -->
 ## 013 Diode Rectifier
 
 `013-diode-rectifier.mc` explicitly selects diode pins because reversing a
@@ -41,3 +48,5 @@ it makes semiconductor polarity unambiguous.
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/013-diode-rectifier.mc --lib mcode --pass1 --pass2
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/013-diode-rectifier.mc --lib mcode --viz -o 01-basic-circuits/013-diode-rectifier.html
 ```
+
+<!-- #endregion _013-diode-rectifier -->

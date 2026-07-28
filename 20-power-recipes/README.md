@@ -12,6 +12,7 @@ export MCC_SYSTEM_ROOT="$(cd .. && pwd)"
 
 Generated HTML is written next to each example source file.
 
+<!-- #region _201-battery-input -->
 ## 201 Battery Input
 
 `201-battery-input.mc` describes a small protected battery input.
@@ -39,6 +40,9 @@ Generate HTML for `201-battery-input.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/201-battery-input.mc --lib mcode --viz -o 20-power-recipes/201-battery-input.html
 ```
 
+<!-- #endregion _201-battery-input -->
+
+<!-- #region _202-usb-5-v-input -->
 ## 202 USB 5 V Input
 
 `202-usb-5v-input.mc` describes a USB Micro-B connector used only as a 5 V
@@ -61,6 +65,9 @@ Generate HTML for `202-usb-5v-input.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/202-usb-5v-input.mc --lib mcode --viz -o 20-power-recipes/202-usb-5v-input.html
 ```
 
+<!-- #endregion _202-usb-5-v-input -->
+
+<!-- #region _203-ldo-5-v-to-33-v -->
 ## 203 LDO 5 V to 3.3 V
 
 `203-ldo-5v-to-3v3.mc` describes a 5 V source feeding a 3.3 V LDO regulator.
@@ -82,6 +89,9 @@ Generate HTML for `203-ldo-5v-to-3v3.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/203-ldo-5v-to-3v3.mc --lib mcode --viz -o 20-power-recipes/203-ldo-5v-to-3v3.html
 ```
 
+<!-- #endregion _203-ldo-5-v-to-33-v -->
+
+<!-- #region _204-buck-module-12-v-to-5-v -->
 ## 204 Buck Module 12 V to 5 V
 
 `204-buck-12v-to-5v.mc` describes a complete 12 V to 5 V buck module as a
@@ -107,6 +117,9 @@ Generate HTML for `204-buck-12v-to-5v.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/204-buck-12v-to-5v.mc --lib mcode --viz -o 20-power-recipes/204-buck-12v-to-5v.html
 ```
 
+<!-- #endregion _204-buck-module-12-v-to-5-v -->
+
+<!-- #region _205-power-tree-5-v-33-v-18-v -->
 ## 205 Power Tree 5 V, 3.3 V, 1.8 V
 
 `205-power-tree-5v-3v3-1v8.mc` describes a small multi-rail power tree.
@@ -129,6 +142,9 @@ Generate HTML for `205-power-tree-5v-3v3-1v8.mc`:
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/205-power-tree-5v-3v3-1v8.mc --lib mcode --viz -o 20-power-recipes/205-power-tree-5v-3v3-1v8.html
 ```
 
+<!-- #endregion _205-power-tree-5-v-33-v-18-v -->
+
+<!-- #region _206-buck-controller-power-stage -->
 ## 206 Buck Controller Power Stage
 
 `206-buck-controller-power-stage.mc` shows the more detailed alternative for a
@@ -162,3 +178,5 @@ Generate HTML for `206-buck-controller-power-stage.mc`:
 ```bash
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/206-buck-controller-power-stage.mc --lib mcode --viz -o 20-power-recipes/206-buck-controller-power-stage.html
 ```
+
+<!-- #endregion _206-buck-controller-power-stage -->

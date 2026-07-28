@@ -4,6 +4,7 @@ This chapter moves from library parts to small custom component definitions.
 Read the examples in order: first define named pins, then describe pin direction
 and ranges, and only then bind related pins to UART, I2C, and SPI interfaces.
 
+<!-- #region _031-named-pins-component -->
 ## 031 Named Pins Component
 
 `031-named-pins-component.mc` defines a tiny two-pin sensor and instantiates it
@@ -38,6 +39,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-compon
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/031-named-pins-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/031-named-pins-component.html
 ```
 
+<!-- #endregion _031-named-pins-component -->
+
+<!-- #region _032-pin-directions-and-ranges -->
 ## 032 Pin Directions And Ranges
 
 `032-pin-directions-and-ranges.mc` adds meaning to the named pins from `031`
@@ -73,6 +77,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-compon
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/032-pin-directions-and-ranges.mc --lib mcode --viz -o 03-define-components-and-interfaces/032-pin-directions-and-ranges.html
 ```
 
+<!-- #endregion _032-pin-directions-and-ranges -->
+
+<!-- #region _033-uart-interface-binding -->
 ## 033 UART Interface Binding
 
 `033-uart-interface-binding.mc` groups two related pins into the tutorial's
@@ -101,6 +108,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-compon
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/033-uart-interface-binding.mc --lib mcode --viz -o 03-define-components-and-interfaces/033-uart-interface-binding.html
 ```
 
+<!-- #endregion _033-uart-interface-binding -->
+
+<!-- #region _034-i2c-sensor-component -->
 ## 034 I2C Sensor Component
 
 `034-i2c-sensor-component.mc` defines one I2C controller component and one I2C
@@ -118,6 +128,9 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-compon
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/034-i2c-sensor-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/034-i2c-sensor-component.html
 ```
 
+<!-- #endregion _034-i2c-sensor-component -->
+
+<!-- #region _035-spi-flash-component -->
 ## 035 SPI Flash Component
 
 `035-spi-flash-component.mc` binds four pins to `SPI(Master)` and `SPI(Slave)`.
@@ -133,3 +146,5 @@ to review.
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/035-spi-flash-component.mc --lib mcode --pass1 --pass2
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/035-spi-flash-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/035-spi-flash-component.html
 ```
+
+<!-- #endregion _035-spi-flash-component -->

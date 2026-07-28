@@ -17,6 +17,11 @@ target
 *.html
 circuit.html
 
+# VitePress and pnpm
+node_modules/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
 # Local image artifacts
 *.png
 *.jpg
