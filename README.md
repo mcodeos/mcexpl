@@ -1,11 +1,12 @@
 # MC Examples
 
-MCode is a circuit description language for writing electronic designs as
-structured text. MCC parses `.mc` files, resolves components, interfaces,
-modules, nets, and connections, and can generate interactive HTML
-visualizations of the described circuit. The basic `mcode` library provides
-common electronics building blocks such as resistors, capacitors, LEDs, diodes,
-regulators, connectors, power rails, and common interfaces.
+MCode is an industrial-grade circuit programming language aimed at precise and
+efficient circuit programming; circuits are written as structured text. MCC
+parses `.mc` files, resolves components, interfaces, modules, nets, and
+connections, and can generate interactive HTML visualizations of the described
+circuit. The basic `mcode` library provides common electronics building blocks
+such as resistors, capacitors, LEDs, diodes, regulators, connectors, power
+rails, and common interfaces.
 
 The current toolchain focuses on parsing, checking, and visualization. Future
 work is expected to extend the flow toward richer hardware automation, including
