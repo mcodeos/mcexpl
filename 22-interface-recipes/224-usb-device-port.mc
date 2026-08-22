@@ -16,8 +16,8 @@ module main
 {
     USB.MICROB J_USB
     USB_DEVICE U_DEV
-    DIO.ESD D_DM("USBLC6", 5V)
-    DIO.ESD D_DP("USBLC6", 5V)
+    DIO.ESD D_DM(5V)    // partno "USBLC6" is BOM metadata; only core electrical formals are constructor params
+    DIO.ESD D_DP(5V)
     CAP.CER C_VBUS(1uF, 10V)
 
     J_USB.1 -> VBUS_5V
