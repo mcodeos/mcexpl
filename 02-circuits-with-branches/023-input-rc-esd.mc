@@ -6,7 +6,7 @@ module main
 {
     RES R_INPUT(100R, 50V)
     CAP.CER C_FILTER(1nF, 16V)
-    DIO.ESD D_ESD("USBLC6", "IEC61000-4-2")
+    DIO.ESD D_ESD("USBLC6", 5V)
 
     INPUT_EXT -> R_INPUT -> ADC_IN
     // Both protection parts begin at the same ADC_IN node.
