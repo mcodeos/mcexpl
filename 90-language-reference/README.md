@@ -210,7 +210,7 @@ use: `04-functions-and-reuse`.
 Syntax synopsis:
 
 ```mc
-R_PULLUP::RES(10000R, 50V).Pullup(BUTTON_IN, V3V3)
+R_PULLUP::RES(10000R, 50V).Pullup([BUTTON_IN, V3V3])
 ```
 
 ```bash

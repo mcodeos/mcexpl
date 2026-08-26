@@ -10,7 +10,7 @@ component PULLUP_RESISTOR
         2 = SOURCE
     ]
 
-    func Pullup(input, source)
+    func Pullup([input, source])
     {
         input -> this -> source
     }
@@ -24,7 +24,7 @@ module main
     PWR.1 -> V3V3
     PWR.2 -> GND
 
-    R_PULLUP::PULLUP_RESISTOR().Pullup(BUTTON_IN, V3V3)
+    R_PULLUP::PULLUP_RESISTOR().Pullup([BUTTON_IN, V3V3])
     BUTTON_IN -> SW_USER.COM
     SW_USER.NO -> GND
 }
