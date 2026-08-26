@@ -10,7 +10,7 @@ component STATUS_LED
         2 = CATHODE
     ]
 
-    func Indicator(limited_signal, ground)
+    func Indicator([limited_signal, ground])
     {
         limited_signal -> ANODE
         CATHODE -> ground
@@ -24,5 +24,5 @@ module main
 
     // The resistor remains a two-pin series device outside the method.
     GPIO_STATUS -> R_LIMIT.1
-    D_STATUS.Indicator(R_LIMIT.2, GND)
+    D_STATUS.Indicator([R_LIMIT.2, GND])
 }

@@ -11,7 +11,7 @@ external nodes that should be connected.
 `Indicator` method for connecting an already current-limited signal:
 
 ```mc
-func Indicator(limited_signal, ground)
+func Indicator([limited_signal, ground])
 {
     limited_signal -> ANODE
     CATHODE -> ground
@@ -19,14 +19,15 @@ func Indicator(limited_signal, ground)
 ```
 
 - `func` declares a function inside the component.
-- `limited_signal` and `ground` are parameters. Their values are supplied by the
-  call in `module main`.
+- `[limited_signal, ground]` is one vector parameter that destructures into two
+  node names for the method body. Their values are supplied by the call in
+  `module main`.
 - Inside a component method, bare pin names such as `ANODE` and `CATHODE` refer
   to those pins on the current component instance. The two statements therefore
   wire the current-limited signal to the LED anode and the LED cathode to ground.
 - `GPIO_STATUS -> R_LIMIT.1` connects the control signal to the resistor's first
-  physical pin. `D_STATUS.Indicator(R_LIMIT.2, GND)` passes the resistor's other
-  pin and ground to the method.
+  physical pin. `D_STATUS.Indicator([R_LIMIT.2, GND])` passes the resistor's
+  other pin and ground as the method's vector argument.
 - The dot in `D_STATUS.Indicator(...)` selects a method on the `D_STATUS`
   instance, and the call parentheses contain its arguments.
 
@@ -92,7 +93,7 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and
 creates its helper component inside the call:
 
 ```mc
-R_PULLUP::PULLUP_RESISTOR().Pullup(BUTTON_IN, V3V3)
+R_PULLUP::PULLUP_RESISTOR().Pullup([BUTTON_IN, V3V3])
 ```
 
 `R_PULLUP::PULLUP_RESISTOR()` means "make an instance named `R_PULLUP` of type
@@ -119,8 +120,8 @@ the `mcode` library's `CAP` component. These two calls create distinct ceramic
 capacitors while applying the same rail-to-ground connection pattern:
 
 ```mc
-C_5V::CAP.CER(100nF, 10V).Cap(V5V, GND)
-C_3V3::CAP.CER(100nF, 10V).Cap(V3V3, GND)
+C_5V::CAP.CER(100nF, 10V).Cap([V5V, GND])
+C_3V3::CAP.CER(100nF, 10V).Cap([V3V3, GND])
 ```
 
 `CAP.CER(100nF, 10V)` is the ceramic-capacitor library type with capacitance and

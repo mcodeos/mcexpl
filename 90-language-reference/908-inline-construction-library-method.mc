@@ -9,7 +9,7 @@ module main
     PWR.1 -> V3V3
     PWR.2 -> GND
 
-    R_PULLUP::RES(10000R, 50V).Pullup(BUTTON_IN, V3V3)
+    R_PULLUP::RES(10000R, 50V).Pullup([BUTTON_IN, V3V3])
     BUTTON_IN -> SW_USER.COM
     SW_USER.NO -> GND
 }

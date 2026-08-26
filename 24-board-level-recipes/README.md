@@ -212,7 +212,7 @@ speaker power amplifier and is not presented as a headphone driver.
 Functional blocks:
 
 - `PWR` creates the illustrative 5 V supply and ground reference.
-- `U_BUF` is an `AMP.BUFFER` with `IN`, `OUT`, `DC.Vcc`, and `DC.Vee`
+- `U_BUF` is an `AMP.BUFFER` with `IN`, `OUT`, `DC.VCC`, and `DC.VEE`
   member paths from the standard library.
 - `C_DECOUPLE` is a local 100 nF ceramic supply decoupling capacitor.
 - `C_OUT` is a 1 uF film capacitor in series with the output signal.
@@ -226,8 +226,8 @@ The power and ground path is explicit:
 ```mc
 PWR.1 -> V5V
 PWR.2 -> GND
-V5V -> U_BUF.DC.Vcc
-U_BUF.DC.Vee -> GND
+V5V -> U_BUF.DC.VCC
+U_BUF.DC.VEE -> GND
 V5V -> C_DECOUPLE -> GND
 ```
 

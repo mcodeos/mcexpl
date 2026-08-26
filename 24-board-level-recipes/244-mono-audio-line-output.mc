@@ -16,8 +16,8 @@ module main
     PWR.1 -> V5V
     PWR.2 -> GND
 
-    V5V -> U_BUF.DC.Vcc
-    U_BUF.DC.Vee -> GND
+    V5V -> U_BUF.DC.VCC
+    U_BUF.DC.VEE -> GND
     V5V -> C_DECOUPLE -> GND
 
     AUDIO_IN -> U_BUF.IN

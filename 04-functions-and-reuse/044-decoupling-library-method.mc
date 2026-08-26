@@ -13,6 +13,6 @@ module main
     PWR_3V3.2 -> GND
 
     // Each call creates a distinct capacitor between its rail and GND.
-    C_5V::CAP.CER(100nF, 10V).Cap(V5V, GND)
-    C_3V3::CAP.CER(100nF, 10V).Cap(V3V3, GND)
+    C_5V::CAP.CER(100nF, 10V).Cap([V5V, GND])
+    C_3V3::CAP.CER(100nF, 10V).Cap([V3V3, GND])
 }
