@@ -6,8 +6,7 @@ component GENERIC_MCU
 {
     name = "Generic MCU"
     pins = [
-        ps 1 = VCC
-        ps 2 = GND
+        psnk [1,2] = [VCC, GND]
         io 3 = RESET_N
         io 4 = DBG_IO
         io 5 = DBG_CLK

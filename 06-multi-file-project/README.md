@@ -11,7 +11,7 @@ module and component definitions into separate source files. Read `061` before
 physical part:
 
 ```mc
-module LED_INDICATOR(in signal, ps ground)
+module LED_INDICATOR(in signal, psnk ground)
 {
     RES R_LIMIT(330R, 50V)
     LED D_STATUS(2.0V, 5mA)
@@ -22,7 +22,7 @@ module LED_INDICATOR(in signal, ps ground)
 ```
 
 - `module LED_INDICATOR(...)` names a reusable circuit block.
-- `in signal` declares an input port and `ps ground` declares a power-supply
+- `in signal` declares an input port and `psnk ground` declares a power-supply
   port. These are connection points on the module, not physical component pins.
 - The resistor, LED, and their internal connections belong to each module
   instance.

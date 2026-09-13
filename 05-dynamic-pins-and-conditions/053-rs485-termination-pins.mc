@@ -8,7 +8,7 @@ component RS485_ENDPOINT(partno::STRING = "RS485_NODE")
     pins = [
         io 1 = A
         io 2 = B
-        ps 3 = GND
+        3 = GND
     ]
 
     if (partno == "RS485_TERM120")

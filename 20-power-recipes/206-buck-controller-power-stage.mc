@@ -11,10 +11,9 @@ component BUCK_CONTROLLER(v_in::UV.VOLT, v_fb::UV.VOLT, f_sw::UV.HZ)
         switching_frequency = f_sw
     ]
     pins = [
-        ps 1 = VIN
+        psnk [1,4] = [VIN, GND]
         out 2 = SW
         in 3 = FB
-        ps 4 = GND
     ]
 }
 

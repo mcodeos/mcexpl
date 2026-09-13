@@ -6,8 +6,7 @@ component REF_GPIO_HEADER
     name = "Reference GPIO Header"
     pins = [
         io [1:4] = GPIO[0:3]
-        ps 5 = VCC
-        ps 6 = GND
+        psnk [5,6] = [VCC, GND]
     ]
 }
 

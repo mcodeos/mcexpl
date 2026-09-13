@@ -6,7 +6,7 @@ component REF_VARIANT(partno::STRING = "BASE")
     name = "Reference Variant"
     pins = [
         io [1:2] = IO[0:1]
-        ps 3 = GND
+        3 = GND
     ]
 
     if (partno == "WIDE")
