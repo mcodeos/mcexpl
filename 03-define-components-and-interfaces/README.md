@@ -52,15 +52,17 @@ pins = [
     in 1 = ENABLE
     out 2 = READY
     io [3:4] = GPIO[1:2]
-    ps 5 = VCC
-    ps 6 = GND
+    psnk [5,6] = [VCC, GND]
 ]
 ```
 
 - `in` marks a signal received by the device, while `out` marks a signal driven
   by the device. These keywords document the component pin's electrical role;
   connections still use the same `->` syntax learned earlier.
-- `io` marks a bidirectional signal, and `ps` marks a power-supply pin.
+- `io` marks a bidirectional signal, and `psnk` marks a power-supply pin that
+  draws current. `psnk [5,6] = [VCC, GND]` pairs the hot terminal with the
+  return it closes over: the return is named, but carries no direction word of
+  its own — the direction belongs to the power pin the row heads.
 - `[3:4]` is an inclusive physical-pin range, so it covers pins 3 and 4.
 - `GPIO[1:2]` expands to two indexed names, `GPIO1` and `GPIO2`. The physical
   range and name range contain the same number of entries, so they pair in

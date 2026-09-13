@@ -6,8 +6,7 @@ component REF_UART_DEVICE
     name = "Reference UART Device"
     pins = [
         io 1:2 = UART0::UART.TTL(DCE)
-        ps 3 = VCC
-        ps 4 = GND
+        psnk [3,4] = [VCC, GND]
     ]
 }
 

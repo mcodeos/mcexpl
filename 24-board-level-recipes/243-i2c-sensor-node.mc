@@ -7,8 +7,7 @@ component SENSOR_NODE_MCU
     name = "Generic Sensor Node MCU"
     pins = [
         io 1:2 = I2C0::I2C(Master)
-        ps 3 = VCC
-        ps 4 = GND
+        psnk [3,4] = [VCC, GND]
     ]
 }
 
@@ -17,8 +16,7 @@ component BOARD_I2C_SENSOR
     name = "Generic I2C Sensor"
     pins = [
         io 1:2 = I2C0::I2C(Slave)
-        ps 3 = VCC
-        ps 4 = GND
+        psnk [3,4] = [VCC, GND]
     ]
 }
 

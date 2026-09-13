@@ -7,8 +7,7 @@ component MCU_UART
     name = "MCU with UART"
     pins = [
         io 1:2 = UART0::UART.TTL(DCE)
-        ps 3 = VCC
-        ps 4 = GND
+        psnk [3,4] = [VCC, GND]
     ]
 }
 

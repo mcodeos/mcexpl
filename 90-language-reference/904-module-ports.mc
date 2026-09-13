@@ -1,7 +1,7 @@
 // Reference: Module Ports And Instantiation
 // Focus: module parameters, module instances, and explicit port connections.
 
-module STATUS_BLOCK(in signal, ps ground)
+module STATUS_BLOCK(in signal, psnk ground)
 {
     RES R_LIMIT(330R, 50V)
     LED D_STATUS(2.0V, 5mA)

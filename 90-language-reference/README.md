@@ -73,7 +73,7 @@ Syntax synopsis:
 ```mc
 pins = [
     io [1:4] = GPIO[0:3]
-    ps 5 = VCC
+    psnk [5,6] = [VCC, GND]
 ]
 ```
 
@@ -93,7 +93,7 @@ instances, and explicit module-port connections. Tutorial first use:
 Syntax synopsis:
 
 ```mc
-module BLOCK(in signal, ps ground)
+module BLOCK(in signal, psnk ground)
 {
 }
 module main

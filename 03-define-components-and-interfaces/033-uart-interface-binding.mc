@@ -8,8 +8,7 @@ component MCU_UART
     pins = [
         // Pins 1 and 2 become UART0.TX and UART0.RX.
         io [1:2] = UART0::UART.TTL(DCE)
-        ps 3 = VCC
-        ps 4 = GND
+        psnk [3,4] = [VCC, GND]
     ]
 }
 

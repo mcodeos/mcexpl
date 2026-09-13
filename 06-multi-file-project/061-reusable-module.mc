@@ -2,7 +2,7 @@
 // Goal: Define a circuit block with ports and instantiate it twice.
 // Language focus: module ports, module instances, explicit port connections.
 
-module LED_INDICATOR(in signal, ps ground)
+module LED_INDICATOR(in signal, psnk ground)
 {
     RES R_LIMIT(330R, 50V)
     LED D_STATUS(2.0V, 5mA)

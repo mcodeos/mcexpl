@@ -1,6 +1,6 @@
 // Example: Pin Directions And Ranges
 // Goal: Describe simple input, output, bidirectional, and power pins.
-// Language focus: in, out, io, ps, physical pin ranges, indexed pin names.
+// Language focus: in, out, io, psnk, physical pin ranges, indexed pin names.
 
 component SIMPLE_IO_DEVICE
 {
@@ -9,8 +9,7 @@ component SIMPLE_IO_DEVICE
         in 1 = ENABLE
         out 2 = READY
         io [3:4] = GPIO[1:2]
-        ps 5 = VCC
-        ps 6 = GND
+        psnk [5,6] = [VCC, GND]
     ]
 }
 

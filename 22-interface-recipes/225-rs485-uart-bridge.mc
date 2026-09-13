@@ -7,8 +7,7 @@ component MCU_UART
     name = "MCU with UART"
     pins = [
         io 1:2 = UART0::UART.TTL(DCE)
-        ps 3 = VCC
-        ps 4 = GND
+        psnk [3,4] = [VCC, GND]
     ]
 }
 
@@ -18,8 +17,7 @@ component RS485_BRIDGE
     pins = [
         io 1:2 = UART0::UART.TTL(DTE)
         io 3:5 = BUS::UART.RS485(Master)
-        ps 6 = VCC
-        ps 7 = GND
+        psnk [6,7] = [VCC, GND]
         io 8 = DE
         io 9 = RE_N
     ]
