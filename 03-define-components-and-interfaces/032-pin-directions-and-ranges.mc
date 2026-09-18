@@ -15,6 +15,13 @@ component SIMPLE_IO_DEVICE
 
 module main
 {
+    io ENABLE
+    io GND
+    io GPIO1
+    io GPIO2
+    io READY
+    io V3V3
+
     DC.SRC PWR(3.3V, 20mA)
     SIMPLE_IO_DEVICE U_IO
 

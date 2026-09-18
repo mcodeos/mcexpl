@@ -57,13 +57,15 @@ only.
 Parse `241-minimal-mcu-board.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/241-minimal-mcu-board.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 24-board-level-recipes/241-minimal-mcu-board.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `241-minimal-mcu-board.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/241-minimal-mcu-board.mc --lib mcode --viz -o 24-board-level-recipes/241-minimal-mcu-board.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 24-board-level-recipes/241-minimal-mcu-board.mc --lib mcode --viz -o 24-board-level-recipes/241-minimal-mcu-board.html
 ```
 
 <!-- #endregion _241-minimal-mcu-board -->
@@ -115,13 +117,15 @@ does not simulate regulation behavior.
 Parse `242-usb-powered-mcu-board.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/242-usb-powered-mcu-board.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 24-board-level-recipes/242-usb-powered-mcu-board.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `242-usb-powered-mcu-board.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/242-usb-powered-mcu-board.mc --lib mcode --viz -o 24-board-level-recipes/242-usb-powered-mcu-board.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 24-board-level-recipes/242-usb-powered-mcu-board.mc --lib mcode --viz -o 24-board-level-recipes/242-usb-powered-mcu-board.html
 ```
 
 <!-- #endregion _242-usb-powered-mcu-board -->
@@ -189,13 +193,15 @@ capacitance, and device requirements.
 Parse `243-i2c-sensor-node.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/243-i2c-sensor-node.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 24-board-level-recipes/243-i2c-sensor-node.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `243-i2c-sensor-node.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/243-i2c-sensor-node.mc --lib mcode --viz -o 24-board-level-recipes/243-i2c-sensor-node.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 24-board-level-recipes/243-i2c-sensor-node.mc --lib mcode --viz -o 24-board-level-recipes/243-i2c-sensor-node.html
 ```
 
 <!-- #endregion _243-i2c-sensor-node -->
@@ -299,13 +305,94 @@ for a small example of conditional component pins.
 Parse `244-mono-audio-line-output.mc` and print both Pass 1 and Pass 2:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/244-mono-audio-line-output.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 24-board-level-recipes/244-mono-audio-line-output.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `244-mono-audio-line-output.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 24-board-level-recipes/244-mono-audio-line-output.mc --lib mcode --viz -o 24-board-level-recipes/244-mono-audio-line-output.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 24-board-level-recipes/244-mono-audio-line-output.mc --lib mcode --viz -o 24-board-level-recipes/244-mono-audio-line-output.html
 ```
 
 <!-- #endregion _244-mono-audio-line-output -->
+
+<!-- #region _245-supercapacitor-ups-power-module -->
+## 245 Supercapacitor UPS Power Module
+
+`245-supercapacitor-ups-power-module.mc` is a photo-grounded, same-family
+topology sketch for the short-duration 5 V backup board. It is more detailed
+than a functional block diagram, but it is still not an exact reverse-engineered
+or production schematic.
+
+Photo and listing evidence represented directly:
+
+- `J_DC_JACK` and `J_DC_TERMINAL` are parallel input connectors.
+- `C_INPUT` and `C_OUTPUT` match the visible `100 uF / 35 V` and
+  `470 uF / 10 V` electrolytic capacitors.
+- `L_PRIMARY` and `L_BACKUP` preserve the visible `100` and `1R0` inductor
+  markings as nominal `10 uH` and `1 uH` parts without inventing their current
+  ratings or manufacturer part numbers.
+- `C_SC1` and `C_SC2` form the populated two-cell series bank.
+  `FP_SC3_DNP` and `FP_SC4_DNP` represent the two empty footprints used by the
+  four-capacitor 2S2P product variant.
+- `J_USB_OUT` and `J_5V_TERMINAL` expose the shared 5 V output, while three LED
+  branches indicate input, output, and supercapacitor voltage presence.
+
+The most defensible same-family power topology is represented as follows:
+
+- `U_INPUT_PROTECTION` leaves the exact reverse-polarity implementation open.
+- `U_PRIMARY` and `L_PRIMARY` form the wide-input primary switching stage. Its
+  regulated intermediate rail feeds both the normal output path and the
+  supercapacitor charger.
+- `U_CHARGER` exposes `CAP_TOP` and `CAP_MID`, matching an active two-cell
+  charger/balancer topology instead of assuming two passive bleed resistors.
+- `U_PRIMARY_PATH` represents a discrete primary high-side path. It is combined
+  with the backup path at `V5V_OUT`; no dedicated ideal priority multiplexer is
+  claimed.
+- `U_BACKUP`, `L_BACKUP`, and `D_BACKUP_OUT` expose the boost switch node and
+  backup diode-OR path rather than hiding the complete converter in one box.
+- `U_POWER_FAIL` senses the post-primary rail and exports the nominal 3 V
+  input-present signal while controlling the backup stage.
+
+The source is divided into six functional submodules so the generated HTML
+first shows the board-level energy flow. Each block can then be opened to view
+its detailed components and nets: `INPUT_FRONT_END`, `SUPERCAP_STORAGE`,
+`PRIMARY_OUTPUT_PATH`, `BACKUP_BOOST_PATH`, `OUTPUT_INTERFACES`, and
+`POWER_FAIL_INTERFACE`.
+
+No publicly indexed exact schematic, BOM, or readable controller list was
+found for the photographed PCB. The `50 F` per-cell value is a working
+assumption that produces the commonly advertised `25 F` effective series bank;
+the capacitor markings must be checked before treating it as confirmed. The
+Schottky rating, LED resistors, controller ICs, feedback networks, protection
+thresholds, switching frequencies, capacitor ESR limits, and exact switchover
+behavior also remain unconfirmed.
+
+Useful non-identical references include the
+[SeeGreat SCap UPS Board wiki](https://seengreat.com/wiki/208/scap-ups-board),
+its public
+[V1.2 schematic PDF](https://seengreat.com/upload/file/139%20Scap%20UPS%20Board/SCap%20UPS%20Board%20V1.2.pdf),
+and the
+[MCUZone same-family module description](https://www.mcuzone.com/forum/forum.php?extra=page%3D1%26filter%3Ddigest%26orderby%3Dreplies&mod=viewthread&tid=34359).
+They support the architectural choices but are not evidence that the Taobao
+board uses the same ICs. MCode records structure and connectivity; it does not
+simulate charging, switchover timing, hold-up duration, efficiency, thermal
+behavior, or transient response.
+
+Parse `245-supercapacitor-ups-power-module.mc`:
+
+```bash
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse --cwd 24-board-level-recipes --lib mcode --pass1 --pass2 --top main 245-supercapacitor-ups-power-module.mc
+```
+
+Generate HTML for `245-supercapacitor-ups-power-module.mc`:
+
+```bash
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse --cwd 24-board-level-recipes --lib mcode --viz --top main 245-supercapacitor-ups-power-module.mc -o 245-supercapacitor-ups-power-module.html
+```
+
+<!-- #endregion _245-supercapacitor-ups-power-module -->

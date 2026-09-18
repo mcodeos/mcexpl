@@ -4,13 +4,17 @@
 
 module main
 {
+    io ADC_IN
+    io GND
+    io INPUT_EXT
+
     RES R_INPUT(100R, 50V)
-    CAP.CER C_FILTER(1nF, 16V)
+    CAP.MLCC C_FILTER(1nF, 16V)
     DIO.ESD D_ESD(5V)   // partno "USBLC6" is BOM metadata; only core electrical formals are constructor params
 
     INPUT_EXT -> R_INPUT -> ADC_IN
     // Both protection parts begin at the same ADC_IN node.
     ADC_IN -> C_FILTER -> GND
-    ADC_IN -> D_ESD.INPUT
-    D_ESD.GND -> GND
+    ADC_IN -> D_ESD.CATHODE
+    D_ESD.ANODE -> GND
 }

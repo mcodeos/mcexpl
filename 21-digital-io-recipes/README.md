@@ -25,13 +25,15 @@ The GPIO signal drives `D_STATUS.ANODE` through the current-limiting resistor
 Parse `211-gpio-led.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/211-gpio-led.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes/211-gpio-led.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `211-gpio-led.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/211-gpio-led.mc --lib mcode --viz -o 21-digital-io-recipes/211-gpio-led.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes/211-gpio-led.mc --lib mcode --viz -o 21-digital-io-recipes/211-gpio-led.html
 ```
 
 <!-- #endregion _211-gpio-led -->
@@ -48,13 +50,15 @@ connects `BUTTON_IN` to `GND` when pressed, pulling the input low.
 Parse `212-button-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/212-button-input.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes/212-button-input.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `212-button-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/212-button-input.mc --lib mcode --viz -o 21-digital-io-recipes/212-button-input.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes/212-button-input.mc --lib mcode --viz -o 21-digital-io-recipes/212-button-input.html
 ```
 
 <!-- #endregion _212-button-input -->
@@ -73,13 +77,15 @@ driven.
 Parse `213-nmos-low-side-driver.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/213-nmos-low-side-driver.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes/213-nmos-low-side-driver.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `213-nmos-low-side-driver.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/213-nmos-low-side-driver.mc --lib mcode --viz -o 21-digital-io-recipes/213-nmos-low-side-driver.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes/213-nmos-low-side-driver.mc --lib mcode --viz -o 21-digital-io-recipes/213-nmos-low-side-driver.html
 ```
 
 <!-- #endregion _213-nmos-low-side-driver -->
@@ -99,13 +105,15 @@ MOSFET turns off.
 Parse `214-relay-driver-with-flyback-diode.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/214-relay-driver-with-flyback-diode.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes/214-relay-driver-with-flyback-diode.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `214-relay-driver-with-flyback-diode.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/214-relay-driver-with-flyback-diode.mc --lib mcode --viz -o 21-digital-io-recipes/214-relay-driver-with-flyback-diode.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes/214-relay-driver-with-flyback-diode.mc --lib mcode --viz -o 21-digital-io-recipes/214-relay-driver-with-flyback-diode.html
 ```
 
 <!-- #endregion _214-relay-driver-with-flyback-diode -->
@@ -124,13 +132,15 @@ PWM node drives one LED anode through its own current-limiting resistor, and
 Parse `215-rgb-led-pwm.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/215-rgb-led-pwm.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes/215-rgb-led-pwm.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `215-rgb-led-pwm.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 21-digital-io-recipes/215-rgb-led-pwm.mc --lib mcode --viz -o 21-digital-io-recipes/215-rgb-led-pwm.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes/215-rgb-led-pwm.mc --lib mcode --viz -o 21-digital-io-recipes/215-rgb-led-pwm.html
 ```
 
 <!-- #endregion _215-rgb-led-pwm -->

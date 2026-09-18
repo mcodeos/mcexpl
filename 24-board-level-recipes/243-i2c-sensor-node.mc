@@ -1,6 +1,6 @@
 // Example: I2C Sensor Node
 // Goal: Combine board power, a controller, an I2C sensor, bus pull-ups, and local decoupling.
-// Library focus: DC, I2C, RES, CAP.CER, HDR.
+// Library focus: DC, I2C, RES, CAP.MLCC, HDR.
 
 component SENSOR_NODE_MCU
 {
@@ -22,13 +22,18 @@ component BOARD_I2C_SENSOR
 
 module main
 {
+    io GND
+    io I2C_SCL
+    io I2C_SDA
+    io V3V3
+
     DC.SRC PWR(3.3V, 150mA)
     SENSOR_NODE_MCU U_MCU
     BOARD_I2C_SENSOR U_SENSOR
     RES R_SCL(4700R, 50V)
     RES R_SDA(4700R, 50V)
-    CAP.CER C_MCU(100nF, 10V)
-    CAP.CER C_SENSOR(100nF, 10V)
+    CAP.MLCC C_MCU(100nF, 10V)
+    CAP.MLCC C_SENSOR(100nF, 10V)
     HDR_1x4 J_I2C
 
     PWR.1 -> V3V3

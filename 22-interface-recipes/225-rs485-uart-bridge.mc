@@ -25,6 +25,13 @@ component RS485_BRIDGE
 
 module main
 {
+    io GND
+    io RS485_A
+    io RS485_B
+    io RX_ENABLE_N
+    io TX_ENABLE
+    io V5V
+
     DC.SRC PWR(5V, 200mA)
     MCU_UART U_MCU
     RS485_BRIDGE U_RS485

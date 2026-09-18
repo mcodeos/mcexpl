@@ -4,6 +4,9 @@
 
 module main
 {
+    io GND
+    io VBAT_PROTECTED
+
     DC.BAT BAT(3.7V, 1000mAh)
     FUSE F_BAT(1A, 12V)
     DIO.SCH D_REVERSE(0.3V, 40V, 2A)

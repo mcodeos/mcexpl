@@ -4,6 +4,10 @@
 
 module main
 {
+    io GND
+    io TEMP_SENSE
+    io V3V3
+
     DC.SRC PWR(3.3V, 5mA)
     RES R_FIXED(10000R, 50V)
     RES.NTC RT_NTC(10000R, 3950, 50V)

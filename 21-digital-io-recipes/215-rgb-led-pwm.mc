@@ -4,6 +4,11 @@
 
 module main
 {
+    io GND
+    io PWM_BLUE
+    io PWM_GREEN
+    io PWM_RED
+
     LED.RGB D_RGB(2.0V, 3.2V, 3.2V, 20mA)
     RES R_RED(220R, 50V)
     RES R_GREEN(220R, 50V)

@@ -14,11 +14,16 @@ component USB_DEVICE
 
 module main
 {
+    io GND
+    io USB_DM
+    io USB_DP
+    io VBUS_5V
+
     USB.MICROB J_USB
     USB_DEVICE U_DEV
     DIO.ESD D_DM(5V)    // partno "USBLC6" is BOM metadata; only core electrical formals are constructor params
     DIO.ESD D_DP(5V)
-    CAP.CER C_VBUS(1uF, 10V)
+    CAP.MLCC C_VBUS(1uF, 10V)
 
     J_USB.1 -> VBUS_5V
     J_USB.5 -> GND
@@ -32,8 +37,8 @@ module main
     USB_DM -> U_DEV.DATA.DM
     USB_DP -> U_DEV.DATA.DP
 
-    USB_DM -> D_DM.INPUT
-    USB_DP -> D_DP.INPUT
-    D_DM.GND -> GND
-    D_DP.GND -> GND
+    USB_DM -> D_DM.CATHODE
+    USB_DP -> D_DP.CATHODE
+    D_DM.ANODE -> GND
+    D_DP.ANODE -> GND
 }

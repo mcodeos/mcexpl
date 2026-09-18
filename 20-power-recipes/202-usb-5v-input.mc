@@ -4,10 +4,13 @@
 
 module main
 {
+    io GND
+    io VBUS_5V
+
     USB.MICROB J_USB
     FUSE.PTC F_USB(0.5A, 6V, 1A)
     DIO.TVS D_VBUS(6V, 12V, 600W)
-    CAP.CER C_VBUS(10uF, 10V)
+    CAP.MLCC C_VBUS(10uF, 10V)
 
     J_USB.1 -> F_USB -> VBUS_5V
     J_USB.5 -> GND

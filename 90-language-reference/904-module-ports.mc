@@ -12,6 +12,9 @@ module STATUS_BLOCK(in signal, psnk ground)
 
 module main
 {
+    io GND
+    io GPIO_STATUS
+
     STATUS_BLOCK STATUS
 
     GPIO_STATUS -> STATUS.signal

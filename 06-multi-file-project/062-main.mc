@@ -9,6 +9,12 @@ use ./sensor.mc
 
 module main
 {
+    io GND
+    io I2C_SCL
+    io I2C_SDA
+    io V3V3
+    io VIN
+
     SENSOR_NODE_POWER U_POWER
     SENSOR_NODE_MCU U_MCU
     I2C_TEMP_SENSOR U_SENSOR

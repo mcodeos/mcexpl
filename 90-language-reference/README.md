@@ -31,7 +31,8 @@ component TYPE_NAME
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/901-component-definition.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference/901-component-definition.mc --lib mcode --pass1 --pass2
 ```
 
 <!-- #endregion _901-component-definition -->
@@ -55,7 +56,8 @@ component TYPE_NAME(value::UV.OHM)
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/902-attributes-spec-typed-parameters.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference/902-attributes-spec-typed-parameters.mc --lib mcode --pass1 --pass2
 ```
 
 <!-- #endregion _902-attributes-spec-and-typed-parameters -->
@@ -78,7 +80,8 @@ pins = [
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/903-pins-ranges-indexed-names.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference/903-pins-ranges-indexed-names.mc --lib mcode --pass1 --pass2
 ```
 
 <!-- #endregion _903-pins-ranges-and-indexed-names -->
@@ -105,7 +108,8 @@ module main
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/904-module-ports.mc --lib mcode --pass1 --pass2 --top main
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference/904-module-ports.mc --lib mcode --pass1 --pass2 --top main
 ```
 
 <!-- #endregion _904-module-ports -->
@@ -125,7 +129,8 @@ pins = [
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/905-interface-binding-roles.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference/905-interface-binding-roles.mc --lib mcode --pass1 --pass2
 ```
 
 <!-- #endregion _905-interface-binding-and-roles -->
@@ -156,7 +161,8 @@ returns that instance, so `.ConnectCathode(...)` runs on the value returned by
 `ConnectAnode(...)`. Tutorial example 042 uses the same method-chain pattern.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/906-functions-method-calls.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference/906-functions-method-calls.mc --lib mcode --pass1 --pass2
 ```
 
 <!-- #endregion _906-functions-and-method-calls -->
@@ -195,7 +201,8 @@ The runnable example connects `U_WIDE.IO2`, proving that a name appended by
 `pins +=` can be accessed on the selected variant. `U_BASE` has no `IO2` member.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/907-conditions-and-dynamic-pins.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference/907-conditions-and-dynamic-pins.mc --lib mcode --pass1 --pass2
 ```
 
 <!-- #endregion _907-conditions-and-dynamic-pins -->
@@ -214,7 +221,8 @@ R_PULLUP::RES(10000R, 50V).Pullup([BUTTON_IN, V3V3])
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/908-inline-construction-library-method.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference/908-inline-construction-library-method.mc --lib mcode --pass1 --pass2
 ```
 
 <!-- #endregion _908-inline-construction-and-library-methods -->
@@ -232,7 +240,8 @@ use ./led_block.mc
 ```
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 90-language-reference/909-cross-file-use/main.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference/909-cross-file-use/main.mc --lib mcode --pass1 --pass2
 ```
 
 <!-- #endregion _909-cross-file-use -->

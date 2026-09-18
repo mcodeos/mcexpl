@@ -4,6 +4,9 @@
 
 module main
 {
+    io GND
+    io GPIO_LED
+
     RES R_LED(330R, 50V)
     LED D_STATUS(2.0V, 10mA)
 

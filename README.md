@@ -1,16 +1,16 @@
 # MC Examples
 
-MCode is an industrial-grade circuit programming language aimed at precise and
-efficient circuit programming; circuits are written as structured text. MCC
-parses `.mc` files, resolves components, interfaces, modules, nets, and
+MCode is a circuit description language for writing electronic designs as
+structured text. MCC parses `.mc` files, resolves components, interfaces, modules, nets, and
 connections, and can generate interactive HTML visualizations of the described
 circuit. The basic `mcode` library provides common electronics building blocks
 such as resistors, capacitors, LEDs, diodes, regulators, connectors, power
 rails, and common interfaces.
 
-The current toolchain focuses on parsing, checking, and visualization. Future
-work is expected to extend the flow toward richer hardware automation, including
-PCB-oriented generation.
+MCC provides parsing, semantic and electrical checks, interactive visualization,
+and exports for bills of materials and netlists, including KiCad netlists.
+Generated schematics are structural views; they do not establish electrical
+performance or replace circuit simulation and board validation.
 
 This repository contains beginner-friendly MCode examples. The examples are
 organized into three parts:
@@ -21,6 +21,9 @@ organized into three parts:
 
 The examples are intended for users who want to learn how to describe practical
 circuits with MCode and the `mcode` basic library.
+
+Read the [online ebook](https://mcodeos.github.io/mcexpl/). The GitHub repository
+is now named `mcexpl`; this guide keeps `mc-examples` as the local checkout name.
 
 ## Quick Start
 
@@ -40,7 +43,8 @@ Build MCC:
 
 ```bash
 cd ../mcc
-cargo build
+eval "$(scripts/mcc-slot.sh)"
+cargo build --bin mcc
 ```
 
 Return to the examples directory and point MCC at the directory that contains
@@ -57,20 +61,20 @@ above, MCC loads the basic library from `$MCC_SYSTEM_ROOT/mcode/mcode.mc`.
 Parse an example:
 
 ```bash
-../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --pass1 --pass2
+"$MCC_BIN" --local parse 00-getting-started/001-power-net.mc --lib mcode --pass1 --pass2
 ```
 
 Generate an HTML visualization:
 
 ```bash
-../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --viz
+"$MCC_BIN" --local parse 00-getting-started/001-power-net.mc --lib mcode --viz
 ```
 
 By default, `--viz` writes `circuit.html` in the current directory. Use `-o` to
 choose the output path:
 
 ```bash
-../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --viz -o 00-getting-started/001-power-net.html
+"$MCC_BIN" --local parse 00-getting-started/001-power-net.mc --lib mcode --viz -o 00-getting-started/001-power-net.html
 ```
 
 For these user examples, generated HTML files can be written next to the source
@@ -80,7 +84,8 @@ Command parts:
 
 - `export MCC_SYSTEM_ROOT="$(cd .. && pwd)"` tells MCC where to find local
   system libraries. The path must contain a `mcode/` directory.
-- `../mcc/target/debug/mcc` runs the MCC binary built by `cargo build`.
+- `"$MCC_BIN"` runs the compiler in the selected private build slot.
+- `--local` uses that binary directly, even if an older MCC server is running.
 - `parse` parses one MCode file and reports the resolved design structure.
 - `--lib mcode` loads the MCode basic library, including common components and
   interfaces such as `RES`, `CAP`, `LED`, `DIO`, `REG`, `GPIO`, `I2C`, `SPI`,
@@ -93,6 +98,26 @@ Each numbered example directory includes or can include a small `README.md` with
 copyable parse and visualization commands. You can also use the
 `parse <file.mc> --lib mcode --pass1 --pass2` and
 `parse <file.mc> --lib mcode --viz -o <output.html>` patterns above.
+
+## Rebuild All Examples
+
+After the build and environment setup above, run:
+
+```bash
+python3 scripts/rebuild-examples.py --mcc "$MCC_BIN"
+```
+
+The runner checks every `.mc` file and generates HTML beside each entry file
+that declares `module main`. Support files are checked separately and rendered
+through their importing examples. Diagnostics and a JSON summary are written
+to ignored `target/validation/`. Warnings fail validation as well as errors,
+because unresolved components can otherwise produce incomplete diagrams.
+
+Compatibility note: MCC `dc532f6` can report `E4055` for a module's own
+boundary ports even though those ports are rendered on the module frame.
+The local compiler used for this refresh includes a correction for that
+diagnostic and a rendering regression test. An unpatched upstream build may
+still report it. The runner retains such errors in its report.
 
 ## Tutorial Path
 

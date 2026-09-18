@@ -24,6 +24,9 @@ component FLASH_SPI
 
 module main
 {
+    io GND
+    io V3V3
+
     DC.SRC PWR(3.3V, 100mA)
     MCU_SPI U_MCU
     FLASH_SPI U_FLASH

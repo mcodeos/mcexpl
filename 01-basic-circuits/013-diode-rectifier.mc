@@ -4,6 +4,10 @@
 
 module main
 {
+    io GND
+    io VIN
+    io VRECT
+
     DIO D_RECT(0.7V, 100V, 1A)
     RES R_LOAD(1000R, 50V)
 

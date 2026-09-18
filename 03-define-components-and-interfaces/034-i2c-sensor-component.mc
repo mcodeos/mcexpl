@@ -22,6 +22,11 @@ component SENSOR_I2C
 
 module main
 {
+    io GND
+    io I2C_SCL
+    io I2C_SDA
+    io V3V3
+
     DC.SRC PWR(3.3V, 100mA)
     MCU_I2C U_MCU
     SENSOR_I2C U_SENSOR

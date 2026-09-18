@@ -4,6 +4,10 @@
 
 module main
 {
+    io GND
+    io VIN
+    io VOUT
+
     RES R_FILTER(1000R, 50V)
     CAP C_FILTER(100nF, 16V)
 

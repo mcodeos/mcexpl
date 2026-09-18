@@ -16,6 +16,9 @@ It introduces the basic shape of a runnable MCode file:
 ```mc
 module main
 {
+    io GND
+    io V5V
+
     DC.SRC PWR(5V, 500mA)
     PWR.1 -> V5V
     PWR.2 -> GND
@@ -25,6 +28,9 @@ module main
 - `//` starts a line comment.
 - `module main` declares the entry module that MCC runs. `{` and `}` delimit
   its body; indentation is for readability.
+- `io V5V` and `io GND` explicitly declare named bidirectional connection
+  points in the module. A name alone does not establish a voltage or a ground
+  contract; the source pins and wiring establish the circuit connections.
 - `DC.SRC` is the `SRC` component type in the `DC` namespace. `PWR` is this
   source instance's local name.
 - `(5V, 500mA)` supplies positional arguments. `V` and `mA` are physical unit
@@ -38,8 +44,9 @@ Pin 1 of `DC.SRC` is positive and pin 2 is ground, so the two connection
 statements create the expected supply rails.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/001-power-net.mc --lib mcode --viz -o 00-getting-started/001-power-net.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/001-power-net.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/001-power-net.mc --lib mcode --viz -o 00-getting-started/001-power-net.html
 ```
 
 <!-- #endregion _001-power-net -->
@@ -62,8 +69,9 @@ then source ground. The library pin order also places the LED anode toward the
 resistor and its cathode toward ground.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/002-resistor-led.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/002-resistor-led.mc --lib mcode --viz -o 00-getting-started/002-resistor-led.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/002-resistor-led.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/002-resistor-led.mc --lib mcode --viz -o 00-getting-started/002-resistor-led.html
 ```
 
 <!-- #endregion _002-resistor-led -->
@@ -77,8 +85,9 @@ series LED path, this chain describes a shunt component from the supply rail to
 ground.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/003-decoupling-capacitor.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/003-decoupling-capacitor.mc --lib mcode --viz -o 00-getting-started/003-decoupling-capacitor.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/003-decoupling-capacitor.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/003-decoupling-capacitor.mc --lib mcode --viz -o 00-getting-started/003-decoupling-capacitor.html
 ```
 
 <!-- #endregion _003-decoupling-capacitor -->
@@ -102,8 +111,9 @@ resistor and switch statements at one electrical node. `SW_USER.COM` and
 `NO` is the normally open contact.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/004-button-pullup.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 00-getting-started/004-button-pullup.mc --lib mcode --viz -o 00-getting-started/004-button-pullup.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/004-button-pullup.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/004-button-pullup.mc --lib mcode --viz -o 00-getting-started/004-button-pullup.html
 ```
 
 <!-- #endregion _004-button-pull-up -->

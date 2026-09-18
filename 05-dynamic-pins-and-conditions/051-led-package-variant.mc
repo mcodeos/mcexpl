@@ -29,6 +29,9 @@ component CONFIG_LED(package_style::STRING)
 
 module main
 {
+    io GND
+    io V3V3
+
     DC.SRC PWR(3.3V, 20mA)
     CONFIG_LED("0603") D_SMALL
     CONFIG_LED("1206") D_LARGE

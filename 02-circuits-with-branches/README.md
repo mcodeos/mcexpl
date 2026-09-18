@@ -14,8 +14,9 @@ cathode faces the protected node and the anode faces ground, so the diode is
 reverse-biased during normal operation.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/021-zener-clamp.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/021-zener-clamp.mc --lib mcode --viz -o 02-circuits-with-branches/021-zener-clamp.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 02-circuits-with-branches/021-zener-clamp.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 02-circuits-with-branches/021-zener-clamp.mc --lib mcode --viz -o 02-circuits-with-branches/021-zener-clamp.html
 ```
 
 <!-- #endregion _021-zener-clamp-branch -->
@@ -30,8 +31,9 @@ a voltage spike. Its voltage and wattage arguments describe the protection
 device rather than adding new connection syntax.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/022-tvs-input-protection.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/022-tvs-input-protection.mc --lib mcode --viz -o 02-circuits-with-branches/022-tvs-input-protection.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 02-circuits-with-branches/022-tvs-input-protection.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 02-circuits-with-branches/022-tvs-input-protection.mc --lib mcode --viz -o 02-circuits-with-branches/022-tvs-input-protection.html
 ```
 
 <!-- #endregion _022-tvs-input-protection-branch -->
@@ -41,14 +43,15 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with
 
 `023-input-rc-esd.mc` joins four things at `ADC_IN`: the series resistor output,
 the continuing ADC signal, a filter capacitor, and an ESD protection input.
-`CAP.CER` selects the ceramic-capacitor subtype, and quoted values such as
-`"X7R"` are string arguments. `D_ESD.INPUT` connects to the protected signal
-while `D_ESD.GND` connects to ground. Repeating `ADC_IN` and `GND` across the
+`CAP.MLCC` selects a multilayer ceramic capacitor. `D_ESD.CATHODE` connects
+to the protected signal while `D_ESD.ANODE` connects to ground, matching the
+current library's `DIO.ESD.Protect` wiring. Repeating `ADC_IN` and `GND` across the
 statements creates shared nodes, not separate nets with similar labels.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/023-input-rc-esd.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/023-input-rc-esd.mc --lib mcode --viz -o 02-circuits-with-branches/023-input-rc-esd.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 02-circuits-with-branches/023-input-rc-esd.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 02-circuits-with-branches/023-input-rc-esd.mc --lib mcode --viz -o 02-circuits-with-branches/023-input-rc-esd.html
 ```
 
 <!-- #endregion _023-input-rc-esd -->
@@ -73,8 +76,9 @@ LED branch in sequence. The LED branch then finishes with an explicit cathode
 connection so the diode polarity stays readable.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/024-simple-power-branch.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 02-circuits-with-branches/024-simple-power-branch.mc --lib mcode --viz -o 02-circuits-with-branches/024-simple-power-branch.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 02-circuits-with-branches/024-simple-power-branch.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 02-circuits-with-branches/024-simple-power-branch.mc --lib mcode --viz -o 02-circuits-with-branches/024-simple-power-branch.html
 ```
 
 <!-- #endregion _024-simple-power-branch -->

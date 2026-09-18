@@ -35,8 +35,9 @@ The circuit is only a sensor powered from a 3.3 V source, but it separates the
 component definition from the instance that uses it.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/031-named-pins-component.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/031-named-pins-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/031-named-pins-component.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 03-define-components-and-interfaces/031-named-pins-component.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 03-define-components-and-interfaces/031-named-pins-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/031-named-pins-component.html
 ```
 
 <!-- #endregion _031-named-pins-component -->
@@ -75,8 +76,9 @@ The four signal connections also make the directions readable in context:
 in either direction.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/032-pin-directions-and-ranges.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/032-pin-directions-and-ranges.mc --lib mcode --viz -o 03-define-components-and-interfaces/032-pin-directions-and-ranges.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 03-define-components-and-interfaces/032-pin-directions-and-ranges.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 03-define-components-and-interfaces/032-pin-directions-and-ranges.mc --lib mcode --viz -o 03-define-components-and-interfaces/032-pin-directions-and-ranges.html
 ```
 
 <!-- #endregion _032-pin-directions-and-ranges -->
@@ -106,8 +108,9 @@ power pin because it is the shared electrical reference rather than a UART data
 member.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/033-uart-interface-binding.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/033-uart-interface-binding.mc --lib mcode --viz -o 03-define-components-and-interfaces/033-uart-interface-binding.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 03-define-components-and-interfaces/033-uart-interface-binding.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 03-define-components-and-interfaces/033-uart-interface-binding.mc --lib mcode --viz -o 03-define-components-and-interfaces/033-uart-interface-binding.html
 ```
 
 <!-- #endregion _033-uart-interface-binding -->
@@ -126,8 +129,9 @@ adds the idea that two component definitions can appear before one runnable
 `module main`.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/034-i2c-sensor-component.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/034-i2c-sensor-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/034-i2c-sensor-component.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 03-define-components-and-interfaces/034-i2c-sensor-component.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 03-define-components-and-interfaces/034-i2c-sensor-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/034-i2c-sensor-component.html
 ```
 
 <!-- #endregion _034-i2c-sensor-component -->
@@ -145,8 +149,9 @@ two or three, and direction-sensitive signal names make the connections easier
 to review.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/035-spi-flash-component.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 03-define-components-and-interfaces/035-spi-flash-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/035-spi-flash-component.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 03-define-components-and-interfaces/035-spi-flash-component.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 03-define-components-and-interfaces/035-spi-flash-component.mc --lib mcode --viz -o 03-define-components-and-interfaces/035-spi-flash-component.html
 ```
 
 <!-- #endregion _035-spi-flash-component -->

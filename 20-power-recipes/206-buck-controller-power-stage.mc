@@ -19,14 +19,20 @@ component BUCK_CONTROLLER(v_in::UV.VOLT, v_fb::UV.VOLT, f_sw::UV.HZ)
 
 module main
 {
+    io FB_NODE
+    io GND
+    io SW_NODE
+    io V12V
+    io V5V
+
     DC.SRC PWR(12V, 2A)
     BUCK_CONTROLLER U_CTRL(12V, 1V, 500kHz)
     IND.POWER L_BUCK(10uH, 2A, 3A, 0.05R)
     DIO.SCH D_CATCH(0.4V, 40V, 3A)
     RES R_FB_TOP(40000R, 50V)
     RES R_FB_BOTTOM(10000R, 50V)
-    CAP.CER C_IN(10uF, 25V)
-    CAP.CER C_OUT(22uF, 10V)
+    CAP.MLCC C_IN(10uF, 25V)
+    CAP.MLCC C_OUT(22uF, 10V)
 
     PWR.1 -> V12V
     PWR.2 -> GND

@@ -23,6 +23,9 @@ component REF_LED
 
 module main
 {
+    io GND
+    io GPIO_STATUS
+
     REF_LED D_STATUS
     RES R_LIMIT(330R, 50V)
 

@@ -13,6 +13,10 @@ module LED_INDICATOR(in signal, psnk ground)
 
 module main
 {
+    io GND
+    io GPIO_GREEN
+    io GPIO_RED
+
     LED_INDICATOR STATUS_GREEN
     LED_INDICATOR STATUS_RED
 

@@ -4,10 +4,14 @@
 
 module main
 {
+    io GND
+    io V3V3
+    io V5V
+
     DC.SRC PWR(5V, 1A)
     REG.LDO U_LDO(3.3V, 0.5A, 5V, 0.3V)
-    CAP.CER C_IN(1uF, 10V)
-    CAP.CER C_OUT(1uF, 6.3V)
+    CAP.MLCC C_IN(1uF, 10V)
+    CAP.MLCC C_OUT(1uF, 6.3V)
 
     PWR.1 -> V5V
     PWR.2 -> GND
