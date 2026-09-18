@@ -1,6 +1,6 @@
 // Example: Minimal MCU Board
 // Goal: Combine MCU power, decoupling, reset, and a small debug header.
-// Library focus: DC, CAP.CER, RES, HDR.
+// Library focus: DC, CAP.MLCC, RES, HDR.
 
 component GENERIC_MCU
 {
@@ -15,10 +15,16 @@ component GENERIC_MCU
 
 module main
 {
+    io DBG_CLK
+    io DBG_IO
+    io GND
+    io RESET_N
+    io V3V3
+
     DC.SRC PWR(3.3V, 200mA)
     GENERIC_MCU U_MCU
-    CAP.CER C_MCU(100nF, 10V)
-    CAP.CER C_BULK(4.7uF, 10V)
+    CAP.MLCC C_MCU(100nF, 10V)
+    CAP.MLCC C_BULK(4.7uF, 10V)
     RES R_RESET(10000R, 50V)
     HDR_1x5 J_DEBUG
 

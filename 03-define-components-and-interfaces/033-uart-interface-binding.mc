@@ -14,6 +14,9 @@ component MCU_UART
 
 module main
 {
+    io GND
+    io V3V3
+
     DC.SRC PWR(3.3V, 100mA)
     MCU_UART U_MCU
     HDR_1x3 J_DEBUG

@@ -41,8 +41,9 @@ Each instance owns its own `R_LIMIT` and `D_STATUS`, while both instances connec
 to the surrounding design through their ports.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/061-reusable-module.mc --lib mcode --pass1 --pass2 --top main
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/061-reusable-module.mc --lib mcode --viz --top main -o 06-multi-file-project/061-reusable-module.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 06-multi-file-project/061-reusable-module.mc --lib mcode --pass1 --pass2 --top main
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 06-multi-file-project/061-reusable-module.mc --lib mcode --viz --top main -o 06-multi-file-project/061-reusable-module.html
 ```
 
 <!-- #endregion _061-reusable-module -->
@@ -78,8 +79,9 @@ the circuit pattern from
 Run MCC only on the entry file; it loads the three dependencies automatically.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/062-main.mc --lib mcode --pass1 --pass2 --top main
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 06-multi-file-project/062-main.mc --lib mcode --viz --top main -o 06-multi-file-project/062-main.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 06-multi-file-project/062-main.mc --lib mcode --pass1 --pass2 --top main
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 06-multi-file-project/062-main.mc --lib mcode --viz --top main -o 06-multi-file-project/062-main.html
 ```
 
 <!-- #endregion _062-multi-file-sensor-node -->

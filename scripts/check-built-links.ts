@@ -3,7 +3,7 @@ import { dirname, relative, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { allExamples } from '../docs/.vitepress/catalog.ts'
 
-const base = '/mc-examples/'
+const base = '/mcexpl/'
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const outputRoot = resolve(repositoryRoot, 'docs/.vitepress/dist')
 

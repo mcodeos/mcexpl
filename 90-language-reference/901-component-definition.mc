@@ -13,6 +13,10 @@ component REF_SENSOR
 
 module main
 {
+    io GND
+    io SENSOR_OUT
+    io V3V3
+
     DC.SRC PWR(3.3V, 20mA)
     REF_SENSOR U_SENSOR
 

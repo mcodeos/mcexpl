@@ -150,6 +150,7 @@ const recipeChapters: CatalogChapter[] = [
     ['242', '242-usb-powered-mcu-board', '242 USB-Powered MCU Board', 'Combine USB input, regulation, and MCU power.'],
     ['243', '243-i2c-sensor-node', '243 I2C Sensor Node', 'Compose power, MCU, I2C, and sensor blocks.'],
     ['244', '244-mono-audio-line-output', '244 Mono Audio Line Output', 'Buffer and AC-couple a line-level output.'],
+    ['245', '245-supercapacitor-ups-power-module', '245 Supercapacitor UPS Power Module', 'Model a short-duration supercapacitor UPS power path.'],
   ]),
 ]
 

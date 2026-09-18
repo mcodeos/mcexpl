@@ -4,6 +4,9 @@
 
 module main
 {
+    io GND
+    io V5V
+
     DC.SRC PWR(5V, 500mA)
 
     PWR.1 -> V5V

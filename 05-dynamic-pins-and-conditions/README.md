@@ -46,8 +46,9 @@ Their electrical topology is the same; the selected package metadata is
 different.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/051-led-package-variant.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/051-led-package-variant.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/051-led-package-variant.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 05-dynamic-pins-and-conditions/051-led-package-variant.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 05-dynamic-pins-and-conditions/051-led-package-variant.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/051-led-package-variant.html
 ```
 
 <!-- #endregion _051-led-package-variant -->
@@ -74,8 +75,9 @@ compared. `LARGE_GPIO8 -> U_LARGE.GPIO8` then accesses one of the names added by
 `pins +=`; the smaller variant has no `GPIO8` member.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/052-gpio-expander-pins.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/052-gpio-expander-pins.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/052-gpio-expander-pins.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 05-dynamic-pins-and-conditions/052-gpio-expander-pins.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 05-dynamic-pins-and-conditions/052-gpio-expander-pins.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/052-gpio-expander-pins.html
 ```
 
 <!-- #endregion _052-gpio-expander-pins -->
@@ -96,8 +98,9 @@ The member accesses prove that the conditional names are usable after `pins +=`,
 while `R_TERM` creates the actual 120 ohm termination between the two bus nodes.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/053-rs485-termination-pins.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 05-dynamic-pins-and-conditions/053-rs485-termination-pins.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/053-rs485-termination-pins.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 05-dynamic-pins-and-conditions/053-rs485-termination-pins.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 05-dynamic-pins-and-conditions/053-rs485-termination-pins.mc --lib mcode --viz -o 05-dynamic-pins-and-conditions/053-rs485-termination-pins.html
 ```
 
 <!-- #endregion _053-rs485-termination-pins -->

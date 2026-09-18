@@ -4,6 +4,10 @@
 
 module main
 {
+    io GND
+    io INPUT_EXT
+    io INPUT_PROTECTED
+
     RES R_INPUT(100R, 50V)
     DIO.TVS D_PROTECT(6V, 12V, 600W)
 

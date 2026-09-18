@@ -13,6 +13,9 @@ component TWO_PIN_SENSOR
 
 module main
 {
+    io GND
+    io V3V3
+
     DC.SRC PWR(3.3V, 20mA)
     TWO_PIN_SENSOR U_SENSOR
 

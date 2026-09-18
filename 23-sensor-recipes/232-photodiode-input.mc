@@ -4,6 +4,10 @@
 
 module main
 {
+    io GND
+    io LIGHT_SENSE
+    io V3V3
+
     DC.SRC PWR(3.3V, 1mA)
     DIO.PHOTO D_LIGHT(0.5A/W, 1nA, 850nm)
     RES R_LOAD(100000R, 50V)

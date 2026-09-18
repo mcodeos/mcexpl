@@ -28,6 +28,11 @@ component REF_VARIANT(partno::STRING = "BASE")
 
 module main
 {
+    io BASE_IO0
+    io GND
+    io WIDE_IO0
+    io WIDE_IO2
+
     REF_VARIANT         U_BASE
     REF_VARIANT("WIDE") U_WIDE
 

@@ -5,7 +5,7 @@ export default defineConfig({
   lang: 'en-US',
   title: 'MC Examples',
   description: 'Learn MCode through practical circuits and focused language examples.',
-  base: '/mc-examples/',
+  base: '/mcexpl/',
   cleanUrls: true,
   lastUpdated: true,
   head: [
@@ -28,7 +28,7 @@ export default defineConfig({
       { text: 'Tutorial', link: '/tutorial/' },
       { text: 'Recipes', link: '/recipes/' },
       { text: 'Language Reference', link: '/reference/' },
-      { text: 'GitHub', link: 'https://github.com/mcodeos/mc-examples' },
+      { text: 'GitHub', link: 'https://github.com/mcodeos/mcexpl' },
     ],
     sidebar: makeSidebar(),
     search: {
@@ -46,7 +46,7 @@ export default defineConfig({
       text: 'Last updated',
     },
     editLink: {
-      pattern: 'https://github.com/mcodeos/mc-examples/edit/main/docs/:path',
+      pattern: 'https://github.com/mcodeos/mcexpl/edit/main/docs/:path',
       text: 'Edit this page on GitHub',
     },
     docFooter: {
@@ -54,7 +54,7 @@ export default defineConfig({
       next: 'Next',
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/mcodeos/mc-examples' },
+      { icon: 'github', link: 'https://github.com/mcodeos/mcexpl' },
     ],
     footer: {
       message: 'MCode examples for practical circuit descriptions.',

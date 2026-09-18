@@ -4,6 +4,10 @@
 
 module main
 {
+    io GND
+    io GPIO_LOAD
+    io V5V
+
     DC.SRC PWR(5V, 200mA)
     RES R_LOAD(100R, 50V)
     RES R_GATE(100R, 50V)

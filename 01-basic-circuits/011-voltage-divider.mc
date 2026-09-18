@@ -4,6 +4,10 @@
 
 module main
 {
+    io GND
+    io V5V
+    io VOUT
+
     DC.SRC PWR(5V, 10mA)
     RES R_TOP(10000R, 50V)
     RES R_BOTTOM(10000R, 50V)

@@ -31,13 +31,15 @@ bulk input capacitor.
 Parse `201-battery-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/201-battery-input.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/201-battery-input.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `201-battery-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/201-battery-input.mc --lib mcode --viz -o 20-power-recipes/201-battery-input.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/201-battery-input.mc --lib mcode --viz -o 20-power-recipes/201-battery-input.html
 ```
 
 <!-- #endregion _201-battery-input -->
@@ -56,13 +58,15 @@ on `VBUS_5V` and its anode on `GND`, and `C_VBUS` connects from `VBUS_5V` to
 Parse `202-usb-5v-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/202-usb-5v-input.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/202-usb-5v-input.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `202-usb-5v-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/202-usb-5v-input.mc --lib mcode --viz -o 20-power-recipes/202-usb-5v-input.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/202-usb-5v-input.mc --lib mcode --viz -o 20-power-recipes/202-usb-5v-input.html
 ```
 
 <!-- #endregion _202-usb-5-v-input -->
@@ -80,13 +84,15 @@ while `C_OUT` bypasses `V3V3` to `GND`.
 Parse `203-ldo-5v-to-3v3.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/203-ldo-5v-to-3v3.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/203-ldo-5v-to-3v3.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `203-ldo-5v-to-3v3.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/203-ldo-5v-to-3v3.mc --lib mcode --viz -o 20-power-recipes/203-ldo-5v-to-3v3.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/203-ldo-5v-to-3v3.mc --lib mcode --viz -o 20-power-recipes/203-ldo-5v-to-3v3.html
 ```
 
 <!-- #endregion _203-ldo-5-v-to-33-v -->
@@ -108,13 +114,15 @@ belong to the controller-level topology in `206`.
 Parse `204-buck-12v-to-5v.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/204-buck-12v-to-5v.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/204-buck-12v-to-5v.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `204-buck-12v-to-5v.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/204-buck-12v-to-5v.mc --lib mcode --viz -o 20-power-recipes/204-buck-12v-to-5v.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/204-buck-12v-to-5v.mc --lib mcode --viz -o 20-power-recipes/204-buck-12v-to-5v.html
 ```
 
 <!-- #endregion _204-buck-module-12-v-to-5-v -->
@@ -133,13 +141,15 @@ as local bypass capacitors.
 Parse `205-power-tree-5v-3v3-1v8.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/205-power-tree-5v-3v3-1v8.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/205-power-tree-5v-3v3-1v8.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `205-power-tree-5v-3v3-1v8.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/205-power-tree-5v-3v3-1v8.mc --lib mcode --viz -o 20-power-recipes/205-power-tree-5v-3v3-1v8.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/205-power-tree-5v-3v3-1v8.mc --lib mcode --viz -o 20-power-recipes/205-power-tree-5v-3v3-1v8.html
 ```
 
 <!-- #endregion _205-power-tree-5-v-33-v-18-v -->
@@ -170,13 +180,15 @@ feedback values, ratings, and compensation.
 Parse `206-buck-controller-power-stage.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/206-buck-controller-power-stage.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/206-buck-controller-power-stage.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `206-buck-controller-power-stage.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 20-power-recipes/206-buck-controller-power-stage.mc --lib mcode --viz -o 20-power-recipes/206-buck-controller-power-stage.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 20-power-recipes/206-buck-controller-power-stage.mc --lib mcode --viz -o 20-power-recipes/206-buck-controller-power-stage.html
 ```
 
 <!-- #endregion _206-buck-controller-power-stage -->

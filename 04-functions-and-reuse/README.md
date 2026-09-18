@@ -37,8 +37,9 @@ two-pin series device. The resolved circuit is `GPIO_STATUS`, `R_LIMIT`,
 parameters, and inline construction.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/041-led-indicator-function.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/041-led-indicator-function.mc --lib mcode --viz -o 04-functions-and-reuse/041-led-indicator-function.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/041-led-indicator-function.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/041-led-indicator-function.mc --lib mcode --viz -o 04-functions-and-reuse/041-led-indicator-function.html
 ```
 
 <!-- #endregion _041-led-indicator-function -->
@@ -80,8 +81,9 @@ resulting circuit has two independent normally-high button inputs, while both
 pull-up channels share `V3V3`.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/042-pullup-helper-function.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/042-pullup-helper-function.mc --lib mcode --viz -o 04-functions-and-reuse/042-pullup-helper-function.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/042-pullup-helper-function.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/042-pullup-helper-function.mc --lib mcode --viz -o 04-functions-and-reuse/042-pullup-helper-function.html
 ```
 
 <!-- #endregion _042-pull-up-helper-function -->
@@ -106,8 +108,9 @@ construction syntax remains the only new idea. Its method omits `return`
 because the call result is not used.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/043-inline-construction-function.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/043-inline-construction-function.mc --lib mcode --viz -o 04-functions-and-reuse/043-inline-construction-function.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/043-inline-construction-function.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/043-inline-construction-function.mc --lib mcode --viz -o 04-functions-and-reuse/043-inline-construction-function.html
 ```
 
 <!-- #endregion _043-inline-construction-function -->
@@ -120,18 +123,19 @@ the `mcode` library's `CAP` component. These two calls create distinct ceramic
 capacitors while applying the same rail-to-ground connection pattern:
 
 ```mc
-C_5V::CAP.CER(100nF, 10V).Cap([V5V, GND])
-C_3V3::CAP.CER(100nF, 10V).Cap([V3V3, GND])
+C_5V::CAP.MLCC(100nF, 10V).Cap([V5V, GND])
+C_3V3::CAP.MLCC(100nF, 10V).Cap([V3V3, GND])
 ```
 
-`CAP.CER(100nF, 10V)` is the ceramic-capacitor library type with capacitance and
+`CAP.MLCC(100nF, 10V)` is the ceramic-capacitor library type with capacitance and
 voltage arguments. `C_5V` belongs only to the 5 V rail and `C_3V3` belongs only
 to the 3.3 V rail; both share `GND`. This demonstrates that user code calls
 library methods with the same dot-call syntax as locally defined methods.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/044-decoupling-library-method.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 04-functions-and-reuse/044-decoupling-library-method.mc --lib mcode --viz -o 04-functions-and-reuse/044-decoupling-library-method.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/044-decoupling-library-method.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/044-decoupling-library-method.mc --lib mcode --viz -o 04-functions-and-reuse/044-decoupling-library-method.html
 ```
 
 <!-- #endregion _044-decoupling-library-method -->

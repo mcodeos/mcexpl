@@ -48,13 +48,15 @@ coefficient, and voltage rating.
 Parse `231-ntc-temperature-divider.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/231-ntc-temperature-divider.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 23-sensor-recipes/231-ntc-temperature-divider.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `231-ntc-temperature-divider.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/231-ntc-temperature-divider.mc --lib mcode --viz -o 23-sensor-recipes/231-ntc-temperature-divider.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 23-sensor-recipes/231-ntc-temperature-divider.mc --lib mcode --viz -o 23-sensor-recipes/231-ntc-temperature-divider.html
 ```
 
 <!-- #endregion _231-ntc-temperature-divider -->
@@ -98,13 +100,15 @@ are summarized in `90-language-reference/902-attributes-spec-typed-parameters.mc
 Parse `232-photodiode-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/232-photodiode-input.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 23-sensor-recipes/232-photodiode-input.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `232-photodiode-input.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/232-photodiode-input.mc --lib mcode --viz -o 23-sensor-recipes/232-photodiode-input.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 23-sensor-recipes/232-photodiode-input.mc --lib mcode --viz -o 23-sensor-recipes/232-photodiode-input.html
 ```
 
 <!-- #endregion _232-photodiode-input -->
@@ -143,19 +147,21 @@ these values as an illustration of the MCode topology, not as a board-wide
 recommendation.
 
 The syntax follows `01-basic-circuits/012-rc-low-pass-filter.mc` and the shared
-node style from `02-circuits-with-branches/023-input-rc-esd.mc`. `CAP.CER` is
+node style from `02-circuits-with-branches/023-input-rc-esd.mc`. `CAP.MLCC` is
 the ceramic capacitor subtype from the current `mcode` library.
 
 Parse `233-adc-input-rc-filter.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/233-adc-input-rc-filter.mc --lib mcode --pass1 --pass2
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 23-sensor-recipes/233-adc-input-rc-filter.mc --lib mcode --pass1 --pass2
 ```
 
 Generate HTML for `233-adc-input-rc-filter.mc`:
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 23-sensor-recipes/233-adc-input-rc-filter.mc --lib mcode --viz -o 23-sensor-recipes/233-adc-input-rc-filter.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 23-sensor-recipes/233-adc-input-rc-filter.mc --lib mcode --viz -o 23-sensor-recipes/233-adc-input-rc-filter.html
 ```
 
 <!-- #endregion _233-adc-input-rc-filter -->

@@ -20,6 +20,12 @@ component GPIO_EXPANDER(partno::STRING = "GPIO8")
 
 module main
 {
+    io GND
+    io LARGE_GPIO0
+    io LARGE_GPIO8
+    io SMALL_GPIO0
+    io V3V3
+
     DC.SRC PWR(3.3V, 100mA)
     GPIO_EXPANDER            U_SMALL
     GPIO_EXPANDER("GPIO16") U_LARGE

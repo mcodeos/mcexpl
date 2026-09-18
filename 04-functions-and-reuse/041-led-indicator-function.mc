@@ -19,6 +19,9 @@ component STATUS_LED
 
 module main
 {
+    io GND
+    io GPIO_STATUS
+
     STATUS_LED D_STATUS
     RES R_LIMIT(330R, 50V)
 

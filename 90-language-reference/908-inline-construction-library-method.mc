@@ -3,6 +3,10 @@
 
 module main
 {
+    io BUTTON_IN
+    io GND
+    io V3V3
+
     DC.SRC PWR(3.3V, 20mA)
     SWITCH.MOM SW_USER
 

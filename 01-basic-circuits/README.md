@@ -13,8 +13,9 @@ No new language construct is needed: the example shows how repeated named nodes
 make a circuit's important measurement point visible.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/011-voltage-divider.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/011-voltage-divider.mc --lib mcode --viz -o 01-basic-circuits/011-voltage-divider.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 01-basic-circuits/011-voltage-divider.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 01-basic-circuits/011-voltage-divider.mc --lib mcode --viz -o 01-basic-circuits/011-voltage-divider.html
 ```
 
 <!-- #endregion _011-voltage-divider -->
@@ -29,8 +30,9 @@ shunts `VOUT` to ground. With 1 kOhm and 100 nF, the cutoff frequency is about
 it is used.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/012-rc-low-pass-filter.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/012-rc-low-pass-filter.mc --lib mcode --viz -o 01-basic-circuits/012-rc-low-pass-filter.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 01-basic-circuits/012-rc-low-pass-filter.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 01-basic-circuits/012-rc-low-pass-filter.mc --lib mcode --viz -o 01-basic-circuits/012-rc-low-pass-filter.html
 ```
 
 <!-- #endregion _012-rc-low-pass-filter -->
@@ -45,8 +47,9 @@ Descriptive member access is the same dot syntax used for switch pins, but here
 it makes semiconductor polarity unambiguous.
 
 ```bash
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/013-diode-rectifier.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" ../mcc/target/debug/mcc parse 01-basic-circuits/013-diode-rectifier.mc --lib mcode --viz -o 01-basic-circuits/013-diode-rectifier.html
+eval "$(../mcc/scripts/mcc-slot.sh)"
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 01-basic-circuits/013-diode-rectifier.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 01-basic-circuits/013-diode-rectifier.mc --lib mcode --viz -o 01-basic-circuits/013-diode-rectifier.html
 ```
 
 <!-- #endregion _013-diode-rectifier -->

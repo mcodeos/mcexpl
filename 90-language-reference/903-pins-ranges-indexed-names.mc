@@ -12,6 +12,13 @@ component REF_GPIO_HEADER
 
 module main
 {
+    io GND
+    io GPIO0
+    io GPIO1
+    io GPIO2
+    io GPIO3
+    io V3V3
+
     DC.SRC PWR(3.3V, 20mA)
     REF_GPIO_HEADER J_GPIO
 

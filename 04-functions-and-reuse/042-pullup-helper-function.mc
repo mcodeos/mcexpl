@@ -30,6 +30,11 @@ component DUAL_PULLUP_RESISTOR
 
 module main
 {
+    io BUTTON_A
+    io BUTTON_B
+    io GND
+    io V3V3
+
     DC.SRC PWR(3.3V, 50mA)
     DUAL_PULLUP_RESISTOR RN_PULLUPS
     SWITCH.MOM SW_A

@@ -4,6 +4,11 @@
 
 module main
 {
+    io COIL_LOW
+    io GND
+    io GPIO_RELAY
+    io V5V
+
     DC.SRC PWR(5V, 500mA)
     RELAY K_LOAD(1A, 5V)
     FET.MOSFET.N Q_RELAY

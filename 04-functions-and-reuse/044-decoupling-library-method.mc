@@ -4,6 +4,10 @@
 
 module main
 {
+    io GND
+    io V3V3
+    io V5V
+
     DC.SRC PWR_5V(5V, 100mA)
     DC.SRC PWR_3V3(3.3V, 100mA)
 
@@ -13,6 +17,6 @@ module main
     PWR_3V3.2 -> GND
 
     // Each call creates a distinct capacitor between its rail and GND.
-    C_5V::CAP.CER(100nF, 10V).Cap([V5V, GND])
-    C_3V3::CAP.CER(100nF, 10V).Cap([V3V3, GND])
+    C_5V::CAP.MLCC(100nF, 10V).Cap([V5V, GND])
+    C_3V3::CAP.MLCC(100nF, 10V).Cap([V3V3, GND])
 }

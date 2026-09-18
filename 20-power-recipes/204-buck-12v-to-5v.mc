@@ -4,10 +4,14 @@
 
 module main
 {
+    io GND
+    io V12V
+    io V5V
+
     DC.SRC PWR(12V, 2A)
     REG U_BUCK_MODULE(5V, 1A, 12V)
-    CAP.CER C_IN(10uF, 25V)
-    CAP.CER C_OUT(22uF, 10V)
+    CAP.MLCC C_IN(10uF, 25V)
+    CAP.MLCC C_OUT(22uF, 10V)
 
     PWR.1 -> V12V
     PWR.2 -> GND

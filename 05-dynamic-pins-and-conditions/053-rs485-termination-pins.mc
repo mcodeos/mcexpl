@@ -21,6 +21,10 @@ component RS485_ENDPOINT(partno::STRING = "RS485_NODE")
 
 module main
 {
+    io BUS_A
+    io BUS_B
+    io GND
+
     RS485_ENDPOINT                 U_NODE
     RS485_ENDPOINT("RS485_TERM120") U_END
     RES R_TERM(120R, 50V)

@@ -12,6 +12,9 @@ component REF_UART_DEVICE
 
 module main
 {
+    io GND
+    io V3V3
+
     DC.SRC PWR(3.3V, 20mA)
     REF_UART_DEVICE U_DEV
     HDR_1x3 J_DEBUG
