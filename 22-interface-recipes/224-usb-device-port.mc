@@ -19,7 +19,7 @@ module main
     io USB_DP
     io VBUS_5V
 
-    USB.MICROB J_USB
+    USB.SOCK_MICROB J_USB
     USB_DEVICE U_DEV
     DIO.ESD D_DM(5V)    // partno "USBLC6" is BOM metadata; only core electrical formals are constructor params
     DIO.ESD D_DP(5V)

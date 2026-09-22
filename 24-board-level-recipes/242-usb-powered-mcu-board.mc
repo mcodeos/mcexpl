@@ -1,6 +1,6 @@
 // Example: USB-Powered MCU Board
 // Goal: Build a power-only USB input, 3.3 V regulator, and generic MCU rail.
-// Library focus: USB.MICROB, FUSE.PTC, DIO.TVS, REG.LDO, CAP.MLCC.
+// Library focus: USB.SOCK_MICROB, FUSE.PTC, DIO.TVS, REG.LDO, CAP.MLCC.
 
 component GENERIC_MCU
 {
@@ -19,7 +19,7 @@ module main
     io V3V3
     io VBUS_5V
 
-    USB.MICROB J_USB
+    USB.SOCK_MICROB J_USB
     FUSE.PTC F_USB(0.5A, 6V, 1A)
     DIO.TVS D_VBUS(6V, 12V, 600W)
     REG.LDO U_LDO(3.3V, 0.3A, 5V, 0.3V)
