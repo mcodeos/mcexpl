@@ -26,7 +26,7 @@ module main
     CAP.MLCC C_MCU(100nF, 10V)
     CAP.MLCC C_BULK(4.7uF, 10V)
     RES R_RESET(10000R, 50V)
-    HDR_1x5 J_DEBUG
+    HDR.1X5 J_DEBUG
 
     PWR.1 -> V3V3
     PWR.2 -> GND

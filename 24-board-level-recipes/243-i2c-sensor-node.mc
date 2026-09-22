@@ -34,7 +34,7 @@ module main
     RES R_SDA(4700R, 50V)
     CAP.MLCC C_MCU(100nF, 10V)
     CAP.MLCC C_SENSOR(100nF, 10V)
-    HDR_1x4 J_I2C
+    HDR.1X4 J_I2C
 
     PWR.1 -> V3V3
     PWR.2 -> GND
