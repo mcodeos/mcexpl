@@ -40,6 +40,6 @@ module main
     // Each interface member is connected to the matching peer member.
     U_MCU.SPI0.CS -> U_FLASH.SPI0.CS
     U_MCU.SPI0.SCLK -> U_FLASH.SPI0.SCLK
-    U_MCU.SPI0.MOSI -> U_FLASH.SPI0.MOSI
-    U_FLASH.SPI0.MISO -> U_MCU.SPI0.MISO
+    U_MCU.SPI0.MOSI -> U_FLASH.SPI0.SI
+    U_FLASH.SPI0.SO -> U_MCU.SPI0.MISO
 }

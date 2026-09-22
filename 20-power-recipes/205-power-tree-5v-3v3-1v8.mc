@@ -2,6 +2,8 @@
 // Goal: Show a small multi-rail power structure.
 // Library focus: REG, CAP, DC.
 
+use mclibs.power/reg.mc
+
 module main
 {
     io GND
@@ -19,12 +21,12 @@ module main
     PWR.1 -> V5V
     PWR.2 -> GND
     V5V -> C_5V -> GND
-    V5V -> U_3V3.INPUT
-    U_3V3.OUTPUT -> V3V3
+    V5V -> U_3V3.Vin
+    U_3V3.Vout -> V3V3
     U_3V3.GND -> GND
     V3V3 -> C_3V3 -> GND
-    V3V3 -> U_1V8.INPUT
-    U_1V8.OUTPUT -> V1V8
+    V3V3 -> U_1V8.Vin
+    U_1V8.Vout -> V1V8
     U_1V8.GND -> GND
     V1V8 -> C_1V8 -> GND
 }

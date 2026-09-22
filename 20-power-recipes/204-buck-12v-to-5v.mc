@@ -2,6 +2,8 @@
 // Goal: Treat a complete buck module as a three-terminal regulator block.
 // Library focus: REG, CAP, DC.
 
+use mclibs.power/reg.mc
+
 module main
 {
     io GND

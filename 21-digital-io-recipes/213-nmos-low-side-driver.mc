@@ -17,8 +17,8 @@ module main
     PWR.1 -> V5V
     PWR.2 -> GND
 
-    V5V -> R_LOAD -> Q_SWITCH.D
-    Q_SWITCH.S -> GND
-    GPIO_LOAD -> R_GATE -> Q_SWITCH.G
-    Q_SWITCH.G -> R_PULLDOWN -> GND
+    V5V -> R_LOAD -> Q_SWITCH.DRAIN
+    Q_SWITCH.SOURCE -> GND
+    GPIO_LOAD -> R_GATE -> Q_SWITCH.GATE
+    Q_SWITCH.GATE -> R_PULLDOWN -> GND
 }
