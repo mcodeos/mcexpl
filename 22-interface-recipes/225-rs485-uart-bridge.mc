@@ -35,7 +35,7 @@ module main
     DC.SRC PWR(5V, 200mA)
     MCU_UART U_MCU
     RS485_BRIDGE U_RS485
-    HDR_1x3 J_BUS
+    HDR.1X3 J_BUS
     RES R_TERM(120R, 50V)
 
     PWR.1 -> V5V

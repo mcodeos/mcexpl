@@ -18,7 +18,7 @@ module main
 
     DC.SRC PWR(3.3V, 100mA)
     MCU_UART U_MCU
-    HDR_1x3 J_DEBUG
+    HDR.1X3 J_DEBUG
 
     PWR.1 -> V3V3
     PWR.2 -> GND
