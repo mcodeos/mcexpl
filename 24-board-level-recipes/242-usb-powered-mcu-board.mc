@@ -11,6 +11,8 @@ component GENERIC_MCU
     ]
 }
 
+use mclibs.power/reg.mc
+
 module main
 {
     io GND
@@ -38,9 +40,9 @@ module main
     D_VBUS.ANODE -> GND
     VBUS_5V -> C_VBUS -> GND
 
-    VBUS_5V -> U_LDO.INPUT
+    VBUS_5V -> U_LDO.Vin
     U_LDO.GND -> GND
-    U_LDO.OUTPUT -> V3V3
+    U_LDO.Vout -> V3V3
     VBUS_5V -> C_LDO_IN -> GND
     V3V3 -> C_LDO_OUT -> GND
 

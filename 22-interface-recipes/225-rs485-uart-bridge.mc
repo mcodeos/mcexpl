@@ -16,7 +16,7 @@ component RS485_BRIDGE
     name = "UART to RS485 Bridge"
     pins = [
         io 1:2 = UART0::UART.TTL(DTE)
-        io 3:5 = BUS::UART.RS485(Master)
+        io 3:5 = BUS::UART.RS485.3(Master)
         psnk [6,7] = [VCC, GND]
         io 8 = DE
         io 9 = RE_N
