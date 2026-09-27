@@ -208,16 +208,16 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference
 <!-- #endregion _907-conditions-and-dynamic-pins -->
 
 <!-- #region _908-inline-construction-and-library-methods -->
-### 908 Inline Construction And Library Methods
+### 908 Named Inline Construction
 
-`908-inline-construction-library-method.mc` covers `NAME::TYPE(args)` inline
-construction and method calls provided by the `mcode` library. Tutorial first
+`908-inline-construction-library-method.mc` covers `TYPE name(args)` named
+inline construction with parts provided by the `mcode` library. Tutorial first
 use: `04-functions-and-reuse`.
 
 Syntax synopsis:
 
 ```mc
-R_PULLUP::RES(10000R, 50V).Pullup([BUTTON_IN, V3V3])
+BUTTON_IN - RES R_PULLUP(10000R, 50V) - V3V3
 ```
 
 ```bash

@@ -257,8 +257,8 @@ Focused examples for language features that are useful across many circuits.
 - `906-functions-method-calls.mc`: Use `func`, `this`, `return`, and method
   calls.
 - `907-conditions-and-dynamic-pins.mc`: Use conditions and `pins +=`.
-- `908-inline-construction-library-method.mc`: Use named inline construction and
-  a library method.
+- `908-inline-construction-library-method.mc`: Use named inline construction
+  with a library part.
 - `909-cross-file-use/`: Split an example across multiple files with `use`.
 
 ## Contributing

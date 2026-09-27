@@ -1,6 +1,6 @@
 // Example: Decoupling Library Method
-// Goal: Reuse the capacitor library's connection method on two rails.
-// Language focus: library component methods.
+// Goal: Name each decoupling capacitor inline and wire it between its rail and GND.
+// Language focus: named inline construction.
 
 module main
 {
@@ -16,7 +16,7 @@ module main
     PWR_3V3.1 -> V3V3
     PWR_3V3.2 -> GND
 
-    // Each call creates a distinct capacitor between its rail and GND.
-    C_5V::CAP.MLCC(100nF, 10V).Cap([V5V, GND])
-    C_3V3::CAP.MLCC(100nF, 10V).Cap([V3V3, GND])
+    // Each named inline construction creates a distinct capacitor between its rail and GND.
+    V5V - CAP.MLCC C_5V(100nF, 10V) - GND
+    V3V3 - CAP.MLCC C_3V3(100nF, 10V) - GND
 }

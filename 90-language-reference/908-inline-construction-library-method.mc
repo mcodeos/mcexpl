@@ -1,5 +1,5 @@
-// Reference: Inline Construction And Library Methods
-// Focus: NAME::TYPE(args) plus a method provided by the mcode library.
+// Reference: Named Inline Construction
+// Focus: TYPE name(args) inline construction with the mcode library parts.
 
 module main
 {
@@ -13,7 +13,7 @@ module main
     PWR.1 -> V3V3
     PWR.2 -> GND
 
-    R_PULLUP::RES(10000R, 50V).Pullup([BUTTON_IN, V3V3])
+    BUTTON_IN - RES R_PULLUP(10000R, 50V) - V3V3
     BUTTON_IN -> SW_USER.COM
     SW_USER.NO -> GND
 }

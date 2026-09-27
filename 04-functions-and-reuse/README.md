@@ -118,19 +118,20 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reus
 <!-- #region _044-decoupling-library-method -->
 ## 044 Decoupling Library Method
 
-`044-decoupling-library-method.mc` reuses the `Cap` method already defined by
-the `mcode` library's `CAP` component. These two calls create distinct ceramic
-capacitors while applying the same rail-to-ground connection pattern:
+`044-decoupling-library-method.mc` names each decoupling capacitor inline and
+wires it between its rail and ground. These two constructions create distinct
+ceramic capacitors while applying the same rail-to-ground connection pattern:
 
 ```mc
-C_5V::CAP.MLCC(100nF, 10V).Cap([V5V, GND])
-C_3V3::CAP.MLCC(100nF, 10V).Cap([V3V3, GND])
+V5V - CAP.MLCC C_5V(100nF, 10V) - GND
+V3V3 - CAP.MLCC C_3V3(100nF, 10V) - GND
 ```
 
 `CAP.MLCC(100nF, 10V)` is the ceramic-capacitor library type with capacitance and
 voltage arguments. `C_5V` belongs only to the 5 V rail and `C_3V3` belongs only
-to the 3.3 V rail; both share `GND`. This demonstrates that user code calls
-library methods with the same dot-call syntax as locally defined methods.
+to the 3.3 V rail; both share `GND`. This demonstrates that a named inline
+construction carries its own designator into the netlist while the infix
+expression wires both of its pins at once.
 
 ```bash
 eval "$(../mcc/scripts/mcc-slot.sh)"

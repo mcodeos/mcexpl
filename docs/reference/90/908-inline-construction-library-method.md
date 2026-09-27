@@ -1,9 +1,9 @@
 ---
-title: 908 Inline Construction And Library Methods
-description: Construct a named helper inline and call a library method.
+title: 908 Named Inline Construction
+description: Construct a named library part inline and wire both pins.
 ---
 
-<!--@include: ../../../90-language-reference/README.md#_908-inline-construction-and-library-methods-->
+<!--@include: ../../../90-language-reference/README.md#_908-named-inline-construction-->
 
 ## Source
 
