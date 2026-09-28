@@ -217,7 +217,7 @@ use: `04-functions-and-reuse`.
 Syntax synopsis:
 
 ```mc
-BUTTON_IN - RES R_PULLUP(10000R, 50V) - V3V3
+BUTTON_IN - RES R_PULL(10000R, 50V) - V3V3
 ```
 
 ```bash

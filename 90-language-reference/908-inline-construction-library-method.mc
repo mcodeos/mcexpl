@@ -13,7 +13,7 @@ module main
     PWR.1 -> V3V3
     PWR.2 -> GND
 
-    BUTTON_IN - RES R_PULLUP(10000R, 50V) - V3V3
+    BUTTON_IN - RES R_PULL(10000R, 50V) - V3V3
     BUTTON_IN -> SW_USER.COM
     SW_USER.NO -> GND
 }

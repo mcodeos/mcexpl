@@ -149,7 +149,7 @@ non-runnable negative example.
 
 - Keep examples short enough to read in one screen when possible.
 - Use stable names such as `V3V3`, `V5V`, `GND`, `VIN`, `VOUT`, `U_MCU`,
-  `J_DEBUG`, and `R_PULLUP`.
+  `J_DEBUG`, and `R_PULL`.
 - Prefer one concept per example in the tutorial path.
 - Avoid introducing advanced syntax before its tutorial chapter.
 - Comments in `.mc` files should explain intent, not restate the syntax.

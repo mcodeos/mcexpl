@@ -128,7 +128,7 @@ Small examples that introduce the minimum syntax needed to read and run MCode.
 - `001-power-net.mc`: Declare and connect a basic power net.
 - `002-resistor-led.mc`: Build a simple LED indicator with a resistor.
 - `003-decoupling-capacitor.mc`: Add a capacitor across a power rail.
-- `004-button-pullup.mc`: Model a push button with a pull-up resistor.
+- `004-button-pull.mc`: Model a push button with a pull-up resistor.
 
 ### 01 Basic Circuits
 
@@ -166,7 +166,7 @@ Local component definitions, pins, and interface binding.
 Reusable connection methods on component definitions.
 
 - `041-led-indicator-function.mc`: Give a status LED a reusable connection method.
-- `042-pullup-helper-function.mc`: Configure two pull-up channels with a returned
+- `042-pull-helper-function.mc`: Configure two pull-up channels with a returned
   instance and a chained method call.
 - `043-inline-construction-function.mc`: Name a helper instance inside a method
   call.

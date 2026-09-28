@@ -95,12 +95,12 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/00
 <!-- #region _004-button-pull-up -->
 ## 004 Button Pull-Up
 
-`004-button-pullup.mc` models a normally-high button input. The resistor pulls
+`004-button-pull.mc` models a normally-high button input. The resistor pulls
 `BUTTON_IN` toward `V3V3`; pressing the normally open switch connects that node
 to `GND`.
 
 ```mc
-V3V3 -> R_PULLUP -> BUTTON_IN
+V3V3 -> R_PULL -> BUTTON_IN
 BUTTON_IN -> SW_USER.COM
 SW_USER.NO -> GND
 ```
@@ -112,8 +112,8 @@ resistor and switch statements at one electrical node. `SW_USER.COM` and
 
 ```bash
 eval "$(../mcc/scripts/mcc-slot.sh)"
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/004-button-pullup.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/004-button-pullup.mc --lib mcode --viz -o 00-getting-started/004-button-pullup.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/004-button-pull.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 00-getting-started/004-button-pull.mc --lib mcode --viz -o 00-getting-started/004-button-pull.html
 ```
 
 <!-- #endregion _004-button-pull-up -->

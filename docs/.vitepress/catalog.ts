@@ -75,7 +75,7 @@ const tutorialChapters: CatalogChapter[] = [
     ['001', '001-power-net', '001 Power Net', 'Declare a source and name its power rails.'],
     ['002', '002-resistor-led', '002 Resistor LED', 'Build a current-limited LED path.'],
     ['003', '003-decoupling-capacitor', '003 Decoupling Capacitor', 'Place a capacitor across a supply rail.'],
-    ['004', '004-button-pullup', '004 Button Pull-Up', 'Create a normally-high button input.'],
+    ['004', '004-button-pull', '004 Button Pull-Up', 'Create a normally-high button input.'],
   ]),
   makeChapter('tutorial', '01', '01-basic-circuits', '01 Basic Circuits', 'Common analog building blocks and polarity-aware connections.', [
     ['011', '011-voltage-divider', '011 Voltage Divider', 'Create a measured resistor-divider output.'],
@@ -97,7 +97,7 @@ const tutorialChapters: CatalogChapter[] = [
   ]),
   makeChapter('tutorial', '04', '04-functions-and-reuse', '04 Functions And Reuse', 'Reusable component methods, returns, and inline construction.', [
     ['041', '041-led-indicator-function', '041 LED Indicator Function', 'Give an LED a reusable connection method.'],
-    ['042', '042-pullup-helper-function', '042 Pull-Up Helper Function', 'Return an instance and chain helper calls.'],
+    ['042', '042-pull-helper-function', '042 Pull-Up Helper Function', 'Return an instance and chain helper calls.'],
     ['043', '043-inline-construction-function', '043 Inline Construction Function', 'Name a helper instance inside a method call.'],
     ['044', '044-decoupling-library-method', '044 Decoupling Library Method', 'Reuse a library method on two rails.'],
   ]),

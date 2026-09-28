@@ -2,7 +2,7 @@
 // Goal: Configure both channels of a pull-up network in one method chain.
 // Language focus: return this, chained method calls.
 
-component DUAL_PULLUP_RESISTOR
+component DUAL_PULL_RESISTOR
 {
     name = "Dual Pull-Up Resistor"
     pins = [
@@ -12,7 +12,7 @@ component DUAL_PULLUP_RESISTOR
         4 = SOURCE_B
     ]
 
-    func PullupA(input, source, switch_pin)
+    func PullA(input, source, switch_pin)
     {
         input -> INPUT_A
         SOURCE_A -> source
@@ -20,7 +20,7 @@ component DUAL_PULLUP_RESISTOR
         return this
     }
 
-    func PullupB(input, source, switch_pin)
+    func PullB(input, source, switch_pin)
     {
         input -> INPUT_B
         SOURCE_B -> source
@@ -36,14 +36,14 @@ module main
     io V3V3
 
     DC.SRC PWR(3.3V, 50mA)
-    DUAL_PULLUP_RESISTOR RN_PULLUPS
+    DUAL_PULL_RESISTOR RN_PULLS
     SWITCH.MOM SW_A
     SWITCH.MOM SW_B
 
     PWR.1 -> V3V3
     PWR.2 -> GND
 
-    RN_PULLUPS.PullupA(BUTTON_A, V3V3, SW_A.COM).PullupB(BUTTON_B, V3V3, SW_B.COM)
+    RN_PULLS.PullA(BUTTON_A, V3V3, SW_A.COM).PullB(BUTTON_B, V3V3, SW_B.COM)
     SW_A.NO -> GND
     SW_B.NO -> GND
 }

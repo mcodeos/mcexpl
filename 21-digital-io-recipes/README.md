@@ -43,7 +43,7 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes
 
 `212-button-input.mc` describes a normally high push-button input.
 
-`PWR` creates the `V3V3` and `GND` rails. `R_PULLUP` connects from `V3V3` to
+`PWR` creates the `V3V3` and `GND` rails. `R_PULL` connects from `V3V3` to
 the `BUTTON_IN` node, so the input is high when the button is open. `SW_USER`
 connects `BUTTON_IN` to `GND` when pressed, pulling the input low.
 
@@ -71,7 +71,7 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes
 `PWR` creates the `V5V` and `GND` rails. `R_LOAD` represents a small load from
 `V5V` to the drain of `Q_SWITCH`. The NMOS source is tied to `GND`, so the load
 can conduct when the gate is driven high. `GPIO_LOAD` reaches the gate through
-`R_GATE`, and `R_PULLDOWN` keeps the gate low when the control signal is not
+`R_GATE`, and `R_PULL` keeps the gate low when the control signal is not
 driven.
 
 Parse `213-nmos-low-side-driver.mc`:
@@ -97,7 +97,7 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 21-digital-io-recipes
 
 `PWR` creates the `V5V` and `GND` rails. The relay coil high side connects to
 `V5V`, and the low side is named `COIL_LOW`. `Q_RELAY` switches `COIL_LOW` to
-`GND`. `GPIO_RELAY` drives the gate through `R_GATE`, while `R_PULLDOWN` keeps
+`GND`. `GPIO_RELAY` drives the gate through `R_GATE`, while `R_PULL` keeps
 the gate off by default. `D_FLYBACK` is placed across the coil with its cathode
 on `V5V` and its anode on `COIL_LOW`, giving coil current a safe path when the
 MOSFET turns off.

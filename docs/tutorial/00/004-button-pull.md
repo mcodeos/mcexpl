@@ -7,4 +7,4 @@ description: Create a normally-high button input.
 
 ## Source
 
-<<< ../../../00-getting-started/004-button-pullup.mc{text:line-numbers}
+<<< ../../../00-getting-started/004-button-pull.mc{text:line-numbers}

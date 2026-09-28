@@ -7,4 +7,4 @@ description: Return an instance and chain helper calls.
 
 ## Source
 
-<<< ../../../04-functions-and-reuse/042-pullup-helper-function.mc{text:line-numbers}
+<<< ../../../04-functions-and-reuse/042-pull-helper-function.mc{text:line-numbers}

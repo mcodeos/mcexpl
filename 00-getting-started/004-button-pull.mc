@@ -9,14 +9,14 @@ module main
     io V3V3
 
     DC.SRC PWR(3.3V, 100mA)
-    RES R_PULLUP(10000R, 50V)
+    RES R_PULL(10000R, 50V)
     SWITCH.MOM SW_USER
 
     PWR.1 -> V3V3
     PWR.2 -> GND
 
     // BUTTON_IN is high normally and is connected to ground when pressed.
-    V3V3 -> R_PULLUP -> BUTTON_IN
+    V3V3 -> R_PULL -> BUTTON_IN
     BUTTON_IN -> SW_USER.COM
     SW_USER.NO -> GND
 }

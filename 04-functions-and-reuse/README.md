@@ -47,12 +47,12 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reus
 <!-- #region _042-pull-up-helper-function -->
 ## 042 Pull-Up Helper Function
 
-`042-pullup-helper-function.mc` models a dual pull-up resistor network. Each
+`042-pull-helper-function.mc` models a dual pull-up resistor network. Each
 method configures one resistor channel and connects one normally-high button
 input. It reuses the component pin access introduced in 041:
 
 ```mc
-func PullupA(input, source, switch_pin)
+func PullA(input, source, switch_pin)
 {
     input -> INPUT_A
     SOURCE_A -> source
@@ -65,25 +65,25 @@ func PullupA(input, source, switch_pin)
   channel. `SOURCE_A -> source` connects the other end to the supply rail.
 - Reusing `input` in `input -> switch_pin` creates the branch to the button, so
   the resistor pin and switch common pin share one input node.
-- `return this` returns the current `DUAL_PULLUP_RESISTOR` instance. Unlike an
+- `return this` returns the current `DUAL_PULL_RESISTOR` instance. Unlike an
   ordinary connection node, that returned instance still has component methods.
 
 The call consumes that return value immediately:
 
 ```mc
-RN_PULLUPS.PullupA(BUTTON_A, V3V3, SW_A.COM).PullupB(BUTTON_B, V3V3, SW_B.COM)
+RN_PULLS.PullA(BUTTON_A, V3V3, SW_A.COM).PullB(BUTTON_B, V3V3, SW_B.COM)
 ```
 
-Read the expression from left to right. `PullupA(...)` runs on `RN_PULLUPS` and
-returns that same instance; the following `.PullupB(...)` is then called on the
-returned instance. `PullupB` omits `return` because no call follows it. The
+Read the expression from left to right. `PullA(...)` runs on `RN_PULLS` and
+returns that same instance; the following `.PullB(...)` is then called on the
+returned instance. `PullB` omits `return` because no call follows it. The
 resulting circuit has two independent normally-high button inputs, while both
 pull-up channels share `V3V3`.
 
 ```bash
 eval "$(../mcc/scripts/mcc-slot.sh)"
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/042-pullup-helper-function.mc --lib mcode --pass1 --pass2
-MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/042-pullup-helper-function.mc --lib mcode --viz -o 04-functions-and-reuse/042-pullup-helper-function.html
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/042-pull-helper-function.mc --lib mcode --pass1 --pass2
+MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reuse/042-pull-helper-function.mc --lib mcode --viz -o 04-functions-and-reuse/042-pull-helper-function.html
 ```
 
 <!-- #endregion _042-pull-up-helper-function -->
@@ -91,15 +91,15 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 04-functions-and-reus
 <!-- #region _043-inline-construction-function -->
 ## 043 Inline Construction Function
 
-`043-inline-construction-function.mc` uses a single-channel `Pullup` method and
+`043-inline-construction-function.mc` uses a single-channel `Pull` method and
 creates its helper component inside the call:
 
 ```mc
-R_PULLUP::PULLUP_RESISTOR().Pullup([BUTTON_IN, V3V3])
+R_PULL::PULL_RESISTOR().Pull([BUTTON_IN, V3V3])
 ```
 
-`R_PULLUP::PULLUP_RESISTOR()` means "make an instance named `R_PULLUP` of type
-`PULLUP_RESISTOR` here." The `::` in this expression separates an instance name
+`R_PULL::PULL_RESISTOR()` means "make an instance named `R_PULL` of type
+`PULL_RESISTOR` here." The `::` in this expression separates an instance name
 from a component type. That is different from the interface binding use of `::`
 in chapter 03, where `UART0::UART.TTL(DCE)` bound pins to an interface.
 
