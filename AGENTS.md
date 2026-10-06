@@ -44,7 +44,7 @@ organized by application domain and may use language features already taught in
 the tutorial path.
 
 The `90-language-reference` directory is a compact syntax reference by example.
-It should align with the MCD code rules document under `../mcd/doc/` where that
+It should align with the MCD code rules document under `../mcd/3.design/` where that
 document describes currently supported syntax.
 
 Numbered example filenames use `CCN`, where `CC` is the two-digit directory
