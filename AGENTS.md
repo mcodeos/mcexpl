@@ -1,5 +1,13 @@
 # MC Examples Authoring Guide
 
+
+## Global design charter (mandatory, all projects)
+
+Every decision takes first principles as its highest authority; do not fear
+radical rewrites -- take the terminal-optimal design. Mandatory. Canon:
+../mcd/3.design/arch/space/103-design-charter.md. Sole exemption: iterative
+tuning of drawing/rendering algorithms. When a local convention conflicts,
+re-estimate it under the charter; never violate it silently.
 This directory is a user-facing learning repository for MCode examples. Treat
 it as documentation plus runnable examples, not as compiler implementation
 work.
