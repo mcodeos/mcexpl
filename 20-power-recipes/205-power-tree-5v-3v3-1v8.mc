@@ -2,7 +2,7 @@
 // Goal: Show a small multi-rail power structure.
 // Library focus: REG, CAP, DC.
 
-use mclibs.power/reg.mc
+use mcfam.power/reg.mc
 
 module main
 {

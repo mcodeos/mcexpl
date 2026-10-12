@@ -2,7 +2,7 @@
 // Goal: Provide a reusable 5 V to 3.3 V power module for a multi-file example.
 // Language focus: cross-file module definition and module ports.
 
-use mclibs.power/reg.mc
+use mcfam.power/reg.mc
 
 module SENSOR_NODE_POWER(in VIN, out V3V3, psnk GND)
 {

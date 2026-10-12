@@ -11,7 +11,7 @@ component GENERIC_MCU
     ]
 }
 
-use mclibs.power/reg.mc
+use mcfam.power/reg.mc
 
 module main
 {

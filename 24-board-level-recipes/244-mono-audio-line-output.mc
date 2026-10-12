@@ -4,7 +4,7 @@
 // AUDIO_IN must remain within the buffer supply range and already include any required DC bias.
 // All ratings and values are illustrative; this recipe does not model analog performance.
 
-use mclibs.analog/amp.mc
+use mcfam.analog/amp.mc
 
 module main
 {

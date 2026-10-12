@@ -2,7 +2,7 @@
 // Goal: Convert a 5 V rail to a 3.3 V rail with an LDO.
 // Library focus: REG.LDO, CAP, DC.
 
-use mclibs.power/reg.mc
+use mcfam.power/reg.mc
 
 module main
 {
