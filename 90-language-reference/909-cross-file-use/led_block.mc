@@ -5,7 +5,6 @@
 component LedBlock
 {
     pins = [
-        1 = ANODE
-        2 = CATHODE
+        io [1, 2] = DIO{A, K}   // A = anode, K = cathode (DIO face adoption)
     ]
 }

@@ -6,8 +6,7 @@ component CONFIG_LED(package_style::STRING)
 {
     name = "Configurable LED"
     pins = [
-        1 = ANODE
-        2 = CATHODE
+        io [1, 2] = DIO{A, K}   // A = anode, K = cathode (DIO face adoption)
     ]
 
     if (package_style == "0603")
@@ -41,8 +40,8 @@ module main
     PWR.1 -> V3V3
     PWR.2 -> GND
 
-    V3V3 -> R_SMALL -> D_SMALL.ANODE
-    D_SMALL.CATHODE -> GND
-    V3V3 -> R_LARGE -> D_LARGE.ANODE
-    D_LARGE.CATHODE -> GND
+    V3V3 -> R_SMALL -> D_SMALL.DIO.A
+    D_SMALL.DIO.K -> GND
+    V3V3 -> R_LARGE -> D_LARGE.DIO.A
+    D_LARGE.DIO.K -> GND
 }

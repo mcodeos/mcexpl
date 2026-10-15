@@ -15,6 +15,6 @@ module main
 
     PWR.1 -> V3V3
     PWR.2 -> GND
-    V3V3 -> R_LED -> D_STATUS.ANODE
-    D_STATUS.CATHODE -> GND
+    V3V3 -> R_LED -> D_STATUS.DIO.A
+    D_STATUS.DIO.K -> GND
 }

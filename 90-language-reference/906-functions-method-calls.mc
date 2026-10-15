@@ -5,19 +5,18 @@ component REF_LED
 {
     name = "Reference LED"
     pins = [
-        1 = ANODE
-        2 = CATHODE
+        io [1, 2] = DIO{A, K}   // A = anode, K = cathode (DIO face adoption)
     ]
 
     func ConnectAnode(signal)
     {
-        signal -> ANODE
+        signal -> this.A
         return this
     }
 
     func ConnectCathode(ground)
     {
-        CATHODE -> ground
+        this.K -> ground
     }
 }
 

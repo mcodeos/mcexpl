@@ -6,14 +6,13 @@ component STATUS_LED
 {
     name = "Status LED"
     pins = [
-        1 = ANODE
-        2 = CATHODE
+        io [1, 2] = DIO{A, K}   // A = anode, K = cathode (DIO face adoption)
     ]
 
     func Indicator([limited_signal, ground])
     {
-        limited_signal -> ANODE
-        CATHODE -> ground
+        limited_signal -> this.A
+        this.K -> ground
     }
 }
 
