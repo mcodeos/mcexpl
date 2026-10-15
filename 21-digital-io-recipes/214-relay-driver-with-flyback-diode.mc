@@ -27,6 +27,6 @@ module main
     GPIO_RELAY -> R_GATE -> Q_RELAY.GATE
     Q_RELAY.GATE -> R_PULL -> GND
 
-    COIL_LOW -> D_FLYBACK.ANODE
-    D_FLYBACK.CATHODE -> V5V
+    COIL_LOW -> D_FLYBACK.A
+    D_FLYBACK.K -> V5V
 }
