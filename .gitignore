@@ -48,3 +48,8 @@ docs/.vitepress/dist/
 # Generated audit artifacts written by mcc with cwd = repo root
 # (render_projection.md / known_missing.md) - never commit
 baseline/
+
+# Per the global 'no build/ at top level' law — recipes scripts emit
+# rendered HTML / kicad_sch / circuit face under <recipe>/build/, not
+# repo content. Recursive pattern catches nested recipe builds.
+**/build/
