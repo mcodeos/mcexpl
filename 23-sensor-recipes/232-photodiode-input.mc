@@ -15,7 +15,7 @@ module main
     PWR.1 -> V3V3
     PWR.2 -> GND
 
-    V3V3 -> D_LIGHT.CATHODE
-    D_LIGHT.ANODE -> LIGHT_SENSE
+    V3V3 -> D_LIGHT.K
+    D_LIGHT.A -> LIGHT_SENSE
     LIGHT_SENSE -> R_LOAD -> GND
 }

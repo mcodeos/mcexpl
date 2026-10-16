@@ -42,8 +42,8 @@ module main
     U_CTRL.SW -> SW_NODE
     SW_NODE -> L_BUCK -> V5V
 
-    GND -> D_CATCH.ANODE
-    D_CATCH.CATHODE -> SW_NODE
+    GND -> D_CATCH.A
+    D_CATCH.K -> SW_NODE
 
     V5V -> R_FB_TOP -> FB_NODE
     FB_NODE -> R_FB_BOTTOM -> GND

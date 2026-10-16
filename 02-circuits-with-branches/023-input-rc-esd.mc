@@ -15,6 +15,6 @@ module main
     INPUT_EXT -> R_INPUT -> ADC_IN
     // Both protection parts begin at the same ADC_IN node.
     ADC_IN -> C_FILTER -> GND
-    ADC_IN -> D_ESD.CATHODE
-    D_ESD.ANODE -> GND
+    ADC_IN -> D_ESD.K
+    D_ESD.A -> GND
 }

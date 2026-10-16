@@ -13,7 +13,7 @@ module main
 
     // Named pins make the diode orientation explicit: current enters ANODE
     // and leaves CATHODE toward the rectified output.
-    VIN -> D_RECT.ANODE
-    D_RECT.CATHODE -> VRECT
+    VIN -> D_RECT.A
+    D_RECT.K -> VRECT
     VRECT -> R_LOAD -> GND
 }

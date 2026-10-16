@@ -18,7 +18,7 @@ module main
     // Parentheses group two comma-separated paths that start at V3V3.
     V3V3 -> (
         C_BYPASS -> GND,
-        R_LED -> D_STATUS.ANODE
+        R_LED -> D_STATUS.A
     )
-    D_STATUS.CATHODE -> GND
+    D_STATUS.K -> GND
 }

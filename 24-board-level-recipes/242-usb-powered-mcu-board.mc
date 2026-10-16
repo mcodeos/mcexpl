@@ -36,8 +36,8 @@ module main
     USB_VBUS_IN -> F_USB -> VBUS_5V
     J_USB.5 -> GND
 
-    VBUS_5V -> D_VBUS.CATHODE
-    D_VBUS.ANODE -> GND
+    VBUS_5V -> D_VBUS.K
+    D_VBUS.A -> GND
     VBUS_5V -> C_VBUS -> GND
 
     VBUS_5V -> U_LDO.Vin

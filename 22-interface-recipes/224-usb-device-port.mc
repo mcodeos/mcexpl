@@ -38,8 +38,8 @@ module main
     USB_DM -> U_DEV.DATA.DM
     USB_DP -> U_DEV.DATA.DP
 
-    USB_DM -> D_DM.CATHODE
-    USB_DP -> D_DP.CATHODE
-    D_DM.ANODE -> GND
-    D_DP.ANODE -> GND
+    USB_DM -> D_DM.K
+    USB_DP -> D_DP.K
+    D_DM.A -> GND
+    D_DP.A -> GND
 }

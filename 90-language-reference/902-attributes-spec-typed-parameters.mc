@@ -22,6 +22,6 @@ module main
     REF_RESISTOR R_LIMIT(330R, 50V)
     LED D_STATUS(2.0V, 5mA)
 
-    PWR.1 -> R_LIMIT -> D_STATUS.ANODE
-    D_STATUS.CATHODE -> PWR.2
+    PWR.1 -> R_LIMIT -> D_STATUS.A
+    D_STATUS.K -> PWR.2
 }

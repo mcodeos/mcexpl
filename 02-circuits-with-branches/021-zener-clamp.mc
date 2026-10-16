@@ -13,6 +13,6 @@ module main
 
     VIN -> R_SERIES -> VCLAMP
     // Reusing VCLAMP starts a second path from the protected node.
-    VCLAMP -> Z_CLAMP.CATHODE
-    Z_CLAMP.ANODE -> GND
+    VCLAMP -> Z_CLAMP.K
+    Z_CLAMP.A -> GND
 }

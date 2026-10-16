@@ -7,8 +7,8 @@ module LED_INDICATOR(in signal, psnk ground)
     RES R_LIMIT(330R, 50V)
     LED D_STATUS(2.0V, 5mA)
 
-    signal -> R_LIMIT -> D_STATUS.ANODE
-    D_STATUS.CATHODE -> ground
+    signal -> R_LIMIT -> D_STATUS.A
+    D_STATUS.K -> ground
 }
 
 module main
