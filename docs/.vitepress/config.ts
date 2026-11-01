@@ -1,5 +1,19 @@
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vitepress'
 import { makeSidebar } from './catalog'
+
+// The version face: one file at the root of the repository.  It holds
+// the version alone -- the batch number is a coordinate of the release,
+// not a part of the version.
+const repoRoot = fileURLToPath(new URL('../../', import.meta.url))
+const version = readFileSync(`${repoRoot}VERSION`, 'utf-8').trim()
+
+// The build number: the version and the batch of the release this site
+// was built in.  The batch arrives in the environment; a site built
+// outside a release carries no batch and says so.
+const batch = process.env.MCC_BUILD_NR?.replace(/^b/, '')
+const build = batch ? `${version}.b${batch}` : version
 
 export default defineConfig({
   lang: 'en-US',
@@ -10,6 +24,8 @@ export default defineConfig({
   lastUpdated: true,
   head: [
     ['meta', { name: 'theme-color', content: '#f7f8f8' }],
+    ['meta', { name: 'mcode-version', content: version }],
+    ['meta', { name: 'mcode-build', content: build }],
   ],
   markdown: {
     lineNumbers: false,
@@ -58,7 +74,7 @@ export default defineConfig({
     ],
     footer: {
       message: 'MCode examples for practical circuit descriptions.',
-      copyright: 'MC Examples',
+      copyright: `MC Examples · build ${build}`,
     },
   },
 })

@@ -207,7 +207,7 @@ MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference
 
 <!-- #endregion _907-conditions-and-dynamic-pins -->
 
-<!-- #region _908-inline-construction-and-library-methods -->
+<!-- #region _908-named-inline-construction -->
 ### 908 Named Inline Construction
 
 `908-inline-construction-library-method.mc` covers `TYPE name(args)` named
@@ -225,7 +225,7 @@ eval "$(../mcc/scripts/mcc-slot.sh)"
 MCC_SYSTEM_ROOT="$(cd .. && pwd)" "$MCC_BIN" --local parse 90-language-reference/908-inline-construction-library-method.mc --lib mcode --pass1 --pass2
 ```
 
-<!-- #endregion _908-inline-construction-and-library-methods -->
+<!-- #endregion _908-named-inline-construction -->
 
 <!-- #region _909-cross-file-use -->
 ### 909 Cross-File Use

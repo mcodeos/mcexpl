@@ -163,7 +163,7 @@ const referenceChapters: CatalogChapter[] = [
     ['905', '905-interface-binding-roles', '905 Interface Binding And Roles', 'Bind physical pins to an interface role.'],
     ['906', '906-functions-method-calls', '906 Functions And Method Calls', 'Use functions, this, returns, and method chains.'],
     ['907', '907-conditions-and-dynamic-pins', '907 Conditions And Dynamic Pins', 'Select attributes and append variant pins.'],
-    ['908', '908-inline-construction-library-method', '908 Inline Construction And Library Methods', 'Construct a named helper inline and call a library method.'],
+    ['908', '908-inline-construction-library-method', '908 Named Inline Construction', 'Construct a named helper inline and call a library method.'],
     ['909', '909-cross-file-use', '909 Cross-File Use', 'Load a reusable LED block from a local file.', [
       '90-language-reference/909-cross-file-use/main.mc',
       '90-language-reference/909-cross-file-use/led_block.mc',
