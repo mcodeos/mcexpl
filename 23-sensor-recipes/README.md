@@ -29,8 +29,8 @@ TEMP_SENSE -> RT_NTC -> GND
 
 `R_FIXED` is the upper resistor and `RT_NTC` is the lower resistor. `TEMP_SENSE`
 is the divider midpoint that an ADC input could measure in a larger design. The
-chosen nominal resistance is 10 kOhm, and `3950` is an illustrative beta
-coefficient for the NTC. If the thermistor is 10 kOhm at the measurement
+chosen nominal resistance is 10 kΩ, and `3950` is an illustrative beta
+coefficient for the NTC. If the thermistor is 10 kΩ at the measurement
 temperature, the unloaded midpoint is about half of 3.3 V, or 1.65 V.
 
 For a typical NTC thermistor, resistance falls as temperature rises. With this
@@ -84,8 +84,8 @@ current would produce a larger load-resistor voltage until limited by the
 supply and the real diode/resistor behavior.
 
 The example values are illustrative: `DIO.PHOTO(0.5A/W, 1nA, 850nm)` records a
-responsivity, dark current, and spectral range, while `R_LOAD` is 100 kOhm. For
-scale, 1 uA through 100 kOhm would be 0.1 V, but the example does not model a
+responsivity, dark current, and spectral range, while `R_LOAD` is 100 kΩ. For
+scale, 1 uA through 100 kΩ would be 0.1 V, but the example does not model a
 specific light level or guarantee linearity.
 
 This is not a transimpedance amplifier. A resistor-only photodiode input is
@@ -133,7 +133,7 @@ series with the signal, and `C_FILTER` shunts the filtered node to ground.
 `SENSOR_RAW`, `ADC_IN`, and `GND` are supplied by the larger design; this focused
 filter example does not define an ADC or an unrelated voltage source.
 
-The chosen values are 1 kOhm and 10 nF. The nominal cutoff frequency is:
+The chosen values are 1 kΩ and 10 nF. The nominal cutoff frequency is:
 
 ```text
 fc = 1 / (2 * pi * R * C)

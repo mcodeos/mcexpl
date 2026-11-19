@@ -131,7 +131,7 @@ small transceiver with a UART-side `UART.TTL` interface and bus-side `A`, `B`,
 and `GND` pins. The MCU TX signal connects to the bridge RX-side input, while
 the bridge TX-side output returns to MCU RX.
 `RS485_A` and `RS485_B` leave through `J_BUS`, and `R_TERM` provides a simple
-120 ohm termination across the differential pair.
+120 Ω termination across the differential pair.
 
 Parse `225-rs485-uart-bridge.mc`:
 

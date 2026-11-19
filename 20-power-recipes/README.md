@@ -162,12 +162,12 @@ controller whose switching node and feedback input are external pins.
 
 `U_CTRL.SW` drives `SW_NODE`. The power inductor connects `SW_NODE` to `V5V`,
 and `D_CATCH` is the asynchronous catch diode with its anode at `GND` and cathode
-at `SW_NODE`. `C_OUT` filters the output rail. The feedback divider uses 40 kOhm
-over 10 kOhm, so a controller with a 1 V feedback target regulates near 5 V:
+at `SW_NODE`. `C_OUT` filters the output rail. The feedback divider uses 40 kΩ
+over 10 kΩ, so a controller with a 1 V feedback target regulates near 5 V:
 
 ```text
 VOUT = VFB * (1 + R_TOP / R_BOTTOM)
-     = 1 V * (1 + 40 kOhm / 10 kOhm)
+     = 1 V * (1 + 40 kΩ / 10 kΩ)
      = 5 V
 ```
 

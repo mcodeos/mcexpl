@@ -186,7 +186,7 @@ topology is visible in one place.
 Important omissions: this is not a specific MCU or sensor reference design. It
 does not model I2C transactions, addresses, timing, bus capacitance, measured
 sensor values, interrupt pins, address-select pins, regulators, USB power,
-clocking, reset, or programming connectors. The 4.7 kOhm pull-up values are
+clocking, reset, or programming connectors. The 4.7 kΩ pull-up values are
 illustrative only; real boards choose pull-ups from supply voltage, bus speed,
 capacitance, and device requirements.
 
@@ -222,7 +222,7 @@ Functional blocks:
   member paths from the standard library.
 - `C_DECOUPLE` is a local 100 nF ceramic supply decoupling capacitor.
 - `C_OUT` is a 1 uF film capacitor in series with the output signal.
-- `R_OUT_REF` is a 100 kOhm resistor from the connector-side output node to
+- `R_OUT_REF` is a 100 kΩ resistor from the connector-side output node to
   ground.
 - `J_LINE_OUT` is a two-pin `AUDIO.RCA` connector whose `Center` carries the
   signal and whose `Shield` connects to ground.
@@ -269,7 +269,7 @@ This placement gives the exposed output a defined DC reference and discharge
 path without bypassing the coupling capacitor. The capacitor, resistor, and
 downstream input impedance form a high-pass response in real hardware, but
 MCode does not simulate its cutoff frequency or waveform behavior. The 1 uF
-and 100 kOhm values are illustrative.
+and 100 kΩ values are illustrative.
 
 A line output is intended to feed a high-impedance input on another audio
 device. Headphone outputs must supply more current into relatively low

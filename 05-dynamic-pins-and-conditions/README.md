@@ -95,7 +95,7 @@ BUS_A -> U_END.TERM0 -> R_TERM -> U_END.TERM1 -> BUS_B
 ```
 
 The member accesses prove that the conditional names are usable after `pins +=`,
-while `R_TERM` creates the actual 120 ohm termination between the two bus nodes.
+while `R_TERM` creates the actual 120 Ω termination between the two bus nodes.
 
 ```bash
 eval "$(../mcc/scripts/mcc-slot.sh)"
