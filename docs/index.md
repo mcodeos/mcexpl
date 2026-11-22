@@ -1,7 +1,7 @@
 ---
 layout: page
-title: MC Examples
-description: Learn MCode through practical circuits and focused language examples.
+title: MCode Bench
+description: "The public face of the MCode stack: examples, tutorials, and the language reference."
 sidebar: false
 outline: false
 editLink: false

@@ -1,4 +1,9 @@
-# MC Examples
+# MCode Bench examples
+
+MCode Bench is the public face of the MCode stack. This repository carries the
+open half of it: the examples, the tutorial path, the recipe cookbook, and the
+language reference. Closed capabilities are reached through the MCode gateway,
+never from here.
 
 MCode is a circuit description language for writing electronic designs as
 structured text. MCC parses `.mc` files, resolves components, interfaces, modules, nets, and

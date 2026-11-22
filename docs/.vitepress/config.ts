@@ -15,11 +15,15 @@ const version = readFileSync(`${repoRoot}VERSION`, 'utf-8').trim()
 const batch = process.env.MCC_BUILD_NR?.replace(/^b/, '')
 const build = batch ? `${version}.b${batch}` : version
 
+// The site base: where the built site is served from.  The footer link has to
+// spell it out because VitePress renders the footer message as raw HTML.
+const base = '/mcexpl/'
+
 export default defineConfig({
   lang: 'en-US',
-  title: 'MC Examples',
-  description: 'Learn MCode through practical circuits and focused language examples.',
-  base: '/mcexpl/',
+  title: 'MCode Bench',
+  description: 'The public face of the MCode stack: examples, tutorials, and the language reference.',
+  base,
   cleanUrls: true,
   lastUpdated: true,
   head: [
@@ -73,8 +77,8 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/mcodeos/mcexpl' },
     ],
     footer: {
-      message: 'MCode examples for practical circuit descriptions.',
-      copyright: `MC Examples · build ${build}`,
+      message: `MCode Bench is the public face of the MCode stack. Closed capabilities are served through the <a href="${base}gateway/">MCode gateway</a>.`,
+      copyright: `MCode Bench · build ${build}`,
     },
   },
 })
