@@ -44,6 +44,9 @@ const stack = [
         <a class="book-start" :href="withBase('/tutorial/00/001-power-net')">
           Start Tutorial
         </a>
+        <a class="book-secondary" :href="withBase('/toolchain/')">
+          The toolchain map
+        </a>
         <a class="book-secondary" :href="withBase('/gateway/')">
           The MCode gateway
         </a>
@@ -58,7 +61,9 @@ const stack = [
       <p class="section-lead">
         The language, the compiler, the families, the device packs, and the
         recipes are open source. Closed capabilities are served through the
-        MCode gateway, which is the only door to them.
+        MCode gateway, which is the only door to them. The
+        <a :href="withBase('/toolchain/')">toolchain map</a> shows how the
+        layers fit together.
       </p>
       <div class="stack-grid">
         <article v-for="repo in stack" :key="repo.name" class="stack-card">
