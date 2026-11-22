@@ -115,6 +115,9 @@ const tutorialChapters: CatalogChapter[] = [
       '06-multi-file-project/sensor.mc',
     ]],
   ]),
+  makeChapter('tutorial', '07', '07-first-board-submission', '07 Your First Board', 'Zero install, the first run, and the first board submission.', [
+    ['071', '071-first-board-submission', '071 First Board Submission', 'Run a board, then submit a candidate to its leaderboard.'],
+  ]),
 ]
 
 const recipeChapters: CatalogChapter[] = [
